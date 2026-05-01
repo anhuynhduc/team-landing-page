@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: '22'  # Phiên bản Node.js phù hợp
 
-      - name: Install dependencies  # install
+      - name: Install dependencies  # install dependencies
         run: npm install
 
       - name: Build project
