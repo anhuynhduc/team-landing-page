@@ -29,7 +29,7 @@ jobs:
         uses: amondnet/vercel-action@v25
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}  # Token từ GitHub Secrets vcp_8i61VMxhgKfetbvzXywzEpdsL2WhrJ2NhlFSWUH1XMBgywWzzd0dMClc
-          vercel-org-id: ${{ secrets.ORG_ID}}  #Required team_e17ZPNYa0a0td5htAjCAr97S
-          vercel-project-id: ${{ secrets.PROJECT_ID}} #Required prj_HDR9h48CkpMhMlJjhBfJIsklSOsr
+          vercel-org-id: ${{ secrets.ORG_ID }}  #Required team_e17ZPNYa0a0td5htAjCAr97S
+          vercel-project-id: ${{ secrets.PROJECT_ID }} #Required prj_HDR9h48CkpMhMlJjhBfJIsklSOsr
           vercel-args: '--prod'  # Deploy lên production
           github-token: ${{ secrets.GITHUB_TOKEN }}  # Token mặc định của GitHub
