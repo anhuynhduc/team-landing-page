@@ -2,14 +2,11 @@ name: Deploy to Vercel
 
 on:
   push:
-    branches: [ "master" ]  # Kích hoạt khi push lên branch main
+    branches: [ "master" ]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      deployments: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -17,19 +14,55 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'  # Phiên bản Node.js phù hợp
+          node-version: '22'
 
-      - name: Install dependencies  # install dependencies
+      - name: Install dependencies
         run: npm install
 
       - name: Build project
-        run: npm run build  # Lệnh build tùy vào dự án (ví dụ: `next build`)
+        run: npm run build
+
+      - name: Install Vercel CLI
+        run: npm install -g vercel@latest
 
       - name: Deploy to Vercel
-        uses: amondnet/vercel-action@v25
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}  # Token từ GitHub Secrets vcp_8i61VMxhgKfetbvzXywzEpdsL2WhrJ2NhlFSWUH1XMBgywWzzd0dMClc
-          vercel-org-id: ${{ secrets.ORG_ID }}  #Required team_e17ZPNYa0a0td5htAjCAr97S
-          vercel-project-id: ${{ secrets.PROJECT_ID }} #Required prj_HDR9h48CkpMhMlJjhBfJIsklSOsr
-          vercel-args: '--prod'  # Deploy lên production
-          github-token: ${{ secrets.GITHUB_TOKEN }}  # Token mặc định của GitHub
+        run: vercel deploy --prod --token=${{ secrets.VERCEL_TOKEN }}
+        env:
+          VERCEL_ORG_ID: ${{ secrets.ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.PROJECT_ID }}
+
+#name: Deploy to Vercel
+#
+#on:
+#  push:
+#    branches: [ "master" ]  # Kích hoạt khi push lên branch main
+#
+#jobs:
+#  deploy:
+#    runs-on: ubuntu-latest
+#    permissions:
+#      contents: write
+#      deployments: write
+#    steps:
+#      - name: Checkout code
+#        uses: actions/checkout@v4
+#
+#      - name: Install Node.js
+#        uses: actions/setup-node@v4
+#        with:
+#          node-version: '22'  # Phiên bản Node.js phù hợp
+#
+#      - name: Install dependencies  # install dependencies
+#        run: npm install
+#
+#      - name: Build project
+#        run: npm run build  # Lệnh build tùy vào dự án (ví dụ: `next build`)
+#
+#      - name: Deploy to Vercel
+#        uses: amondnet/vercel-action@v25
+#        with:
+#          vercel-token: ${{ secrets.VERCEL_TOKEN }}  # Token từ GitHub Secrets vcp_8i61VMxhgKfetbvzXywzEpdsL2WhrJ2NhlFSWUH1XMBgywWzzd0dMClc
+#          vercel-org-id: ${{ secrets.ORG_ID }}  #Required team_e17ZPNYa0a0td5htAjCAr97S
+#          vercel-project-id: ${{ secrets.PROJECT_ID }} #Required prj_HDR9h48CkpMhMlJjhBfJIsklSOsr
+#          vercel-args: '--prod'  # Deploy lên production
+#          github-token: ${{ secrets.GITHUB_TOKEN }}  # Token mặc định của GitHub
