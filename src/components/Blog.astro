@@ -1,0 +1,119 @@
+---
+// src/components/Blog.astro
+
+const posts = [
+  {
+    title: 'Table of Contents là gì? Hướng dẫn tạo mục lục cho website',
+    excerpt: 'Hiện nay các bài viết có nội dung ngày càng dài, chuyên sâu và cạnh tranh hơn. Người đọc không còn kiên nhẫn để cuộn từng đoạn văn chỉ để tìm một thông tin cụ thể.',
+    date: '27/02/2026',
+    slug: 'table-of-contents-la-gi',
+  },
+  {
+    title: 'Elementor là gì? Cách cài đặt và cấu hình cho người mới',
+    excerpt: 'Trong quá trình xây dựng website, việc chỉnh sửa giao diện bằng cách can thiệp vào theme hay viết CSS, HTML thường gây khó khăn cho người mới.',
+    date: '20/02/2026',
+    slug: 'elementor-la-gi',
+  },
+  {
+    title: 'Google Knowledge Graph là gì? Hướng dẫn tối ưu chi tiết',
+    excerpt: 'Google đã tạo ra Google Knowledge Graph, một bước tiến lớn giúp công cụ tìm kiếm trở nên thông minh, chính xác và nhanh hơn rất nhiều.',
+    date: '16/02/2026',
+    slug: 'google-knowledge-graph-la-gi',
+  },
+  {
+    title: 'Top 10+ công ty SEO uy tín, chuyên nghiệp Việt Nam',
+    excerpt: 'Hiện nay, việc hợp tác với một công ty SEO chuyên nghiệp trở thành lựa chọn tối ưu để doanh nghiệp tăng trưởng bền vững trên môi trường kỹ thuật số.',
+    date: '06/02/2026',
+    slug: 'top-cong-ty-seo-viet-nam',
+  },
+  {
+    title: 'Link Building là gì? Chiến lược xây dựng backlink hiệu quả',
+    excerpt: 'Link building là một trong những yếu tố quan trọng nhất trong SEO off-page. Chiến lược xây dựng backlink chất lượng giúp tăng độ uy tín cho website.',
+    date: '30/01/2026',
+    slug: 'link-building-la-gi',
+  },
+  {
+    title: 'Schema Markup là gì? Hướng dẫn triển khai từ A đến Z',
+    excerpt: 'Schema Markup (hay còn gọi là Schema.org) là một dạng dữ liệu có cấu trúc giúp các công cụ tìm kiếm hiểu rõ hơn về nội dung trên website của bạn.',
+    date: '15/01/2026',
+    slug: 'schema-markup-la-gi',
+  },
+];
+
+const colors = ['#e8f4fd', '#e8f9f7', '#fef9e7', '#fdecea', '#f0f4ff', '#f5f0ff'];
+const icons  = ['📝', '⚙️', '🔍', '📈', '🔗', '🗂️'];
+---
+
+<section class="section" style="background:white;">
+  <div class="container">
+
+    <!-- Header -->
+    <div style="text-align:center;margin-bottom:52px;">
+      <div data-animate class="label-tag" style="margin-bottom:12px;">TIN TỨC MỚI</div>
+      <h2 data-animate data-delay="2" class="section-title">KIẾN THỨC WEBSITE</h2>
+      <p data-animate data-delay="3" style="color:var(--text-mid);font-size:15px;margin-top:14px;">
+        Cập nhật liên tục các thông tin, kiến thức và xu hướng mới nhất về website
+      </p>
+    </div>
+
+    <!-- Blog Swiper -->
+    <div class="swiper blogSwiper">
+      <div class="swiper-wrapper">
+        {posts.map((post, i) => (
+          <div class="swiper-slide">
+            <a href={`/blog/${post.slug}`} class="blog-card card" style="display:block;text-decoration:none;">
+              <!-- Thumbnail -->
+              <div style={`height:200px;background:${colors[i % colors.length]};display:flex;align-items:center;justify-content:center;position:relative;`}>
+                <span style="font-size:56px;">{icons[i % icons.length]}</span>
+                <!-- Badge -->
+                <div style="position:absolute;top:12px;left:50%;transform:translateX(-50%);white-space:nowrap;">
+                  <span class="service-tag" style="font-size:10px;">MIKO TECH</span>
+                </div>
+              </div>
+
+              <!-- Content -->
+              <div class="blog-content">
+                <div class="blog-date">{post.date}</div>
+                <h3 class="blog-title">{post.title}</h3>
+                <p class="blog-excerpt">{post.excerpt}</p>
+                <div style="margin-top:16px;color:var(--teal);font-size:13px;font-weight:600;display:flex;align-items:center;gap:4px;">
+                  Đọc thêm
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                  </svg>
+                </div>
+              </div>
+            </a>
+          </div>
+        ))}
+      </div>
+      <div class="swiper-pagination" style="position:relative;bottom:auto;margin-top:40px;"></div>
+    </div>
+
+    <!-- View All -->
+    <div style="text-align:center;margin-top:40px;" data-animate>
+      <a href="/blog" class="btn btn-outline">Xem tất cả bài viết</a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (typeof Swiper !== 'undefined') {
+      new Swiper('.blogSwiper', {
+        slidesPerView: 3,
+        spaceBetween: 24,
+        autoplay: { delay: 4500, disableOnInteraction: false },
+        pagination: { el: '.blogSwiper .swiper-pagination', clickable: true },
+        loop: true,
+        breakpoints: {
+          0:    { slidesPerView: 1 },
+          640:  { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+        },
+      });
+    }
+  });
+</script>

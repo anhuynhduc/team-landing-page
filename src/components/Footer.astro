@@ -1,0 +1,157 @@
+---
+// src/components/Footer.astro
+---
+
+<footer style="background:white;border-top:1px solid #f0f0f0;padding-top:64px;">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1.4fr 1fr 1.4fr;gap:48px;">
+
+      <!-- COL 1: Company Info -->
+      <div>
+        <!-- Logo -->
+        <a href="/" style="display:inline-flex;align-items:center;gap:2px;font-size:20px;font-weight:900;color:var(--teal);margin-bottom:16px;text-decoration:none;">
+          MIK<span style="display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;border:2.5px solid currentColor;margin:0 1px;font-size:10px;">O</span>TECH
+        </a>
+        <p style="font-size:13px;color:var(--text-mid);line-height:1.8;margin-bottom:20px;">
+          MIKO TECH ra đời với sứ mệnh đồng hành và nâng tầm thương hiệu của bạn trên thị trường Internet. Chúng tôi giúp bạn phát triển với sự hỗ trợ của hệ sinh thái các giải pháp Marketing toàn diện.
+        </p>
+
+        <div style="margin-bottom:12px;">
+          <div style="font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--text-dark);margin-bottom:10px;">🏢 TRỤ SỞ CHÍNH</div>
+          <div style="font-size:13px;color:var(--text-mid);line-height:2;">
+            <div>📍 Tầng G, 485B Nguyễn Đình Chiểu, Bàn Cờ, Q.3, TP.HCM</div>
+            <div>📞 <a href="tel:0909326456" style="color:var(--teal);">0909 326 456</a></div>
+            <div>✉️ <a href="mailto:support@mikotech.vn" style="color:var(--teal);">support@mikotech.vn</a></div>
+            <div>🕐 Thứ 2–6: 8h30–17h30 | Thứ 7: 8h30–12h30</div>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--text-dark);margin-bottom:10px;">🌏 VĂN PHÒNG SINGAPORE</div>
+          <div style="font-size:13px;color:var(--text-mid);line-height:2;">
+            <div>📍 168 Circular Road, #02-01, Singapore</div>
+            <div>✉️ <a href="mailto:info@mikotech.net" style="color:var(--teal);">info@mikotech.net</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COL 2: Links -->
+      <div>
+        <div style="margin-bottom:28px;">
+          <h4 style="font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dark);margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--teal);display:inline-block;">DỊCH VỤ</h4>
+          <a href="/thiet-ke-website" class="footer-link">Thiết kế website</a>
+          <a href="/dich-vu"          class="footer-link">Thiết kế Mobile App</a>
+          <a href="/dich-vu"          class="footer-link">Dịch vụ SEO</a>
+          <a href="/dich-vu"          class="footer-link">Quản trị website</a>
+          <a href="/dich-vu"          class="footer-link">Hosting</a>
+          <a href="/dich-vu"          class="footer-link">Domain</a>
+        </div>
+        <div>
+          <h4 style="font-size:13px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-dark);margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--teal);display:inline-block;">CÔNG TY</h4>
+          <a href="/gioi-thieu"  class="footer-link">Giới thiệu</a>
+          <a href="/du-an"       class="footer-link">Dự án</a>
+          <a href="/blog"        class="footer-link">Blog & Kiến thức</a>
+          <a href="/tuyen-dung"  class="footer-link">Tuyển dụng</a>
+          <a href="/lien-he"     class="footer-link">Liên hệ</a>
+        </div>
+      </div>
+
+      <!-- COL 3: Contact Form -->
+      <div>
+        <h4 style="font-size:14px;font-weight:800;color:var(--text-dark);margin-bottom:6px;letter-spacing:0.5px;">GỬI YÊU CẦU BÁO GIÁ DỊCH VỤ</h4>
+        <p style="font-size:12px;color:var(--text-light);margin-bottom:20px;line-height:1.7;">
+          MIKO TECH luôn tư vấn dịch vụ miễn phí. Chúng tôi sẽ liên hệ báo giá theo thông tin mà bạn để lại.
+        </p>
+
+        <form id="footerForm" style="display:flex;flex-direction:column;gap:16px;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <input type="text"  class="form-input" placeholder="Họ tên" required />
+            <input type="email" class="form-input" placeholder="Email" required />
+          </div>
+          <input type="tel" class="form-input" placeholder="Số điện thoại" required />
+          <select class="form-input">
+            <option value="">Chọn dịch vụ</option>
+            <option>Thiết kế website</option>
+            <option>Thiết kế Mobile App</option>
+            <option>Dịch vụ SEO</option>
+            <option>Quản trị website</option>
+            <option>Quảng cáo Google/Facebook</option>
+            <option>Hosting & Domain</option>
+          </select>
+          <textarea class="form-input" placeholder="Nội dung tin nhắn" rows="3" style="resize:none;border:1.5px solid #ddd;border-radius:8px;padding:12px;"></textarea>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;border-radius:8px;">
+            Gửi yêu cầu
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Bottom Bar -->
+    <div style="border-top:1px solid #f0f0f0;margin-top:48px;padding:24px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      <p style="font-size:13px;color:var(--text-light);">
+        © 2026 MIKO TECH. All rights reserved. Designed with ❤️ in Vietnam.
+      </p>
+      <div style="display:flex;gap:12px;">
+        <!-- Facebook -->
+        <a href="https://facebook.com/mikotech" target="_blank" rel="noopener"
+          style="width:36px;height:36px;border-radius:50%;background:var(--teal-light);display:flex;align-items:center;justify-content:center;color:var(--teal);transition:all 0.3s;text-decoration:none;"
+          onmouseover="this.style.background='var(--teal)';this.style.color='white';"
+          onmouseout="this.style.background='var(--teal-light)';this.style.color='var(--teal)';">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+          </svg>
+        </a>
+        <!-- YouTube -->
+        <a href="https://youtube.com/mikotech" target="_blank" rel="noopener"
+          style="width:36px;height:36px;border-radius:50%;background:var(--teal-light);display:flex;align-items:center;justify-content:center;color:var(--teal);transition:all 0.3s;text-decoration:none;"
+          onmouseover="this.style.background='var(--teal)';this.style.color='white';"
+          onmouseout="this.style.background='var(--teal-light)';this.style.color='var(--teal)';">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/>
+          </svg>
+        </a>
+        <!-- TikTok -->
+        <a href="https://tiktok.com/@mikotech" target="_blank" rel="noopener"
+          style="width:36px;height:36px;border-radius:50%;background:var(--teal-light);display:flex;align-items:center;justify-content:center;color:var(--teal);transition:all 0.3s;text-decoration:none;"
+          onmouseover="this.style.background='var(--teal)';this.style.color='white';"
+          onmouseout="this.style.background='var(--teal-light)';this.style.color='var(--teal)';">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.31 6.31 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.77a4.85 4.85 0 01-1.01-.08z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('footerForm')?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type="submit"]');
+    btn.textContent = '✓ Đã gửi thành công!';
+    btn.style.background = '#27ae60';
+    setTimeout(() => {
+      btn.innerHTML = 'Gửi yêu cầu <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>';
+      btn.style.background = '';
+      e.target.reset();
+    }, 3000);
+  });
+</script>
+
+<style>
+  @media (max-width: 1024px) {
+    footer .container > div:first-of-type {
+      grid-template-columns: 1fr 1fr !important;
+    }
+  }
+  @media (max-width: 640px) {
+    footer .container > div:first-of-type {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>

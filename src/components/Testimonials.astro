@@ -1,0 +1,120 @@
+---
+// src/components/Testimonials.astro
+
+const testimonials = [
+  {
+    name: 'Anh Tiến',
+    position: 'Công ty TNHH Phú Mỹ Giàu Đẹp',
+    content: 'PMGĐ mong muốn thiết kế trang web đăng tin tại Miko Tech với mục đích tạo ra một kênh rao vặt bất động sản trung gian, kết nối người mua với người bán lại với nhau bằng những giao dịch cực kỳ đơn giản, tiện lợi, nhanh chóng, an toàn, mang đến hiệu quả bất ngờ. Miko Tech đã giúp PMGĐ hoàn thiện website với các tính năng vượt trội, khả năng hiển thị tốt trên nhiều thiết bị. PMGĐ rất hài lòng và sẽ tiếp tục lựa chọn Miko Tech là đơn vị đồng hành phát triển và nâng cấp website ở thời gian sắp tới.',
+    project: 'Website bất động sản trung gian',
+    bgColor: '#f5f5f0',
+  },
+  {
+    name: 'Anh Thành',
+    position: 'Tổng giám đốc RINO',
+    content: 'RINO là ứng dụng công nghệ tiên tiến "Siêu thị online" kiểu mới, thực hiện giao hàng siêu tốc chỉ trong 10 phút. Ứng dụng hoạt động 24/7 giúp đẩy nhanh thời gian mua hàng cho người tiêu dùng. Để ứng dụng tiếp cận được nhiều đối tượng người dùng và thu hút các tài xế tham gia hơn, tôi đã tìm đến Miko Tech để thiết kế một website chuyên nghiệp. Website với giao diện đẹp đã giúp tôi giới thiệu và phổ biến app rộng rãi đến nhiều người. Lượt tải app trên nhiều nền tảng và lượng tài xế liên hệ tham gia game cũng được ghi nhận gia tăng từ khi website được vận hành.',
+    project: 'Website giới thiệu app RINO',
+    bgColor: '#f3f0f8',
+  },
+  {
+    name: 'Chị Mai',
+    position: 'Founder MINIGA Boutique',
+    content: 'Từ sau đại dịch, tôi nhận thức được rằng một website bán hàng là điều cần thiết cho việc phát triển kinh doanh hiện nay. Vì vậy, tôi đã nhanh chóng tìm đến Miko Tech để giúp định hướng và xây dựng website ấn tượng, khác biệt hơn so với các đối thủ cạnh tranh. Sau khi website đi vào hoạt động, doanh thu tăng 40% chỉ sau 3 tháng nhờ vào lượng khách hàng mới từ kênh online.',
+    project: 'Website thương mại điện tử MINIGA',
+    bgColor: '#fff5f0',
+  },
+  {
+    name: 'Anh Khoa',
+    position: 'Giám đốc Công ty Phong Thủy Tâm An',
+    content: 'Miko Tech đã hiểu được yêu cầu và tư tưởng của chúng tôi, từ đó tạo ra một website phong thủy không chỉ đẹp về giao diện mà còn truyền tải được tinh thần và triết lý của thương hiệu. Khách hàng thường xuyên khen ngợi giao diện website và điều này giúp chúng tôi tạo được ấn tượng tốt ngay từ lần tiếp cận đầu tiên.',
+    project: 'Website Phong Thủy Tâm An',
+    bgColor: '#fdf5ee',
+  },
+];
+---
+
+<section class="section" style="background:var(--bg-light);">
+  <div class="container">
+
+    <!-- Header -->
+    <div style="margin-bottom:52px;">
+      <div data-animate class="label-tag" style="margin-bottom:12px;">KHÁCH HÀNG NÓI VỀ</div>
+      <h2 data-animate data-delay="2" class="section-title">MIKO TECH</h2>
+    </div>
+
+    <!-- Testimonials -->
+    <div style="position:relative;overflow:hidden;">
+      {testimonials.map((t, i) => (
+        <div
+          class="testimonial-slide"
+          style={`position:${i === 0 ? 'relative' : 'absolute'};top:0;left:0;right:0;opacity:${i === 0 ? '1' : '0'};transform:${i === 0 ? 'translateX(0)' : 'translateX(40px)'};`}
+        >
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
+
+            <!-- Quote -->
+            <div>
+              <div class="testimonial-quote">"</div>
+              <p style="font-size:14px;color:var(--text-mid);line-height:1.9;margin:12px 0 28px;">
+                {t.content}
+              </p>
+              <div style="display:flex;align-items:center;gap:16px;">
+                <div style="width:56px;height:56px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:white;">
+                  {t.name[0]}
+                </div>
+                <div>
+                  <div style="font-weight:700;font-size:15px;color:var(--text-dark);">{t.name}</div>
+                  <div style="font-size:13px;color:var(--text-light);">{t.position}</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project Preview -->
+            <div class="card" style={`background:${t.bgColor};border-radius:16px;padding:32px;min-height:320px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;`}>
+              <div style="width:80px;height:80px;background:var(--teal);border-radius:20px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2"/>
+                  <line x1="8" y1="21" x2="16" y2="21"/>
+                  <line x1="12" y1="17" x2="12" y2="21"/>
+                </svg>
+              </div>
+              <h3 style="font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:10px;">{t.project}</h3>
+              <span class="service-tag">Đã hoàn thành</span>
+            </div>
+
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Navigation -->
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-top:36px;">
+      <div style="display:flex;gap:12px;">
+        <button id="testimonialPrev"
+          style="width:44px;height:44px;border-radius:50%;border:2px solid var(--teal);background:transparent;color:var(--teal);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.3s;"
+          onmouseover="this.style.background='var(--teal)';this.style.color='white';"
+          onmouseout="this.style.background='transparent';this.style.color='var(--teal)';">
+          ←
+        </button>
+        <button id="testimonialNext"
+          style="width:44px;height:44px;border-radius:50%;border:2px solid var(--teal);background:transparent;color:var(--teal);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.3s;"
+          onmouseover="this.style.background='var(--teal)';this.style.color='white';"
+          onmouseout="this.style.background='transparent';this.style.color='var(--teal)';">
+          →
+        </button>
+      </div>
+      <div id="testimonialCounter" style="font-size:14px;color:var(--text-light);font-weight:600;">1 / {testimonials.length}</div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  @media (max-width: 768px) {
+    .testimonial-slide > div {
+      grid-template-columns: 1fr !important;
+    }
+    .testimonial-slide > div > div:last-child {
+      display: none;
+    }
+  }
+</style>

@@ -1,0 +1,504 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const values = [
+  {
+    num: '01',
+    title: 'Sáng Tạo',
+    desc: 'Chúng tôi không bao giờ dừng lại ở những gì đã có. Mỗi dự án là một cơ hội để tạo ra điều chưa từng tồn tại.',
+  },
+  {
+    num: '02',
+    title: 'Kinh Nghiệm',
+    desc: 'Với nhiều năm chinh chiến trên thị trường Marketing & Công nghệ, đội ngũ TechViet sẽ giúp bạn giải quyết mọi vấn đề một cách dễ dàng.',
+  },
+  {
+    num: '03',
+    title: 'Thấu Hiểu',
+    desc: 'Chúng tôi luôn đặt mình vào vị trí của khách hàng để thấu hiểu nhu cầu và mang đến giải pháp tốt nhất.',
+  },
+  {
+    num: '04',
+    title: 'Đa Dạng',
+    desc: 'Từ startup đến doanh nghiệp lớn, từ thương mại điện tử đến SaaS — chúng tôi có đủ năng lực phục vụ mọi quy mô.',
+  },
+];
+
+const team = [
+  { name: 'Nguyễn Minh Tuấn', role: 'CEO & Co-Founder', emoji: '👨‍💻' },
+  { name: 'Trần Thị Lan', role: 'Creative Director', emoji: '👩‍🎨' },
+  { name: 'Lê Văn Hùng', role: 'Lead Developer', emoji: '🧑‍💻' },
+  { name: 'Phạm Thu Hà', role: 'Marketing Lead', emoji: '👩‍💼' },
+];
+---
+
+<BaseLayout title="Giới Thiệu – TechViet">
+
+  <!-- Hero About -->
+  <section class="about-hero">
+    <div class="container">
+      <div class="about-hero-content">
+        <span class="label about-label">Về TechViet</span>
+        <h1 class="about-h1">
+          Chúng Tôi Là<br><span class="text-teal">Đội Chiến Binh</span><br>Công Nghệ
+        </h1>
+        <p class="about-lead">
+          Đội ngũ TechViet với kinh nghiệm tham gia nhiều cuộc chiến trong nhiều năm liên ở thị trường Marketing, giờ đây chúng tôi chính thức là một đội quân hùng mạnh với mong muốn đồng hành và phát triển cùng bạn.
+        </p>
+      </div>
+
+      <!-- MacBook display -->
+      <div class="about-macbook-wrap">
+        <div class="about-macbook">
+          <div class="about-screen">
+            <div class="as-topbar">
+              <div class="as-dots">
+                <span style="background:#FF5F57"></span>
+                <span style="background:#FFBD2E"></span>
+                <span style="background:#28C840"></span>
+              </div>
+              <div class="as-url-bar">
+                <span>🔒</span>
+                <span style="color:#666;font-size:11px">techviet.vn</span>
+              </div>
+            </div>
+            <div class="as-body">
+              <div class="as-nav"></div>
+              <div class="as-hero-block">
+                <div class="as-3d-visual">
+                  <div class="floating-shapes">
+                    <div class="shape shape-1"></div>
+                    <div class="shape shape-2"></div>
+                    <div class="shape shape-3"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ab-notch"></div>
+          <div class="ab-base"></div>
+          <div class="ab-foot"></div>
+        </div>
+        <div class="about-mac-glow"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chúng Tôi Là -->
+  <section class="section" style="background:var(--white);text-align:center">
+    <div class="container" style="max-width:780px">
+      <span class="label anim-fade-up">Chúng Tôi Là</span>
+      <h2 class="section-title anim-fade-up" style="margin-top:12px">
+        Làm Việc Tận Tâm Đã Tạo Nên<br><span class="text-teal">Uy Tín Cho TechViet</span>
+      </h2>
+      <p class="section-desc anim-fade-up" style="margin:20px auto 0">
+        Chúng tôi không chỉ xây dựng website — chúng tôi kiến tạo hành trình số cho doanh nghiệp của bạn. Mỗi dự án là một cam kết về chất lượng, thẩm mỹ và hiệu quả kinh doanh thực tế.
+      </p>
+    </div>
+  </section>
+
+  <!-- Những dịch vụ nổi bật -->
+  <section class="section about-services">
+    <div class="container about-services-inner">
+      <div class="about-services-text">
+        <span class="label anim-fade-up">Những Dịch Vụ Nổi Bật</span>
+        <h2 class="section-title anim-fade-up" style="margin-top:12px">
+          Làm Việc Tận Tâm<br>Đã Tạo Nên<br><span class="text-teal">Uy Tín Cho Chúng Tôi</span>
+        </h2>
+        <p class="section-desc anim-fade-up" style="margin-top:20px">
+          Mỗi dịch vụ được triển khai bởi đội ngũ chuyên gia với quy trình bài bản, minh bạch và luôn đặt lợi ích của khách hàng lên hàng đầu.
+        </p>
+        <a href="/dich-vu" class="btn-primary anim-fade-up" style="margin-top:32px">Xem dịch vụ</a>
+      </div>
+      <div class="about-services-img anim-scale">
+        <div class="office-visual">
+          <div class="office-card">
+            <div class="office-img-mock"></div>
+            <div class="office-info">
+              <div class="oi-line"></div>
+              <div class="oi-line oi-line--short"></div>
+            </div>
+          </div>
+          <div class="office-stat-bubble">
+            <span class="osb-num" data-counter="98" data-suffix="%">0%</span>
+            <span class="osb-label">Khách hàng hài lòng</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="section team-section" style="background:var(--white)">
+    <div class="container">
+      <div class="text-center">
+        <span class="label anim-fade-up">Đội Ngũ</span>
+        <h2 class="section-title anim-fade-up" style="margin-top:12px">
+          Những Chiến Binh<br><span class="text-teal">TechViet</span>
+        </h2>
+      </div>
+
+      <div class="team-grid anim-stagger">
+        {team.map((member) => (
+          <div class="team-card">
+            <div class="team-avatar">
+              <span class="team-emoji">{member.emoji}</span>
+              <div class="team-avatar-ring"></div>
+            </div>
+            <h3 class="team-name">{member.name}</h3>
+            <p class="team-role">{member.role}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Giá Trị Khác Biệt -->
+  <section class="section values-section">
+    <div class="container values-inner">
+      <div class="values-text">
+        <span class="label anim-fade-up">Giá Trị Cốt Lõi</span>
+        <h2 class="section-title anim-fade-up" style="margin-top:12px">
+          Giá Trị Khác Biệt<br><span class="text-teal">Tại TechViet</span>
+        </h2>
+        <p class="section-desc anim-fade-up" style="margin-top:20px">
+          Chúng tôi sở hữu đội ngũ chiến binh dày dặn kinh nghiệm thực chiến trên thị trường. Luôn trong tâm thế sẵn sàng tham gia bất kỳ cuộc chiến nào cùng với doanh nghiệp bạn.
+        </p>
+      </div>
+
+      <div class="values-cards" id="valuesCards">
+        {values.map((v, i) => (
+          <div
+            class={`value-card ${i === 0 ? 'value-card--active' : ''}`}
+            data-index={i}
+          >
+            <div class="vc-num">{v.num}</div>
+            <div class="vc-body">
+              <h3 class="vc-title">{v.title}</h3>
+              <p class="vc-desc">{v.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+/* ─── HERO ─── */
+.about-hero {
+  padding: calc(var(--header-h) + 60px) 0 60px;
+  background: linear-gradient(160deg, var(--bg) 60%, rgba(0,176,155,0.08));
+}
+.about-hero-content { text-align: center; max-width: 700px; margin: 0 auto 60px; }
+.about-label { margin-bottom: 20px; display: block; }
+.about-h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+.about-lead {
+  margin-top: 24px;
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+/* MacBook */
+.about-macbook-wrap {
+  max-width: 780px;
+  margin: 0 auto;
+  position: relative;
+}
+.about-macbook { position: relative; }
+.about-screen {
+  background: #1A1A2E;
+  border-radius: 14px 14px 0 0;
+  padding: 8px;
+  border: 8px solid #2D2D44;
+  box-shadow: 0 0 0 2px #3D3D5C, 0 30px 80px rgba(0,0,0,0.4);
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+.as-topbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #2D2D44;
+  padding: 6px 12px;
+  border-radius: 6px 6px 0 0;
+}
+.as-dots { display: flex; gap: 5px; }
+.as-dots span { width: 8px; height: 8px; border-radius: 50%; }
+.as-url-bar {
+  flex: 1;
+  background: rgba(255,255,255,0.07);
+  border-radius: 6px;
+  padding: 4px 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+}
+
+.as-body { flex: 1; }
+.as-nav {
+  height: 28px;
+  background: rgba(255,255,255,0.03);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.as-hero-block {
+  height: 200px;
+  background: linear-gradient(135deg, var(--primary)99, #4ECDC499);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.floating-shapes { position: absolute; inset: 0; }
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.6;
+}
+.shape-1 { width: 80px; height: 80px; background: rgba(255,255,255,0.2); top: 20px; left: 30px; animation: shapeFloat 4s ease-in-out infinite; }
+.shape-2 { width: 50px; height: 50px; background: rgba(255,255,255,0.15); bottom: 20px; right: 60px; animation: shapeFloat 5s ease-in-out infinite 1s; }
+.shape-3 { width: 30px; height: 30px; background: rgba(150,201,61,0.5); top: 50%; right: 20px; animation: shapeFloat 3.5s ease-in-out infinite 0.5s; }
+@keyframes shapeFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(10deg); }
+}
+
+.ab-notch { height: 4px; background: #2D2D44; }
+.ab-base { height: 20px; background: linear-gradient(180deg,#C0C0C0,#A0A0A0); border-radius: 0 0 4px 4px; }
+.ab-foot { width: 55%; height: 8px; background: #A0A0A0; margin: 0 auto; border-radius: 0 0 6px 6px; }
+.about-mac-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 50%;
+  height: 30%;
+  background: radial-gradient(ellipse, rgba(0,176,155,0.25), transparent 70%);
+  pointer-events: none;
+  animation: macGlow2 3s ease-in-out infinite;
+}
+@keyframes macGlow2 {
+  0%,100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* Services split */
+.about-services { background: var(--bg); }
+.about-services-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.office-visual {
+  position: relative;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  box-shadow: var(--shadow-md);
+}
+.office-card {
+  background: var(--bg);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.office-img-mock {
+  height: 160px;
+  background: linear-gradient(135deg, #00B09B22, #4ECDC422);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.office-img-mock::after {
+  content: '🏢';
+  font-size: 4rem;
+}
+.office-info { padding: 16px; display: flex; flex-direction: column; gap: 8px; }
+.oi-line { height: 8px; background: #E5E7EB; border-radius: 4px; }
+.oi-line--short { width: 60%; }
+.office-stat-bubble {
+  position: absolute;
+  top: 20px; right: -20px;
+  background: var(--primary);
+  color: #fff;
+  padding: 16px 20px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-teal);
+  text-align: center;
+}
+.osb-num {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 2rem;
+}
+.osb-label {
+  display: block;
+  font-size: 0.72rem;
+  font-family: var(--font-heading);
+  opacity: 0.9;
+  margin-top: 4px;
+}
+
+/* Team */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  margin-top: 56px;
+}
+.team-card {
+  text-align: center;
+  background: var(--bg);
+  border-radius: var(--radius-md);
+  padding: 36px 24px;
+  transition: transform 0.35s, box-shadow 0.35s;
+}
+.team-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); }
+.team-avatar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 90px; height: 90px;
+  margin: 0 auto 20px;
+}
+.team-emoji { font-size: 3rem; position: relative; z-index: 1; }
+.team-avatar-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid var(--primary);
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.35s, transform 0.35s;
+}
+.team-card:hover .team-avatar-ring { opacity: 1; transform: scale(1.1); }
+.team-name { font-size: 1rem; font-weight: 800; }
+.team-role { font-size: 0.82rem; color: var(--primary); font-family: var(--font-heading); font-weight: 600; margin-top: 4px; }
+
+/* Values */
+.values-section { background: var(--bg); }
+.values-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: start;
+}
+.values-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.value-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  cursor: pointer;
+  transition: background 0.35s, transform 0.35s, box-shadow 0.35s;
+  border: 2px solid transparent;
+}
+.value-card:hover { transform: translateY(-4px); border-color: var(--primary-light); }
+.value-card--active {
+  background: var(--primary);
+  color: #fff;
+  box-shadow: var(--shadow-teal);
+}
+.vc-num {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 2rem;
+  opacity: 0.3;
+  line-height: 1;
+}
+.value-card--active .vc-num { opacity: 0.5; color: #fff; }
+.vc-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin-top: 12px;
+  color: var(--text);
+}
+.value-card--active .vc-title { color: #fff; }
+.vc-desc {
+  font-size: 0.83rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+.value-card--active .vc-desc { color: rgba(255,255,255,0.85); }
+
+@media (max-width: 1024px) {
+  .about-services-inner { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .values-inner { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .values-cards { grid-template-columns: 1fr; }
+}
+</style>
+
+<script>
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+
+// Hero entrance
+const tl = gsap.timeline({ delay: 0.4 });
+tl.from('.about-h1', { y: 50, opacity: 0, duration: 0.8, ease: 'power4.out' });
+tl.from('.about-lead', { y: 20, opacity: 0, duration: 0.6, ease: 'power2.out' }, '-=0.4');
+tl.from('.about-macbook-wrap', { y: 60, opacity: 0, scale: 0.95, duration: 1, ease: 'power3.out' }, '-=0.3');
+
+// MacBook float
+gsap.to('.about-macbook', {
+  y: -12,
+  duration: 4,
+  repeat: -1,
+  yoyo: true,
+  ease: 'sine.inOut',
+});
+
+// Value cards interaction
+const valueCards = document.querySelectorAll<HTMLElement>('.value-card');
+valueCards.forEach(card => {
+  card.addEventListener('click', () => {
+    valueCards.forEach(c => c.classList.remove('value-card--active'));
+    card.classList.add('value-card--active');
+
+    // Animate the newly active card
+    gsap.fromTo(card,
+      { scale: 0.97 },
+      { scale: 1, duration: 0.4, ease: 'back.out(2)' }
+    );
+  });
+});
+
+// Team cards stagger
+gsap.from('.team-card', {
+  scrollTrigger: { trigger: '.team-grid', start: 'top 80%' },
+  y: 40, opacity: 0,
+  stagger: 0.1,
+  duration: 0.7,
+  ease: 'power3.out',
+});
+
+// Values cards stagger
+gsap.from('.value-card', {
+  scrollTrigger: { trigger: '.values-cards', start: 'top 80%' },
+  y: 30, opacity: 0,
+  stagger: 0.1,
+  duration: 0.6,
+  ease: 'power2.out',
+});
+</script>

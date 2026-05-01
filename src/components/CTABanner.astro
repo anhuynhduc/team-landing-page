@@ -1,0 +1,29 @@
+---
+// src/components/CTABanner.astro
+---
+
+<section style="background:linear-gradient(135deg,var(--teal) 0%,var(--teal-darker) 100%);padding:88px 0;position:relative;overflow:hidden;">
+  <!-- Decorative -->
+  <div style="position:absolute;top:-60px;right:-60px;width:280px;height:280px;border-radius:50%;border:40px solid rgba(255,255,255,0.06);pointer-events:none;"></div>
+  <div style="position:absolute;bottom:-80px;left:-40px;width:200px;height:200px;border-radius:50%;border:30px solid rgba(255,255,255,0.06);pointer-events:none;"></div>
+  <div style="position:absolute;top:30px;left:120px;font-size:48px;color:rgba(255,255,255,0.06);font-weight:900;pointer-events:none;select:none;">+</div>
+  <div style="position:absolute;bottom:30px;right:160px;font-size:32px;color:rgba(255,255,255,0.06);font-weight:900;pointer-events:none;">✦</div>
+
+  <div class="container" style="text-align:center;position:relative;z-index:1;">
+    <p data-animate="zoom-in" style="font-size:clamp(18px,2.5vw,24px);color:rgba(255,255,255,0.9);font-style:italic;margin-bottom:12px;">
+      Ngay bây giờ chính là thời điểm sớm nhất
+    </p>
+    <p data-animate="zoom-in" data-delay="2" style="font-size:clamp(14px,2vw,17px);color:rgba(255,255,255,0.75);margin-bottom:36px;max-width:580px;margin-left:auto;margin-right:auto;">
+      Bước gần hơn đến thành công của bạn bằng cách trò chuyện với chúng tôi
+    </p>
+    <div data-animate="zoom-in" data-delay="3">
+      <a href="/lien-he" class="btn btn-white" style="font-size:15px;padding:14px 44px;">
+        Liên hệ ngay
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <line x1="5" y1="12" x2="19" y2="12"/>
+          <polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

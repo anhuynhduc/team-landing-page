@@ -1,0 +1,21 @@
+---
+// src/pages/404.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="404 - Không tìm thấy trang">
+  <main style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--bg-light);padding-top:80px;">
+    <div style="text-align:center;padding:60px 24px;">
+      <div style="font-size:120px;line-height:1;margin-bottom:24px;animation:float 3s ease-in-out infinite;">🔍</div>
+      <div style="font-size:clamp(80px,15vw,160px);font-weight:900;color:var(--teal);opacity:0.15;line-height:1;margin-bottom:-40px;">404</div>
+      <h1 style="font-size:clamp(24px,4vw,36px);font-weight:800;color:var(--text-dark);margin-bottom:16px;">Oops! Trang không tồn tại</h1>
+      <p style="font-size:16px;color:var(--text-mid);max-width:440px;margin:0 auto 36px;line-height:1.7;">
+        Trang bạn đang tìm kiếm có thể đã bị xoá, đổi tên hoặc tạm thời không khả dụng.
+      </p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+        <a href="/" class="btn btn-primary">← Về trang chủ</a>
+        <a href="/lien-he" class="btn btn-outline">Liên hệ hỗ trợ</a>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

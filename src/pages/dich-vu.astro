@@ -1,0 +1,241 @@
+---
+// src/pages/dich-vu.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const services = [
+  {
+    icon: '🖥️',
+    title: 'Thiết Kế Website',
+    desc: 'Website chuẩn UI/UX, chuẩn SEO, responsive trên mọi thiết bị. Tốc độ tải nhanh, bảo mật cao, giao diện chuyên nghiệp phù hợp với thương hiệu.',
+    features: ['Thiết kế theo yêu cầu', 'Chuẩn SEO on-page', 'Responsive đa thiết bị', 'Tích hợp CMS', 'Bảo hành 12 tháng'],
+    price: 'Từ 5.000.000đ',
+    color: '#e8f9f7',
+  },
+  {
+    icon: '📱',
+    title: 'Thiết Kế Mobile App',
+    desc: 'Phát triển ứng dụng iOS và Android native hoặc cross-platform với Flutter/React Native. UI/UX xuất sắc, hiệu năng cao.',
+    features: ['iOS & Android', 'Flutter / React Native', 'UI/UX Design', 'API Integration', 'Upload lên Store'],
+    price: 'Từ 20.000.000đ',
+    color: '#f0f4ff',
+  },
+  {
+    icon: '🔍',
+    title: 'Dịch Vụ SEO',
+    desc: 'Tối ưu hóa công cụ tìm kiếm toàn diện: SEO kỹ thuật, SEO nội dung, xây dựng backlink chất lượng. Đưa website lên top Google bền vững.',
+    features: ['SEO kỹ thuật', 'Nghiên cứu từ khóa', 'Content Marketing', 'Link Building', 'Báo cáo hàng tháng'],
+    price: 'Từ 3.000.000đ/tháng',
+    color: '#fff5e8',
+  },
+  {
+    icon: '⚙️',
+    title: 'Quản Trị Website',
+    desc: 'Dịch vụ quản trị, vận hành và bảo trì website liên tục. Cập nhật nội dung, bảo mật, backup dữ liệu định kỳ.',
+    features: ['Cập nhật nội dung', 'Bảo mật & Backup', 'Tối ưu tốc độ', 'Sửa lỗi kỹ thuật', 'Hỗ trợ 24/7'],
+    price: 'Từ 1.500.000đ/tháng',
+    color: '#f5f0ff',
+  },
+  {
+    icon: '📢',
+    title: 'Quảng Cáo Google & Facebook',
+    desc: 'Chiến lược quảng cáo hiệu quả, tối ưu chi phí và tăng tỷ lệ chuyển đổi. Nhắm đúng đối tượng, đúng thời điểm, đúng thông điệp.',
+    features: ['Google Ads', 'Facebook/Instagram Ads', 'TikTok Ads', 'Retargeting', 'A/B Testing'],
+    price: 'Từ 2.000.000đ/tháng',
+    color: '#fef0f0',
+  },
+  {
+    icon: '🌐',
+    title: 'Hosting & Domain',
+    desc: 'Dịch vụ hosting tốc độ cao với SSD NVMe, bảo mật SSL miễn phí, uptime 99.9%, hỗ trợ kỹ thuật 24/7. Đăng ký domain mọi đuôi mở rộng.',
+    features: ['SSD NVMe tốc độ cao', 'SSL miễn phí', 'Uptime 99.9%', 'Backup hàng ngày', 'cPanel quản lý'],
+    price: 'Từ 500.000đ/năm',
+    color: '#e8fdf5',
+  },
+  {
+    icon: '🎨',
+    title: 'Thiết Kế Nhận Diện Thương Hiệu',
+    desc: 'Xây dựng bộ nhận diện thương hiệu chuyên nghiệp: logo, màu sắc, typography, guidelines và toàn bộ ấn phẩm truyền thông.',
+    features: ['Logo & Brand Identity', 'Brand Guideline', 'Business Card', 'Bộ ấn phẩm văn phòng', 'Social Media Kit'],
+    price: 'Từ 3.000.000đ',
+    color: '#fff8e8',
+  },
+  {
+    icon: '📝',
+    title: 'Content Marketing',
+    desc: 'Sản xuất nội dung chất lượng cao: bài viết blog, video, infographic, social media content. Xây dựng chiến lược nội dung bền vững.',
+    features: ['Bài viết Blog SEO', 'Social Media Content', 'Video Script', 'Email Marketing', 'Content Strategy'],
+    price: 'Từ 2.500.000đ/tháng',
+    color: '#f0f8ff',
+  },
+];
+---
+
+<BaseLayout title="Dịch Vụ" description="Khám phá đầy đủ các dịch vụ của MIKO TECH: thiết kế website, SEO, quảng cáo, mobile app và nhiều hơn nữa.">
+  <main>
+
+    <!-- Page Hero -->
+    <div class="page-hero">
+      <div style="position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;border:50px solid rgba(255,255,255,0.06);pointer-events:none;"></div>
+      <div class="container" style="position:relative;z-index:1;">
+        <div class="label-tag" style="color:rgba(255,255,255,0.7);margin-bottom:12px;" data-hero-animate>DỊCH VỤ</div>
+        <h1 data-hero-animate>GIẢI PHÁP TOÀN DIỆN<br/>CHO DOANH NGHIỆP</h1>
+        <p data-hero-animate>Từ thiết kế website đến marketing số — chúng tôi có tất cả những gì bạn cần để phát triển trên môi trường kỹ thuật số.</p>
+      </div>
+    </div>
+
+    <!-- Services Grid -->
+    <section class="section" style="background:var(--bg-light);">
+      <div class="container">
+        <div class="services-grid-2col">
+          {services.map((s, i) => (
+            <div class="card" data-animate data-delay={String(i % 2 + 1)} style={`padding:0;overflow:hidden;`}>
+              <div class="service-card-header" style={`background:${s.color};padding:32px 32px 24px;`}>
+                <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;">
+                  <div>
+                    <div style="font-size:40px;margin-bottom:12px;">{s.icon}</div>
+                    <h3 style="font-size:20px;font-weight:800;color:var(--text-dark);margin-bottom:10px;">{s.title}</h3>
+                    <p style="font-size:14px;color:var(--text-mid);line-height:1.8;">{s.desc}</p>
+                  </div>
+                  <div style="background:var(--teal);color:white;font-size:11px;font-weight:700;padding:6px 14px;border-radius:20px;white-space:nowrap;flex-shrink:0;">
+                    {s.price}
+                  </div>
+                </div>
+              </div>
+              <div style="padding:20px 32px 28px;background:white;">
+                <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;">
+                  {s.features.map(f => (
+                    <span style="background:var(--teal-light);color:var(--teal);font-size:12px;font-weight:600;padding:4px 12px;border-radius:20px;">{f}</span>
+                  ))}
+                </div>
+                <a href="/lien-he" class="btn btn-outline" style="font-size:13px;padding:10px 24px;">
+                  Tư vấn miễn phí →
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Process -->
+    <section class="section" style="background:white;">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:52px;">
+          <div data-animate class="label-tag" style="margin-bottom:12px;">QUY TRÌNH LÀM VIỆC</div>
+          <h2 data-animate data-delay="2" class="section-title">4 Bước <span>Đơn Giản</span></h2>
+        </div>
+        <div class="process-grid" style="position:relative;">
+          <!-- Connector line -->
+          <div class="process-connector" style="position:absolute;top:40px;left:12.5%;right:12.5%;height:2px;background:linear-gradient(to right,var(--teal),var(--teal-dark));z-index:0;opacity:0.3;"></div>
+          {[
+            { step: '01', title: 'Tư Vấn', desc: 'Lắng nghe yêu cầu, phân tích nhu cầu và đề xuất giải pháp phù hợp nhất.', icon: '💬' },
+            { step: '02', title: 'Lên Kế Hoạch', desc: 'Xây dựng kế hoạch chi tiết, timeline rõ ràng và báo giá minh bạch.', icon: '📋' },
+            { step: '03', title: 'Thực Thi', desc: 'Đội ngũ chuyên gia triển khai dự án theo đúng tiêu chuẩn và timeline.', icon: '⚡' },
+            { step: '04', title: 'Bàn Giao', desc: 'Kiểm tra chất lượng, bàn giao và hỗ trợ kỹ thuật liên tục sau đó.', icon: '🎉' },
+          ].map((step, i) => (
+            <div data-animate data-delay={String(i + 1)} style="text-align:center;position:relative;z-index:1;">
+              <div style="width:80px;height:80px;border-radius:50%;background:var(--teal);color:white;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:28px;box-shadow:0 8px 24px rgba(26,188,173,0.3);">
+                {step.icon}
+              </div>
+              <div style="font-size:12px;font-weight:800;color:var(--teal);letter-spacing:2px;margin-bottom:8px;">{step.step}</div>
+              <h3 style="font-size:16px;font-weight:700;color:var(--text-dark);margin-bottom:8px;">{step.title}</h3>
+              <p style="font-size:13px;color:var(--text-mid);line-height:1.7;">{step.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <CTABanner />
+  </main>
+</BaseLayout>
+
+<style>
+  .services-grid-2col {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+
+  .service-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  @media (max-width: 768px) {
+    .service-card-header {
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  @media (max-width: 1024px) {
+    .process-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    .process-grid > div:nth-child(odd) {
+      margin-bottom: 20px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .process-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .process-connector {
+      display: none !important;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .services-grid-2col {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    section .container > div:first-of-type {
+      grid-template-columns: 1fr !important;
+    }
+    section:nth-of-type(3) .container > div {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 20px !important;
+    }
+    section:nth-of-type(3) .container > div > div:first-child {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .services-grid-2col {
+      gap: 20px;
+    }
+    section:nth-of-type(3) .container > div {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+    section:nth-of-type(3) .container > div > div:first-child {
+      display: none;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .services-grid-2col {
+      gap: 16px;
+    }
+    section:nth-of-type(3) .container > div {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>

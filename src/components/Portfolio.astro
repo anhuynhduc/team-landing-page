@@ -1,0 +1,136 @@
+---
+// src/components/Portfolio.astro
+
+const projects = [
+  {
+    title: 'Website Nội Thất Cao Cấp',
+    category: 'Thiết kế website',
+    desc: 'Đi đầu xu hướng nội thất hiện đại',
+    color: '#e8e0d5',
+    icon: '🛋️',
+  },
+  {
+    title: 'Coin Catapult - Tiền Điện Tử',
+    category: 'Web App',
+    desc: 'Nghiên cứu & đầu tư tiền điện tử',
+    color: '#1a1a2e',
+    textWhite: true,
+    icon: '₿',
+  },
+  {
+    title: 'RINO - Siêu Thị Online',
+    category: 'E-commerce',
+    desc: 'Giao hàng siêu tốc trong 10 phút',
+    color: '#5c1fb4',
+    textWhite: true,
+    icon: '🛒',
+  },
+  {
+    title: 'Phong Thủy Tâm Linh',
+    category: 'Thiết kế website',
+    desc: 'Website phong thủy chuyên nghiệp',
+    color: '#8b1a1a',
+    textWhite: true,
+    icon: '🔮',
+  },
+  {
+    title: 'MINIGA - Thời Trang',
+    category: 'E-commerce',
+    desc: 'Shop túi xách & phụ kiện thời trang',
+    color: '#f5e6d3',
+    icon: '👜',
+  },
+  {
+    title: 'App Giao Đồ Ăn',
+    category: 'Mobile App',
+    desc: 'Ứng dụng đặt món & giao hàng tận nơi',
+    color: '#ff6b35',
+    textWhite: true,
+    icon: '🍜',
+  },
+];
+---
+
+<section class="section" style="background:white;overflow:hidden;position:relative;">
+  <!-- Blob left -->
+  <div style="position:absolute;top:-60px;left:-120px;width:500px;height:500px;pointer-events:none;">
+    <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+      <path d="M 250,60 C 340,60 410,140 430,220 C 450,300 430,390 370,440 C 310,490 210,488 152,440 C 94,392 70,308 82,228 C 94,148 160,60 250,60 Z" fill="var(--teal)" opacity="0.08"/>
+    </svg>
+  </div>
+
+  <div class="container" style="position:relative;z-index:1;">
+    <div style="display:grid;grid-template-columns:1fr 1.5fr;gap:64px;align-items:center;">
+
+      <!-- LEFT -->
+      <div>
+        <div data-animate="fade-left" class="label-tag" style="margin-bottom:14px;">GIẢI PHÁP</div>
+        <h2 data-animate="fade-left" data-delay="2" class="section-title" style="margin-bottom:20px;text-transform:uppercase;">
+          Thiết Kế Website<br/>
+          Và Dịch Vụ<br/>
+          <span>Marketing</span>
+        </h2>
+        <p data-animate="fade-left" data-delay="3" style="font-size:14px;color:var(--text-mid);line-height:1.8;margin-bottom:32px;">
+          Không chỉ thiết kế web chuẩn giao diện và trải nghiệm người dùng, Miko Tech với hệ sinh thái các giải pháp Marketing toàn diện là điểm tựa vững chắc giúp doanh nghiệp của bạn phát triển lâu dài và bền vững.
+        </p>
+        <div data-animate="fade-left" data-delay="4">
+          <a href="/du-an" class="btn btn-outline">Xem tất cả dự án</a>
+        </div>
+      </div>
+
+      <!-- RIGHT: Project Grid with Swiper -->
+      <div data-animate="fade-right" data-delay="2">
+        <div class="swiper portfolioSwiper">
+          <div class="swiper-wrapper">
+            {/* Slide 1: 2x2 grid */}
+            {[0, 1].map(slide => (
+              <div class="swiper-slide">
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+                  {projects.slice(slide * 2, slide * 2 + 4).map(p => (
+                    <div class="project-card" style={`background:${p.color};`}>
+                      <div style={`padding:28px 20px;min-height:180px;display:flex;flex-direction:column;justify-content:space-between;`}>
+                        <div>
+                          <div style={`font-size:32px;margin-bottom:12px;`}>{p.icon}</div>
+                          <div style={`font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:${p.textWhite ? 'rgba(255,255,255,0.6)' : 'var(--teal)'};margin-bottom:6px;`}>{p.category}</div>
+                          <h3 style={`font-size:14px;font-weight:700;color:${p.textWhite ? 'white' : 'var(--text-dark)'};line-height:1.4;`}>{p.title}</h3>
+                        </div>
+                        <p style={`font-size:12px;color:${p.textWhite ? 'rgba(255,255,255,0.7)' : 'var(--text-mid)'};margin-top:8px;`}>{p.desc}</p>
+                      </div>
+                      <div class="overlay">
+                        <p>{p.title}</p>
+                        <a href="/du-an" style="color:white;border:1px solid white;padding:6px 16px;border-radius:20px;font-size:12px;text-decoration:none;">Xem chi tiết</a>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+          <div class="swiper-pagination" style="margin-top:24px;position:relative;bottom:auto;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (typeof Swiper !== 'undefined') {
+      new Swiper('.portfolioSwiper', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        autoplay: { delay: 4000, disableOnInteraction: false },
+        pagination: { el: '.portfolioSwiper .swiper-pagination', clickable: true },
+        loop: true,
+      });
+    }
+  });
+</script>
+
+<style>
+  @media (max-width: 1024px) {
+    section > .container > div {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>

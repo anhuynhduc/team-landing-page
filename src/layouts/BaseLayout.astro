@@ -1,0 +1,359 @@
+---
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import FloatingSidebar from '../components/layout/FloatingSidebar.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = 'TechViet – Thiết Kế Website & Dịch Vụ Marketing',
+  description = 'Chúng tôi không chỉ thiết kế website chuẩn giao diện mà còn cung cấp giải pháp Marketing toàn diện giúp doanh nghiệp phát triển bền vững.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>{title}</title>
+
+  <!-- Preconnect Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+
+<body>
+  <!-- Page Skeleton Transition -->
+  <div class="page-skeleton" id="pageSkeleton" aria-hidden="true">
+    <div class="psk-inner">
+      <div class="psk-header">
+        <div class="psk-logo">
+          <div class="psk-block psk-block--icon"></div>
+          <div class="psk-block psk-block--brand"></div>
+        </div>
+        <div class="psk-nav">
+          <div class="psk-block psk-block--nav"></div>
+          <div class="psk-block psk-block--nav"></div>
+          <div class="psk-block psk-block--nav psk-block--nav-wide"></div>
+          <div class="psk-block psk-block--nav"></div>
+          <div class="psk-block psk-block--nav"></div>
+        </div>
+        <div class="psk-block psk-block--cta"></div>
+      </div>
+      <div class="psk-hero">
+        <div class="psk-hero-left">
+          <div class="psk-block psk-block--label"></div>
+          <div class="psk-block psk-block--h1"></div>
+          <div class="psk-block psk-block--h1 psk-block--h1-2"></div>
+          <div class="psk-block psk-block--h1 psk-block--h1-3"></div>
+          <div class="psk-block psk-block--text"></div>
+          <div class="psk-block psk-block--text psk-block--text-short"></div>
+          <div class="psk-hero-btns">
+            <div class="psk-block psk-block--btn"></div>
+            <div class="psk-block psk-block--btn psk-block--btn-outline"></div>
+          </div>
+        </div>
+        <div class="psk-hero-right">
+          <div class="psk-grid">
+            <div class="psk-block psk-block--card"></div>
+            <div class="psk-block psk-block--card"></div>
+            <div class="psk-block psk-block--card"></div>
+            <div class="psk-block psk-block--card"></div>
+          </div>
+        </div>
+      </div>
+      <div class="psk-stats">
+        <div class="psk-block psk-block--stat"></div>
+        <div class="psk-block psk-block--stat"></div>
+        <div class="psk-block psk-block--stat"></div>
+        <div class="psk-block psk-block--stat"></div>
+      </div>
+      <div class="psk-cards">
+        <div class="psk-block psk-block--service-card"></div>
+        <div class="psk-block psk-block--service-card"></div>
+        <div class="psk-block psk-block--service-card"></div>
+        <div class="psk-block psk-block--service-card"></div>
+      </div>
+    </div>
+    <div class="psk-progress" id="pskProgress"></div>
+    <div class="psk-loading-label">
+      <div class="psk-dot"></div>
+      <span>Đang tải trang…</span>
+    </div>
+  </div>
+
+  <!-- Scroll Progress Bar -->
+  <div id="scrollProgress"></div>
+
+  <!-- Back To Top -->
+  <button id="backToTop" aria-label="Về đầu trang">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  </button>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-outer" id="cursorOuter"></div>
+  <div class="cursor-inner" id="cursorInner"></div>
+
+  <!-- Scroll Indicator -->
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+
+  <!-- Floating Sidebar -->
+  <FloatingSidebar />
+
+  <!-- Smooth scroll wrapper -->
+  <div id="smooth-wrapper">
+    <div id="smooth-content">
+      <Header />
+      <main>
+        <slot />
+      </main>
+      <Footer />
+    </div>
+  </div>
+</body>
+</html>
+
+<script>
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Flip } from 'gsap/Flip';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+
+gsap.registerPlugin(ScrollTrigger, Flip, ScrollToPlugin);
+
+// ─── Scroll Progress Bar ───
+const progressBar = document.getElementById('scrollProgress')!;
+const updateProgress = () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+  progressBar.style.width = pct + '%';
+};
+window.addEventListener('scroll', updateProgress, { passive: true });
+updateProgress();
+
+// ─── Back-to-top Button ───
+const btt = document.getElementById('backToTop')!;
+const bttThreshold = 500;
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > bttThreshold) {
+    btt.classList.add('btt-visible');
+  } else {
+    btt.classList.remove('btt-visible');
+  }
+}, { passive: true });
+
+btt.addEventListener('click', () => {
+  gsap.to(window, {
+    scrollTo: { y: 0 },
+    duration: 1.2,
+    ease: 'power3.inOut',
+  });
+  // Bounce effect on button
+  gsap.fromTo(btt,
+    { scale: 0.85 },
+    { scale: 1, duration: 0.5, ease: 'back.out(3)' }
+  );
+});
+
+// ─── Custom Cursor ───
+const cursorOuter = document.getElementById('cursorOuter')!;
+const cursorInner = document.getElementById('cursorInner')!;
+
+if (cursorOuter && cursorInner) {
+  gsap.set([cursorOuter, cursorInner], { xPercent: -50, yPercent: -50 });
+
+  const xOuter = gsap.quickTo(cursorOuter, 'x', { duration: 0.55, ease: 'power3' });
+  const yOuter = gsap.quickTo(cursorOuter, 'y', { duration: 0.55, ease: 'power3' });
+  const xInner = gsap.quickTo(cursorInner, 'x', { duration: 0.08 });
+  const yInner = gsap.quickTo(cursorInner, 'y', { duration: 0.08 });
+
+  window.addEventListener('mousemove', (e) => {
+    xOuter(e.clientX); yOuter(e.clientY);
+    xInner(e.clientX); yInner(e.clientY);
+  });
+
+  // Fix #3 – scale down from 2.2 → 1.35 so cursor doesn't balloon on hover
+  const interactables = document.querySelectorAll('a, button, .project-card, .value-card, .service-card');
+  interactables.forEach((el) => {
+    el.addEventListener('mouseenter', () => {
+      gsap.to(cursorOuter, { scale: 1.35, borderColor: 'var(--primary)', backgroundColor: 'rgba(0,176,155,0.08)', duration: 0.25, ease: 'power2.out' });
+      gsap.to(cursorInner, { scale: 1.4, duration: 0.2 });
+    });
+    el.addEventListener('mouseleave', () => {
+      gsap.to(cursorOuter, { scale: 1, borderColor: 'var(--primary)', backgroundColor: 'transparent', duration: 0.25, ease: 'power2.out' });
+      gsap.to(cursorInner, { scale: 1, duration: 0.2 });
+    });
+  });
+}
+
+// ─── Floating Sidebar entrance ───
+gsap.from('.sidebar-btn', {
+  x: 70, opacity: 0,
+  stagger: 0.08,
+  duration: 0.6,
+  delay: 1.2,
+  ease: 'back.out(1.7)',
+});
+
+// ─── Scroll Indicator fade out ───
+ScrollTrigger.create({
+  start: 'top -300px',
+  onEnter:    () => gsap.to('.scroll-indicator', { opacity: 0, duration: 0.3 }),
+  onLeaveBack:() => gsap.to('.scroll-indicator', { opacity: 1, duration: 0.3 }),
+});
+
+// ─── Global Section Reveals ───
+// Fade-up elements
+gsap.utils.toArray<HTMLElement>('.anim-fade-up').forEach((el) => {
+  gsap.to(el, {
+    opacity: 1, y: 0,
+    duration: 0.8,
+    ease: 'power3.out',
+    scrollTrigger: { trigger: el, start: 'top 85%' },
+  });
+});
+
+// Fade-left elements
+gsap.utils.toArray<HTMLElement>('.anim-fade-left').forEach((el) => {
+  gsap.to(el, {
+    opacity: 1, x: 0,
+    duration: 0.8,
+    ease: 'power3.out',
+    scrollTrigger: { trigger: el, start: 'top 85%' },
+  });
+});
+
+// Scale elements
+gsap.utils.toArray<HTMLElement>('.anim-scale').forEach((el) => {
+  gsap.to(el, {
+    opacity: 1, scale: 1,
+    duration: 0.7,
+    ease: 'back.out(1.4)',
+    scrollTrigger: { trigger: el, start: 'top 85%' },
+  });
+});
+
+// Stagger groups
+gsap.utils.toArray<HTMLElement>('.anim-stagger').forEach((group) => {
+  const children = group.querySelectorAll(':scope > *');
+  gsap.from(children, {
+    y: 50, opacity: 0,
+    stagger: 0.12,
+    duration: 0.7,
+    ease: 'power3.out',
+    scrollTrigger: { trigger: group, start: 'top 80%' },
+  });
+});
+
+// ─── Page Skeleton Transition ───
+const skeleton   = document.getElementById('pageSkeleton')!;
+const progressEl = document.getElementById('pskProgress')!;
+
+function showSkeleton() {
+  skeleton.classList.add('is-active');
+
+  // Stagger the shimmer blocks with different animation delays for realism
+  const blocks = skeleton.querySelectorAll<HTMLElement>('.psk-block');
+  blocks.forEach((b, i) => {
+    b.style.animationDelay = `${(i % 5) * 0.12}s`;
+  });
+
+  // Progress bar tween: 0 → 85% fast, then stall until page loads
+  gsap.fromTo(progressEl,
+    { width: '0%' },
+    { width: '85%', duration: 0.6, ease: 'power2.out' }
+  );
+}
+
+function hideSkeleton() {
+  // Complete progress bar
+  gsap.to(progressEl, {
+    width: '100%',
+    duration: 0.25,
+    ease: 'power1.in',
+    onComplete: () => {
+      gsap.to(skeleton, {
+        opacity: 0,
+        duration: 0.35,
+        ease: 'power2.in',
+        onComplete: () => {
+          skeleton.classList.remove('is-active');
+          gsap.set(skeleton, { opacity: 1 });
+          gsap.set(progressEl, { width: '0%' });
+        }
+      });
+    }
+  });
+}
+
+// Page load reveal – show briefly then hide
+showSkeleton();
+window.addEventListener('load', () => {
+  setTimeout(hideSkeleton, 150);
+});
+// Fallback in case load already fired
+if (document.readyState === 'complete') {
+  setTimeout(hideSkeleton, 200);
+}
+
+// Link clicks → show skeleton, navigate
+document.querySelectorAll<HTMLAnchorElement>('a[href]').forEach((link) => {
+  const href = link.getAttribute('href')!;
+  if (
+    href &&
+    !href.startsWith('#') &&
+    !href.startsWith('tel:') &&
+    !href.startsWith('mailto:') &&
+    !href.startsWith('http') &&
+    href !== window.location.pathname
+  ) {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      showSkeleton();
+      // Give skeleton 350ms to appear, then navigate
+      setTimeout(() => { window.location.href = href; }, 350);
+    });
+  }
+});
+
+// ─── Stat Counter ───
+const counters = document.querySelectorAll<HTMLElement>('[data-counter]');
+counters.forEach((counter) => {
+  const target = parseInt(counter.dataset.counter || '0');
+  const prefix = counter.dataset.prefix || '';
+  const suffix = counter.dataset.suffix || '';
+
+  ScrollTrigger.create({
+    trigger: counter,
+    start: 'top 80%',
+    once: true,
+    onEnter: () => {
+      const obj = { val: 0 };
+      gsap.to(obj, {
+        val: target,
+        duration: 2.2,
+        ease: 'power2.out',
+        onUpdate() {
+          counter.textContent = prefix + Math.round(obj.val) + suffix;
+        },
+        onComplete() {
+          counter.textContent = prefix + target + suffix;
+        }
+      });
+    }
+  });
+});
+</script>

@@ -1,0 +1,723 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const features = [
+  { icon: '⚡', label: 'Tốc độ', desc: 'Core Web Vitals chuẩn, load < 2s' },
+  { icon: '🎨', label: 'Cải thiện trải nghiệm', desc: 'UX/UI đẹp, chuyên nghiệp' },
+  { icon: '📱', label: 'Đa nền tảng', desc: 'Responsive mọi thiết bị' },
+  { icon: '🔒', label: 'Bảo mật website', desc: 'SSL, HTTPS, chống tấn công' },
+  { icon: '✅', label: 'Đáp ứng tiêu chí', desc: 'Đúng hạn, đúng yêu cầu' },
+  { icon: '🔍', label: 'SEO chuẩn', desc: 'Cấu trúc tốt cho Google' },
+];
+
+const faqs = [
+  {
+    q: 'Thiết kế website chuẩn SEO là gì?',
+    a: 'Thiết kế website chuẩn SEO là tạo ra một website hoàn chỉnh với cấu trúc web và tính năng thân thiện với các công cụ tìm kiếm như Google, Cốc Cốc,… giúp thu thập thông tin, đánh giá và xếp hạng website một cách dễ dàng. Một website chuẩn SEO khi nó đáp ứng đủ các tiêu chí liên quan đến cấu trúc website, tốc độ tải trang, độ bảo mật và các yếu tố để giúp nâng cao thứ hạng website trên trang kết quả tìm kiếm.',
+  },
+  {
+    q: 'Tại sao cần thiết kế web chuyên nghiệp cho doanh nghiệp?',
+    a: 'Website chuyên nghiệp giúp tạo ấn tượng đầu tiên tốt với khách hàng, xây dựng uy tín thương hiệu, tăng tỷ lệ chuyển đổi và hỗ trợ các chiến dịch marketing hiệu quả hơn.',
+  },
+  {
+    q: 'Để thiết kế web công ty chuyên nghiệp cần chuẩn bị những gì?',
+    a: 'Bạn cần chuẩn bị: mục tiêu kinh doanh rõ ràng, logo và bộ nhận diện thương hiệu, nội dung cơ bản (giới thiệu, sản phẩm/dịch vụ), hình ảnh chất lượng cao và thông tin liên hệ.',
+  },
+  {
+    q: 'TechViet chuyên thiết kế những loại website nào?',
+    a: 'Chúng tôi thiết kế: website doanh nghiệp, landing page, thương mại điện tử, website tin tức/blog, website bất động sản, SaaS platform và nhiều loại khác theo yêu cầu.',
+  },
+  {
+    q: 'Thiết kế website giá bao nhiêu?',
+    a: 'Giá thiết kế website phụ thuộc vào quy mô, tính năng và yêu cầu cụ thể. TechViet cung cấp các gói từ 3.000.000đ đến dự án tùy chỉnh. Liên hệ để nhận báo giá chính xác và phù hợp nhất.',
+  },
+];
+
+const steps = [
+  { num: '01', icon: '📋', title: 'Tư vấn & Phân tích', desc: 'Lắng nghe mục tiêu và nghiên cứu đối thủ' },
+  { num: '02', icon: '🎨', title: 'Thiết kế UI/UX', desc: 'Wireframe → Mockup → Prototype' },
+  { num: '03', icon: '💻', title: 'Lập trình', desc: 'Code chuẩn, tối ưu hiệu năng' },
+  { num: '04', icon: '🧪', title: 'Kiểm thử', desc: 'Test toàn diện trước khi bàn giao' },
+  { num: '05', icon: '🚀', title: 'Ra mắt', desc: 'Go-live và hỗ trợ sau bàn giao' },
+];
+---
+
+<BaseLayout title="Thiết Kế Website Chuyên Nghiệp – TechViet">
+
+  <!-- HERO SERVICE -->
+  <section class="service-hero">
+    <div class="container service-hero-inner">
+      <!-- Text -->
+      <div class="sh-text">
+        <span class="label sh-label">Dịch Vụ Thiết Kế</span>
+        <h1 class="sh-title">
+          Thiết Kế Website<br>Bán Hàng Online<br><span class="text-teal">Chuyên Nghiệp</span>
+        </h1>
+        <p class="sh-desc">
+          TechViet sẽ đồng hành cùng bạn trong cuộc chiến thương mại điện tử kỷ nguyên 4.0. Giao diện đẹp, UX xuất sắc và tốc độ tải trang vượt trội.
+        </p>
+        <div class="sh-actions">
+          <a href="/lien-he" class="btn-primary">Tư vấn báo giá</a>
+          <a href="#features" class="btn-outline">Xem tính năng</a>
+        </div>
+      </div>
+
+      <!-- Device Mockup -->
+      <div class="sh-devices">
+        <div class="device-tablet">
+          <div class="dt-screen">
+            <div class="dt-topbar"></div>
+            <div class="dt-hero-strip"></div>
+            <div class="dt-content">
+              <div class="dt-line"></div>
+              <div class="dt-line dt-line--short"></div>
+              <div class="dt-products">
+                <div class="dt-prod"></div>
+                <div class="dt-prod"></div>
+                <div class="dt-prod"></div>
+              </div>
+            </div>
+          </div>
+          <div class="dt-frame"></div>
+        </div>
+        <div class="device-phone">
+          <div class="dp-screen">
+            <div class="dp-notch"></div>
+            <div class="dp-hero-strip"></div>
+            <div class="dp-content">
+              <div class="dp-line"></div>
+              <div class="dp-line dp-line--short"></div>
+              <div class="dp-cards">
+                <div class="dp-card"></div>
+                <div class="dp-card"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="devices-glow"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES HUB -->
+  <section class="section features-section" id="features">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:64px">
+        <span class="label anim-fade-up">Tính Năng Nổi Bật</span>
+        <h2 class="section-title anim-fade-up" style="margin-top:12px">
+          Giao Diện Đẳng Cấp<br><span class="text-teal">Hiệu Quả Tối Ưu</span>
+        </h2>
+      </div>
+
+      <div class="features-hub-layout">
+        <!-- Center CTA -->
+        <div class="hub-center anim-scale">
+          <div class="hub-circle">
+            <a href="/lien-he" class="btn-primary hub-btn">
+              Tư vấn<br>báo giá
+            </a>
+          </div>
+        </div>
+
+        <!-- Features grid around -->
+        <div class="features-grid anim-stagger">
+          {features.map((f) => (
+            <div class="feature-item">
+              <div class="feature-icon-wrap">
+                <span class="feature-icon-big">{f.icon}</span>
+              </div>
+              <div class="feature-info">
+                <h3 class="feature-label">{f.label}</h3>
+                <p class="feature-desc-mini">{f.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STAT + PHONES -->
+  <section class="section stat-phones-section" style="background:var(--bg)">
+    <div class="container stat-phones-inner">
+      <!-- Phones visual -->
+      <div class="phones-wrap anim-fade-left">
+        <div class="stat-bg-circle"></div>
+        <div class="phone-front">
+          <div class="pf-screen">
+            <div class="pf-topbar"></div>
+            <div class="pf-banner"></div>
+            <div class="pf-content">
+              <div class="pf-line"></div>
+              <div class="pf-line pf-line--short"></div>
+              <div class="pf-items">
+                <div class="pf-item"></div>
+                <div class="pf-item"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="phone-back">
+          <div class="pb-screen">
+            <div class="pb-content">
+              <div class="pb-line"></div>
+              <div class="pb-line"></div>
+            </div>
+          </div>
+        </div>
+        <div class="stat-badge">
+          <span class="sb-num" data-counter="200" data-prefix="+">+0</span>
+          <span class="sb-sub">website hoạt động hiệu quả</span>
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div class="stat-text">
+        <span class="label anim-fade-up">Thành Tích</span>
+        <h2 class="section-title anim-fade-up" style="margin-top:12px">
+          Vì Sao Chọn<br><span class="text-teal">Thiết Kế Website</span><br>Tại TechViet?
+        </h2>
+        <div class="stat-reasons anim-stagger">
+          {[
+            { icon: '✅', text: 'Đội ngũ chuyên gia 8+ năm kinh nghiệm' },
+            { icon: '🎯', text: 'Cam kết đúng deadline, đúng chất lượng' },
+            { icon: '🛡️', text: 'Bảo hành 12 tháng không giới hạn' },
+            { icon: '📞', text: 'Hỗ trợ 24/7 sau khi bàn giao' },
+            { icon: '💰', text: 'Báo giá minh bạch, không phát sinh' },
+          ].map(r => (
+            <div class="stat-reason-item">
+              <span class="sri-icon">{r.icon}</span>
+              <span>{r.text}</span>
+            </div>
+          ))}
+        </div>
+        <a href="/lien-he" class="btn-primary anim-fade-up" style="margin-top:32px">Nhận báo giá ngay</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS STEPS -->
+  <section class="section process-section" style="background:var(--white)">
+    <div class="container">
+      <div class="text-center">
+        <span class="label anim-fade-up">Quy Trình Làm Việc</span>
+        <h2 class="section-title anim-fade-up" style="margin-top:12px">
+          Chúng Tôi Làm Việc<br><span class="text-teal">Như Thế Nào?</span>
+        </h2>
+      </div>
+
+      <div class="process-steps anim-stagger">
+        {steps.map((step, i) => (
+          <div class="process-step">
+            <div class="ps-num">{step.num}</div>
+            <div class="ps-icon">{step.icon}</div>
+            <h3 class="ps-title">{step.title}</h3>
+            <p class="ps-desc">{step.desc}</p>
+            {i < steps.length - 1 && <div class="ps-arrow">→</div>}
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section faq-section">
+    <div class="container" style="max-width:860px">
+      <div class="text-center">
+        <span class="label anim-fade-up">Câu Hỏi Thường Gặp</span>
+        <h2 class="section-title anim-fade-up" style="margin-top:12px">
+          Bạn Đang Thắc Mắc?
+        </h2>
+      </div>
+
+      <div class="faq-list anim-stagger" id="faqList">
+        {faqs.map((faq, i) => (
+          <div class={`faq-item ${i === 0 ? 'faq-item--open' : ''}`}>
+            <button class="faq-question">
+              <span>{faq.q}</span>
+              <div class="faq-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M12 5v14M5 12h14"/>
+                </svg>
+              </div>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>{faq.a}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-cta-service">
+    <div class="container text-center">
+      <h2 class="section-title anim-fade-up">
+        Sẵn Sàng Xây Dựng<br><span class="text-teal">Website Đỉnh Cao?</span>
+      </h2>
+      <p class="section-desc anim-fade-up" style="margin:20px auto 36px">
+        Liên hệ ngay để nhận tư vấn miễn phí và báo giá chi tiết từ đội ngũ chuyên gia của chúng tôi.
+      </p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+        <a href="/lien-he" class="btn-primary anim-scale">Liên hệ tư vấn ngay</a>
+        <a href="tel:0909326456" class="btn-outline anim-scale">📞 0909 326 456</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+/* ─── HERO ─── */
+.service-hero {
+  padding: calc(var(--header-h) + 48px) 0 80px;
+  background: linear-gradient(160deg, #fff 55%, rgba(0,176,155,0.07));
+  overflow: hidden;
+}
+.service-hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.sh-label { display: block; margin-bottom: 16px; }
+.sh-title {
+  font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1.08;
+}
+.sh-desc {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  max-width: 460px;
+  margin-top: 20px;
+}
+.sh-actions { display: flex; gap: 16px; margin-top: 32px; flex-wrap: wrap; }
+
+/* Devices */
+.sh-devices { position: relative; display: flex; align-items: flex-end; gap: 0; }
+.device-tablet {
+  position: relative;
+  z-index: 2;
+  width: 340px;
+  background: #1A1A2E;
+  border-radius: 16px;
+  padding: 14px;
+  border: 2px solid #2D2D44;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  animation: deviceFloat 5s ease-in-out infinite;
+}
+.dt-screen { background: #fff; border-radius: 8px; overflow: hidden; }
+.dt-topbar { height: 28px; background: #1A1A2E; display: flex; align-items: center; padding: 0 8px; gap: 4px; }
+.dt-topbar::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #FF5F57; }
+.dt-topbar::after { content: ''; width: 60%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; margin-left: 8px; }
+.dt-hero-strip { height: 90px; background: linear-gradient(135deg, var(--primary), #4ECDC4); }
+.dt-content { padding: 10px; }
+.dt-line { height: 6px; background: #E5E7EB; border-radius: 3px; margin-bottom: 6px; }
+.dt-line--short { width: 60%; }
+.dt-products { display: grid; grid-template-columns: repeat(3,1fr); gap: 6px; margin-top: 8px; }
+.dt-prod { height: 48px; background: #F3F4F6; border-radius: 6px; }
+.dt-frame { height: 8px; background: #2D2D44; border-radius: 0 0 4px 4px; margin-top: 4px; }
+
+.device-phone {
+  position: relative;
+  z-index: 3;
+  width: 140px;
+  margin-left: -30px;
+  margin-bottom: -20px;
+  background: #1A1A2E;
+  border-radius: 24px;
+  padding: 10px 8px;
+  border: 2px solid #2D2D44;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  animation: deviceFloat 4s ease-in-out infinite 1s;
+}
+.dp-screen { background: #fff; border-radius: 16px; overflow: hidden; }
+.dp-notch { height: 12px; background: #1A1A2E; display: flex; justify-content: center; align-items: center; }
+.dp-notch::after { content: ''; width: 30px; height: 6px; background: #000; border-radius: 3px; }
+.dp-hero-strip { height: 60px; background: linear-gradient(135deg, var(--primary), #4ECDC4); }
+.dp-content { padding: 8px; }
+.dp-line { height: 5px; background: #E5E7EB; border-radius: 3px; margin-bottom: 4px; }
+.dp-line--short { width: 55%; }
+.dp-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin-top: 6px; }
+.dp-card { height: 36px; background: #F3F4F6; border-radius: 4px; }
+
+@keyframes deviceFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+.devices-glow {
+  position: absolute;
+  bottom: -30px; left: 50%;
+  transform: translateX(-50%);
+  width: 70%; height: 60px;
+  background: radial-gradient(ellipse, rgba(0,176,155,0.3), transparent 70%);
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+/* ─── FEATURES ─── */
+.features-hub-layout {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+}
+.hub-center { text-align: center; }
+.hub-circle {
+  width: 140px; height: 140px;
+  background: linear-gradient(135deg, var(--primary), #4ECDC4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  box-shadow: var(--shadow-teal);
+  animation: hubPulse 3s ease-in-out infinite;
+}
+@keyframes hubPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0,176,155,0.3), var(--shadow-teal); }
+  50% { box-shadow: 0 0 0 20px rgba(0,176,155,0), var(--shadow-teal); }
+}
+.hub-btn {
+  background: transparent;
+  border-radius: 50%;
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #fff;
+  font-weight: 800;
+  padding: 20px;
+}
+.hub-btn:hover { transform: scale(1.05); }
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: var(--white);
+  padding: 24px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.feature-item:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+.feature-icon-wrap {
+  width: 52px; height: 52px;
+  background: var(--primary-glow);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.feature-icon-big { font-size: 1.5rem; }
+.feature-label { font-size: 0.95rem; font-weight: 800; }
+.feature-desc-mini { font-size: 0.8rem; color: var(--text-muted); margin-top: 4px; }
+
+/* ─── STAT PHONES ─── */
+.stat-phones-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.phones-wrap {
+  position: relative;
+  height: 420px;
+}
+.stat-bg-circle {
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 320px; height: 320px;
+  background: linear-gradient(135deg, var(--primary), #4ECDC4);
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  opacity: 0.15;
+}
+
+.phone-front {
+  position: absolute;
+  left: 60px; bottom: 0;
+  width: 180px;
+  background: #1A1A2E;
+  border-radius: 28px;
+  padding: 12px 10px;
+  border: 2px solid #2D2D44;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+  z-index: 2;
+  animation: phoneFrontFloat 4s ease-in-out infinite;
+}
+@keyframes phoneFrontFloat {
+  0%,100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-14px) rotate(-5deg); }
+}
+.pf-screen { background: #fff; border-radius: 18px; overflow: hidden; }
+.pf-topbar { height: 14px; background: #000; display: flex; justify-content: center; padding-top: 4px; }
+.pf-topbar::after { content: ''; width: 40px; height: 6px; background: #1A1A2E; border-radius: 3px; }
+.pf-banner { height: 80px; background: linear-gradient(135deg, var(--primary), #4ECDC4); }
+.pf-content { padding: 10px; }
+.pf-line { height: 6px; background: #E5E7EB; border-radius: 3px; margin-bottom: 5px; }
+.pf-line--short { width: 60%; }
+.pf-items { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+.pf-item { height: 36px; background: #F3F4F6; border-radius: 6px; }
+
+.phone-back {
+  position: absolute;
+  left: 10px; bottom: 20px;
+  width: 150px;
+  background: #0D1117;
+  border-radius: 24px;
+  padding: 10px;
+  border: 2px solid #2D2D44;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  z-index: 1;
+  animation: phoneBackFloat 5s ease-in-out infinite 0.5s;
+}
+@keyframes phoneBackFloat {
+  0%,100% { transform: translateY(0) rotate(8deg); }
+  50% { transform: translateY(-10px) rotate(8deg); }
+}
+.pb-screen { background: #1A1A2E; border-radius: 16px; padding: 12px; }
+.pb-line { height: 5px; background: rgba(255,255,255,0.1); border-radius: 3px; margin-bottom: 6px; }
+
+.stat-badge {
+  position: absolute;
+  top: 40px; right: 20px;
+  background: var(--white);
+  padding: 20px 24px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 40px rgba(0,176,155,0.2), var(--shadow-md);
+  text-align: center;
+  z-index: 3;
+  border: 2px solid rgba(0,176,155,0.15);
+}
+.sb-num {
+  display: block;
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 2.5rem;
+  color: var(--primary);
+  line-height: 1;
+}
+.sb-sub {
+  display: block;
+  font-size: 0.75rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-top: 6px;
+  max-width: 100px;
+}
+
+.stat-reasons { display: flex; flex-direction: column; gap: 14px; margin-top: 28px; }
+.stat-reason-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  font-family: var(--font-heading);
+  font-weight: 500;
+  color: var(--text);
+}
+.sri-icon { font-size: 1.1rem; flex-shrink: 0; }
+
+/* ─── PROCESS ─── */
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  margin-top: 56px;
+  position: relative;
+}
+.process-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 16px;
+  position: relative;
+}
+.ps-num {
+  font-family: var(--font-heading);
+  font-weight: 900;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+.ps-icon {
+  width: 60px; height: 60px;
+  background: var(--primary-glow);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+  border: 2px solid rgba(0,176,155,0.2);
+  transition: background 0.3s, transform 0.3s;
+}
+.process-step:hover .ps-icon {
+  background: var(--primary);
+  transform: scale(1.1);
+}
+.ps-title { font-size: 0.9rem; font-weight: 800; }
+.ps-desc { font-size: 0.78rem; color: var(--text-muted); margin-top: 6px; line-height: 1.5; }
+.ps-arrow {
+  position: absolute;
+  top: 42px;
+  right: -12px;
+  font-size: 1.2rem;
+  color: var(--primary-light);
+  z-index: 1;
+}
+
+/* ─── FAQ ─── */
+.faq-list { margin-top: 48px; display: flex; flex-direction: column; gap: 8px; }
+.faq-item {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  box-shadow: var(--shadow-sm);
+}
+.faq-item--open { border-color: var(--primary); box-shadow: 0 4px 20px rgba(0,176,155,0.12); }
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-align: left;
+  color: var(--text);
+  transition: color 0.3s;
+}
+.faq-item--open .faq-question { color: var(--primary); }
+.faq-icon {
+  flex-shrink: 0;
+  width: 28px; height: 28px;
+  background: var(--primary-glow);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  transition: transform 0.35s, background 0.35s;
+}
+.faq-item--open .faq-icon { transform: rotate(45deg); background: var(--primary); color: #fff; }
+
+.faq-answer {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.45s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.faq-item--open .faq-answer { max-height: 300px; }
+.faq-answer-inner {
+  padding: 0 24px 20px;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+/* ─── CTA Service ─── */
+.section-cta-service {
+  padding: 80px 0;
+  background: linear-gradient(160deg, var(--bg), rgba(0,176,155,0.06));
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  .service-hero-inner { grid-template-columns: 1fr; }
+  .sh-devices { justify-content: center; }
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat-phones-inner { grid-template-columns: 1fr; }
+  .process-steps { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .ps-arrow { display: none; }
+}
+@media (max-width: 640px) {
+  .features-grid { grid-template-columns: 1fr; }
+  .process-steps { grid-template-columns: 1fr; }
+  .device-tablet { width: 280px; }
+}
+</style>
+
+<script>
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+
+// Hero entrance
+const tl = gsap.timeline({ delay: 0.5 });
+tl.from('.sh-title', { y: 50, opacity: 0, duration: 0.8, ease: 'power4.out' });
+tl.from('.sh-desc', { y: 20, opacity: 0, duration: 0.6 }, '-=0.4');
+tl.from('.sh-actions > *', { y: 20, opacity: 0, stagger: 0.1, duration: 0.5 }, '-=0.3');
+tl.from('.device-tablet', { x: 60, opacity: 0, rotateY: -15, duration: 0.8, ease: 'power3.out' }, '-=0.7');
+tl.from('.device-phone', { x: 40, opacity: 0, rotateY: -10, duration: 0.7 }, '-=0.5');
+
+// FAQ Accordion
+const faqItems = document.querySelectorAll<HTMLElement>('.faq-item');
+faqItems.forEach(item => {
+  const btn = item.querySelector<HTMLButtonElement>('.faq-question')!;
+  btn.addEventListener('click', () => {
+    const isOpen = item.classList.contains('faq-item--open');
+    // Close all
+    faqItems.forEach(i => i.classList.remove('faq-item--open'));
+    if (!isOpen) item.classList.add('faq-item--open');
+  });
+});
+
+// Phone mockup parallax
+gsap.to('.phone-front', {
+  scrollTrigger: { trigger: '.stat-phones-section', start: 'top bottom', end: 'bottom top', scrub: 0.5 },
+  y: -30,
+});
+gsap.to('.phone-back', {
+  scrollTrigger: { trigger: '.stat-phones-section', start: 'top bottom', end: 'bottom top', scrub: 0.8 },
+  y: -15,
+});
+
+// Stat badge bounce in
+gsap.from('.stat-badge', {
+  scrollTrigger: { trigger: '.stat-phones-section', start: 'top 75%' },
+  scale: 0, rotation: -15,
+  duration: 0.7,
+  delay: 0.3,
+  ease: 'elastic.out(1.2, 0.5)',
+});
+
+// Process steps
+gsap.from('.process-step', {
+  scrollTrigger: { trigger: '.process-steps', start: 'top 80%' },
+  y: 40, opacity: 0,
+  stagger: 0.12,
+  duration: 0.7,
+  ease: 'power3.out',
+});
+
+// Feature items
+gsap.from('.feature-item', {
+  scrollTrigger: { trigger: '.features-grid', start: 'top 80%' },
+  y: 30, opacity: 0,
+  stagger: 0.08,
+  duration: 0.6,
+  ease: 'power2.out',
+});
+</script>

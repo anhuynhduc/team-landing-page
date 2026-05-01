@@ -1,0 +1,199 @@
+---
+// src/pages/blog/[slug].astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTABanner from '../../components/CTABanner.astro';
+
+export function getStaticPaths() {
+  const posts = [
+    {
+      slug: 'table-of-contents-la-gi',
+      title: 'Table of Contents là gì? Hướng dẫn tạo mục lục cho website',
+      date: '27/02/2026', cat: 'SEO', icon: '📝', color: '#e8f4fd', readTime: '5 phút',
+      content: `
+        <h2>Table of Contents là gì?</h2>
+        <p>Table of Contents (TOC) hay còn gọi là mục lục, là một danh sách có cấu trúc liệt kê các đề mục và tiêu đề chính trong một bài viết hoặc trang web. TOC giúp người đọc dễ dàng điều hướng đến phần nội dung họ quan tâm chỉ bằng một cú nhấp chuột.</p>
+        <h2>Tại sao Table of Contents quan trọng với SEO?</h2>
+        <p>Google ưu tiên các trang web có cấu trúc rõ ràng và dễ điều hướng. Khi bạn có TOC, Google có thể hiểu tốt hơn về cấu trúc nội dung của bạn và thậm chí hiển thị các liên kết đề mục ngay trên trang kết quả tìm kiếm (SERP) dưới dạng Jump Links.</p>
+        <h2>Cách tạo Table of Contents cho website</h2>
+        <p>Có nhiều cách để tạo TOC cho website của bạn, từ plugin WordPress đến code thuần CSS/JavaScript. Dưới đây là các phương pháp phổ biến nhất:</p>
+        <ul>
+          <li><strong>Plugin Easy Table of Contents</strong> - Dễ sử dụng cho WordPress</li>
+          <li><strong>Plugin Rank Math SEO</strong> - Tích hợp TOC trong bộ công cụ SEO</li>
+          <li><strong>Code JavaScript thuần</strong> - Linh hoạt và không phụ thuộc plugin</li>
+        </ul>
+        <h2>Kết luận</h2>
+        <p>Table of Contents là công cụ đơn giản nhưng cực kỳ hiệu quả để cải thiện UX và SEO. Hãy bắt đầu thêm TOC vào các bài viết dài của bạn ngay hôm nay!</p>
+      `,
+    },
+    {
+      slug: 'elementor-la-gi',
+      title: 'Elementor là gì? Cách cài đặt và cấu hình cho người mới',
+      date: '20/02/2026', cat: 'Website', icon: '⚙️', color: '#e8f9f7', readTime: '7 phút',
+      content: `
+        <h2>Elementor là gì?</h2>
+        <p>Elementor là một trình xây dựng trang (Page Builder) kéo và thả (drag-and-drop) phổ biến nhất cho WordPress. Với hơn 12 triệu website đang sử dụng, Elementor cho phép bạn tạo ra những trang web đẹp mà không cần kiến thức lập trình.</p>
+        <h2>Ưu điểm của Elementor</h2>
+        <ul>
+          <li>Giao diện kéo thả trực quan</li>
+          <li>Hơn 100+ widget sẵn có</li>
+          <li>Template đa dạng, chuyên nghiệp</li>
+          <li>Responsive design tự động</li>
+          <li>Tích hợp với nhiều plugin khác</li>
+        </ul>
+        <h2>Cách cài đặt Elementor</h2>
+        <p>Việc cài đặt Elementor rất đơn giản. Vào Dashboard WordPress, chọn Plugins > Add New, tìm kiếm "Elementor" và nhấn Install Now, sau đó Activate.</p>
+      `,
+    },
+  ];
+
+  // Generate a default post for all other slugs
+  const defaultPost = {
+    slug: 'default',
+    title: 'Bài viết đang được cập nhật',
+    date: '2026', cat: 'Blog', icon: '📄', color: '#e8f9f7', readTime: '5 phút',
+    content: '<p>Nội dung bài viết đang được biên soạn. Vui lòng quay lại sau!</p>',
+  };
+
+  const allSlugs = [
+    'table-of-contents-la-gi', 'elementor-la-gi', 'google-knowledge-graph-la-gi',
+    'top-cong-ty-seo-viet-nam', 'link-building-la-gi', 'schema-markup-la-gi',
+    'thiet-ke-ux-ui-la-gi', 'astro-framework-la-gi', 'google-analytics-4-huong-dan',
+  ];
+
+  return allSlugs.map(slug => {
+    const post = posts.find(p => p.slug === slug) || { ...defaultPost, slug };
+    return { params: { slug }, props: { post } };
+  });
+}
+
+const { post } = Astro.props;
+
+const related = [
+  { title: 'Google Knowledge Graph là gì?', slug: 'google-knowledge-graph-la-gi', icon: '🔍' },
+  { title: 'Top 10+ công ty SEO Việt Nam', slug: 'top-cong-ty-seo-viet-nam', icon: '📈' },
+  { title: 'Schema Markup từ A đến Z', slug: 'schema-markup-la-gi', icon: '🗂️' },
+];
+---
+
+<BaseLayout title={post.title} description={`${post.title} — Kiến thức từ đội ngũ chuyên gia MIKO TECH.`}>
+  <main>
+
+    <!-- Article Hero -->
+    <div style={`background:${post.color};padding:140px 0 60px;position:relative;overflow:hidden;`}>
+      <div class="container" style="position:relative;z-index:1;">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;flex-wrap:wrap;">
+          <a href="/" style="color:var(--text-mid);font-size:13px;text-decoration:none;">Trang chủ</a>
+          <span style="color:var(--text-light);">/</span>
+          <a href="/blog" style="color:var(--text-mid);font-size:13px;text-decoration:none;">Blog</a>
+          <span style="color:var(--text-light);">/</span>
+          <span style="color:var(--teal);font-size:13px;font-weight:600;">{post.cat}</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;">
+          <div>
+            <span class="service-tag" style="margin-bottom:16px;display:inline-block;">{post.cat}</span>
+            <h1 style="font-size:clamp(24px,4vw,40px);font-weight:900;color:var(--text-dark);line-height:1.3;margin-bottom:16px;">{post.title}</h1>
+            <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+              <span style="font-size:13px;color:var(--text-mid);">📅 {post.date}</span>
+              <span style="font-size:13px;color:var(--text-mid);">⏱️ {post.readTime} đọc</span>
+              <span style="font-size:13px;color:var(--text-mid);">✍️ MIKO TECH</span>
+            </div>
+          </div>
+          <div style="font-size:80px;opacity:0.8;">{post.icon}</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Article Content -->
+    <section style="padding:64px 0;background:white;">
+      <div class="container">
+        <div style="display:grid;grid-template-columns:1fr 320px;gap:48px;align-items:start;">
+
+          <!-- Main Content -->
+          <article class="article-content" style="max-width:100%;">
+            <Fragment set:html={post.content} />
+          </article>
+
+          <!-- Sidebar -->
+          <aside style="position:sticky;top:100px;">
+
+            <!-- Author -->
+            <div class="card" style="padding:24px;margin-bottom:24px;text-align:center;">
+              <div style="width:64px;height:64px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 12px;">👨‍💻</div>
+              <h3 style="font-size:15px;font-weight:700;margin-bottom:4px;">MIKO TECH Team</h3>
+              <p style="font-size:12px;color:var(--text-mid);line-height:1.6;">Đội ngũ chuyên gia với 8+ năm kinh nghiệm thiết kế web và digital marketing.</p>
+            </div>
+
+            <!-- Related Posts -->
+            <div class="card" style="padding:24px;">
+              <h3 style="font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;color:var(--text-dark);">Bài viết liên quan</h3>
+              {related.map(r => (
+                <a href={`/blog/${r.slug}`} style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f5f5f5;text-decoration:none;">
+                  <span style="font-size:24px;">{r.icon}</span>
+                  <span style="font-size:13px;color:var(--text-dark);font-weight:500;line-height:1.5;hover:color:var(--teal);">{r.title}</span>
+                </a>
+              ))}
+            </div>
+
+            <!-- CTA Box -->
+            <div style="background:var(--teal);border-radius:16px;padding:28px;text-align:center;margin-top:24px;">
+              <div style="font-size:32px;margin-bottom:12px;">🚀</div>
+              <h3 style="font-size:16px;font-weight:800;color:white;margin-bottom:8px;">Cần tư vấn website?</h3>
+              <p style="font-size:13px;color:rgba(255,255,255,0.8);margin-bottom:16px;line-height:1.6;">Nhận tư vấn miễn phí từ đội ngũ chuyên gia Miko Tech.</p>
+              <a href="/lien-he" class="btn btn-white" style="width:100%;justify-content:center;font-size:13px;">Liên hệ ngay</a>
+            </div>
+
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <CTABanner />
+  </main>
+</BaseLayout>
+
+<style>
+  .article-content h2 {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin: 36px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--teal-light);
+  }
+  .article-content h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 28px 0 12px;
+  }
+  .article-content p {
+    font-size: 16px;
+    color: var(--text-mid);
+    line-height: 1.9;
+    margin-bottom: 18px;
+  }
+  .article-content ul, .article-content ol {
+    padding-left: 24px;
+    margin-bottom: 18px;
+  }
+  .article-content li {
+    font-size: 15px;
+    color: var(--text-mid);
+    line-height: 1.8;
+    margin-bottom: 8px;
+  }
+  .article-content strong { color: var(--text-dark); font-weight: 700; }
+  .article-content a { color: var(--teal); text-decoration: underline; }
+  .article-content blockquote {
+    border-left: 4px solid var(--teal);
+    padding: 16px 20px;
+    background: var(--teal-pale);
+    border-radius: 0 8px 8px 0;
+    margin: 24px 0;
+    font-style: italic;
+  }
+  @media (max-width: 1024px) {
+    section .container > div { grid-template-columns: 1fr !important; }
+    aside { position: static !important; }
+  }
+</style>

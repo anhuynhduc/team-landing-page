@@ -1,0 +1,66 @@
+---
+// src/components/Navbar.astro
+---
+
+<nav id="navbar">
+  <div class="container" style="display:flex;align-items:center;justify-content:space-between;padding-top:20px;padding-bottom:20px;">
+
+    <!-- LOGO -->
+    <a href="/" class="logo-text" style="display:flex;align-items:center;gap:2px;font-size:22px;font-weight:900;color:white;text-decoration:none;letter-spacing:-0.5px;">
+      MIK
+      <span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;border:2.5px solid currentColor;margin:0 1px;font-size:11px;font-weight:900;">O</span>
+      TECH
+    </a>
+
+    <!-- DESKTOP NAV -->
+    <ul style="display:flex;align-items:center;gap:28px;list-style:none;" class="hidden-mobile">
+      <li><a href="/"                 class="nav-link">Trang chủ</a></li>
+      <li><a href="/gioi-thieu"       class="nav-link">Giới thiệu</a></li>
+      <li><a href="/thiet-ke-website" class="nav-link">Thiết kế website</a></li>
+      <li><a href="/dich-vu"          class="nav-link">Dịch Vụ</a></li>
+      <li><a href="/du-an"            class="nav-link">Dự án</a></li>
+      <li><a href="/tuyen-dung"       class="nav-link">Tuyển dụng</a></li>
+      <li><a href="/blog"             class="nav-link">Blog</a></li>
+      <li><a href="/lien-he"          class="nav-link">Liên hệ</a></li>
+    </ul>
+
+    <div style="display:flex;align-items:center;gap:16px;">
+      <!-- CTA -->
+      <a href="/lien-he" class="btn-nav hidden-mobile">Liên hệ</a>
+      <!-- Hamburger -->
+      <button id="hamburger" class="show-mobile"
+        style="background:none;border:none;cursor:pointer;padding:4px;color:white;">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="6"  x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="mobile-menu">
+  <button id="closeMenu"
+    style="position:absolute;top:24px;right:24px;background:none;border:none;cursor:pointer;font-size:28px;color:#333;">
+    ✕
+  </button>
+  <a href="/"                 class="nav-link">Trang chủ</a>
+  <a href="/gioi-thieu"       class="nav-link">Giới thiệu</a>
+  <a href="/thiet-ke-website" class="nav-link">Thiết kế website</a>
+  <a href="/dich-vu"          class="nav-link">Dịch Vụ</a>
+  <a href="/du-an"            class="nav-link">Dự án</a>
+  <a href="/tuyen-dung"       class="nav-link">Tuyển dụng</a>
+  <a href="/blog"             class="nav-link">Blog</a>
+  <a href="/lien-he"          class="nav-link" style="color:var(--teal);font-weight:800;">Liên hệ</a>
+</div>
+
+<style>
+  @media (max-width: 1024px) {
+    .hidden-mobile { display: none !important; }
+  }
+  @media (min-width: 1025px) {
+    .show-mobile { display: none !important; }
+  }
+</style>

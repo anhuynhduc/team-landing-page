@@ -1,0 +1,513 @@
+---
+const navItems = [
+  { label: 'Trang chủ',        href: '/' },
+  { label: 'Giới thiệu',       href: '/gioi-thieu' },
+  { label: 'Thiết kế website', href: '/dich-vu/thiet-ke-website' },
+  {
+    label: 'Dịch Vụ',
+    href: '/dich-vu',
+    dropdown: [
+      { label: 'Thiết kế Website',      href: '/dich-vu/thiet-ke-website' },
+      { label: 'Dịch vụ SEO Tổng Thể', href: '/dich-vu/seo' },
+      { label: 'Domain – Tên Miền',     href: '/dich-vu/domain' },
+      { label: 'Hosting',               href: '/dich-vu/hosting' },
+      { label: 'Quản trị website',      href: '/dich-vu/quan-tri' },
+      { label: 'Thiết Kế Mobile App',   href: '/dich-vu/mobile-app' },
+    ],
+  },
+  { label: 'Dự án',      href: '/du-an' },
+  { label: 'Tuyển dụng', href: '/tuyen-dung' },
+  { label: 'Blog',        href: '/blog' },
+];
+const currentPath = Astro.url.pathname;
+---
+
+<header id="siteHeader">
+  <nav id="siteNav">
+
+    <!-- Logo -->
+    <a href="/" id="headerLogo" aria-label="Global Tech – Trang chủ">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+        <polygon points="12,2 22,7 22,17 12,22 2,17 2,7"
+          fill="none" stroke="#00B09B" stroke-width="2" stroke-linejoin="round"/>
+        <polygon points="12,6 18,9.5 18,16.5 12,20 6,16.5 6,9.5"
+          fill="#00B09B" opacity="0.25"/>
+      </svg>
+      <span class="hdr-logo-text">GLOBAL <span class="hdr-logo-accent">TECH</span></span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <ul id="desktopNav">
+      {navItems.map((item) => (
+        <li class={item.dropdown ? 'nav-has-drop' : ''}>
+
+          <a
+            href={item.href}
+            class={[
+              'nav-a',
+              currentPath === item.href ? 'nav-a--active' : '',
+              currentPath.startsWith('/dich-vu') && item.label === 'Dịch Vụ' ? 'nav-a--active' : '',
+            ].join(' ')}
+            data-drop-trigger={item.dropdown ? 'true' : undefined}
+          >
+            {item.label}
+            {item.dropdown && (
+              <svg class="nav-chev" width="10" height="7" viewBox="0 0 10 7" fill="none">
+                <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            )}
+          </a>
+
+          {item.dropdown && (
+            <div class="drop-panel">
+              <div class="drop-bridge"></div>
+              <div class="drop-box">
+                {item.dropdown.map((sub) => (
+                  <a href={sub.href} class="drop-link">
+                    <span class="drop-arr">→</span>
+                    {sub.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+
+        </li>
+      ))}
+    </ul>
+
+    <!-- CTA -->
+    <a href="/lien-he" id="headerCta">Liên hệ</a>
+
+    <!-- Hamburger -->
+    <button id="hamburger" aria-label="Mở menu">
+      <span></span><span></span><span></span>
+    </button>
+
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" aria-hidden="true">
+    <div id="mobileInner">
+      {navItems.map(item => (
+        <a href={item.href} class="mob-link">{item.label}</a>
+      ))}
+      <a href="/lien-he" class="mob-cta">Liên hệ ngay →</a>
+    </div>
+  </div>
+</header>
+
+<!-- is:global ensures no Astro scoping conflicts on critical layout CSS -->
+<style is:global>
+/* ─────────────────────────────────────────────────────────────
+   HEADER GLOBAL STYLES
+   All position/display/visibility rules use !important here
+   because they MUST win over any potential cascade conflicts.
+───────────────────────────────────────────────────────────── */
+
+/* Base */
+#siteHeader {
+  position: fixed !important;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: transparent;
+  transition: background 0.32s ease, box-shadow 0.32s ease;
+}
+#siteHeader.hdr-scrolled {
+  background: rgba(255,255,255,0.96) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 2px 24px rgba(0,0,0,0.07);
+}
+
+/* Nav row */
+#siteNav {
+  display: flex !important;
+  align-items: center !important;
+  height: 76px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Logo ── */
+#headerLogo {
+  display: flex !important;
+  align-items: center !important;
+  gap: 9px;
+  flex-shrink: 0;
+  text-decoration: none !important;
+}
+.hdr-logo-text {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 900;
+  font-size: 1.18rem;
+  letter-spacing: 0.08em;
+  color: #1A1A2E;
+  white-space: nowrap;
+  line-height: 1;
+}
+.hdr-logo-accent { color: #00B09B; }
+
+/* ── Desktop Nav list ── */
+#desktopNav {
+  display: flex !important;
+  align-items: center !important;
+  list-style: none !important;
+  margin: 0 0 0 auto !important;
+  padding: 0 !important;
+  gap: 0 !important;
+  /* Ensure nav does not wrap or overflow */
+  flex-wrap: nowrap !important;
+  overflow: visible !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+#desktopNav > li {
+  /* Each li must be relative for absolute dropdown */
+  position: relative !important;
+  list-style: none !important;
+  display: block !important;
+  flex-shrink: 0;
+}
+
+/* Nav link */
+.nav-a {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 5px;
+  padding: 8px 13px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #6B7280 !important;
+  text-decoration: none !important;
+  white-space: nowrap;
+  position: relative;
+  transition: color 0.22s;
+  cursor: pointer;
+}
+/* Underline */
+.nav-a::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 3px;
+  left: 13px;
+  right: 13px;
+  height: 2px;
+  background: #00B09B;
+  border-radius: 1px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.26s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: block !important;
+}
+.nav-a:hover          { color: #1A1A2E !important; }
+.nav-a:hover::after   { transform: scaleX(1) !important; }
+.nav-a--active        { color: #1A1A2E !important; }
+.nav-a--active::after { transform: scaleX(1) !important; }
+
+/* Chevron */
+.nav-chev {
+  display: inline-block !important;
+  flex-shrink: 0;
+  color: #9CA3AF;
+  transition: transform 0.24s, color 0.24s;
+  margin-top: 1px;
+}
+.nav-has-drop.drop-open .nav-chev {
+  transform: rotate(180deg) !important;
+  color: #00B09B !important;
+}
+
+/* ── Dropdown panel ──
+   CRITICAL: position:absolute + visibility:hidden + opacity:0 by default
+   These rules use !important to guarantee they win any cascade conflict.
+*/
+.drop-panel {
+  position: absolute !important;   /* MUST be absolute, never static/relative */
+  display: block !important;        /* stay in DOM */
+  top: 100% !important;
+  left: 50% !important;
+  transform: translateX(-50%) translateY(-10px) !important;
+  width: 248px;
+  /* hidden by default */
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+  z-index: 9999 !important;
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+}
+/* Open state (toggled by JS) */
+.drop-panel.drop-open {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+  transform: translateX(-50%) translateY(0) !important;
+}
+
+/* Invisible bridge to prevent gap between trigger and panel */
+.drop-bridge {
+  display: block !important;
+  height: 10px;
+  background: transparent !important;
+  pointer-events: auto !important;  /* catches mouse during gap */
+}
+
+/* Visible card */
+.drop-box {
+  background: #ffffff !important;
+  border-radius: 14px;
+  box-shadow: 0 16px 52px rgba(0,0,0,0.12), 0 0 0 1px rgba(0,176,155,0.1);
+  padding: 6px;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px;
+}
+.drop-link {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px;
+  padding: 10px 12px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: #1A1A2E !important;
+  text-decoration: none !important;
+  border-radius: 9px;
+  transition: background 0.16s, color 0.16s, padding-left 0.2s;
+}
+.drop-link:hover {
+  background: rgba(0,176,155,0.08) !important;
+  color: #00B09B !important;
+  padding-left: 18px;
+}
+.drop-arr {
+  font-size: 0.7rem;
+  color: #00B09B;
+  opacity: 0;
+  transition: opacity 0.16s;
+  flex-shrink: 0;
+}
+.drop-link:hover .drop-arr { opacity: 1 !important; }
+
+/* ── Header CTA ── */
+#headerCta {
+  display: flex !important;
+  align-items: center;
+  flex-shrink: 0;
+  margin-left: 14px;
+  padding: 10px 22px;
+  background: #00B09B !important;
+  color: #fff !important;
+  border-radius: 999px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-decoration: none !important;
+  white-space: nowrap;
+  transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+}
+#headerCta:hover {
+  background: #007A6E !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,176,155,0.3);
+}
+#headerCta::after { display: none !important; }
+
+/* ── Hamburger ── */
+#hamburger {
+  display: none !important;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 40px; height: 40px;
+  background: none !important;
+  border: none !important;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: auto;
+}
+#hamburger span {
+  display: block;
+  width: 22px; height: 2px;
+  background: #1A1A2E;
+  border-radius: 2px;
+  transition: transform 0.28s, opacity 0.28s;
+}
+#hamburger.hbg-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+#hamburger.hbg-open span:nth-child(2) { opacity: 0; }
+#hamburger.hbg-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── Mobile Menu ──
+   ALWAYS hidden at desktop using both display:none AND max-height:0
+   The @media rules below carefully control when each is shown.
+*/
+#mobileMenu {
+  overflow: hidden !important;
+  max-height: 0;
+  transition: max-height 0.4s ease;
+  background: #fff;
+  border-top: 1px solid rgba(0,176,155,0.1);
+}
+#mobileMenu.mob-open { max-height: 540px !important; }
+
+#mobileInner {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 24px 28px;
+  gap: 2px;
+}
+.mob-link {
+  display: block !important;
+  padding: 12px 8px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #1A1A2E !important;
+  text-decoration: none !important;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  transition: color 0.2s, padding-left 0.2s;
+}
+.mob-link:hover { color: #00B09B !important; padding-left: 14px; }
+.mob-cta {
+  display: inline-flex !important;
+  align-items: center;
+  margin-top: 16px;
+  padding: 12px 26px;
+  background: #00B09B !important;
+  color: #fff !important;
+  border-radius: 999px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  text-decoration: none !important;
+  align-self: flex-start;
+  transition: background 0.25s;
+}
+.mob-cta:hover { background: #007A6E !important; }
+
+/* ────────────────────────────
+   RESPONSIVE
+──────────────────────────── */
+@media (min-width: 1101px) {
+  /* Desktop: show nav, hide hamburger + mobile menu */
+  #desktopNav  { display: flex !important; }
+  #headerCta   { display: flex !important; }
+  #hamburger   { display: none !important; }
+  #mobileMenu  { display: none !important; max-height: 0 !important; }
+}
+@media (max-width: 1100px) {
+  /* Mobile: hide desktop nav, show hamburger */
+  #desktopNav  { display: none !important; }
+  #headerCta   { display: none !important; }
+  #hamburger   { display: flex !important; }
+  /* Mobile menu starts collapsed; JS toggles mob-open class */
+  #mobileMenu  { display: block !important; }
+}
+@media (max-width: 480px) {
+  /* Extra small screens */
+  #siteNav { padding: 0 16px; }
+  .hdr-logo-text { font-size: 1rem; }
+  #mobileInner { padding: 12px 16px 20px; }
+  .mob-link { padding: 10px 6px; font-size: 0.9rem; }
+}
+</style>
+
+<script>
+import { gsap } from 'gsap';
+
+if (!window.__headerInitialized) {
+  window.__headerInitialized = true;
+
+  const header    = document.getElementById('siteHeader')!;
+  const hamburger = document.getElementById('hamburger')!;
+  const mobileMenu= document.getElementById('mobileMenu')!;
+
+  // ── Scroll behavior ──
+  let lastY = 0;
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    header.classList.toggle('hdr-scrolled', y > 20);
+    if (y > lastY && y > 100) {
+      gsap.to(header, { y: -82, duration: 0.28, ease: 'power2.in', overwrite: 'auto' });
+    } else {
+      gsap.to(header, { y: 0,   duration: 0.28, ease: 'power2.out', overwrite: 'auto' });
+    }
+    lastY = y;
+  }, { passive: true });
+
+  // ── Header entrance ──
+  gsap.from(header, { y: -80, opacity: 0, duration: 0.7, ease: 'power3.out', delay: 0.15 });
+
+  // ── Hamburger toggle ──
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('hbg-open');
+    mobileMenu.classList.toggle('mob-open');
+    mobileMenu.setAttribute('aria-hidden',
+      mobileMenu.classList.contains('mob-open') ? 'false' : 'true'
+    );
+  });
+
+  // ── JS-driven Dropdown ──
+  const dropHosts = document.querySelectorAll<HTMLElement>('.nav-has-drop');
+
+  dropHosts.forEach((host) => {
+    const panel = host.querySelector<HTMLElement>('.drop-panel')!;
+    if (!panel) return;
+
+    let leaveTimer: ReturnType<typeof setTimeout> | null = null;
+
+    const open = () => {
+      if (leaveTimer) { clearTimeout(leaveTimer); leaveTimer = null; }
+      dropHosts.forEach(h => {
+        if (h !== host) {
+          h.querySelector('.drop-panel')?.classList.remove('drop-open');
+          h.classList.remove('drop-open');
+        }
+      });
+      host.classList.add('drop-open');
+      panel.classList.add('drop-open');
+    };
+
+    const close = (delay = 130) => {
+      leaveTimer = setTimeout(() => {
+        host.classList.remove('drop-open');
+        panel.classList.remove('drop-open');
+      }, delay);
+    };
+
+    host.addEventListener('mouseenter', open);
+    host.addEventListener('mouseleave', () => close());
+    panel.addEventListener('mouseenter', () => {
+      if (leaveTimer) { clearTimeout(leaveTimer); leaveTimer = null; }
+    });
+    panel.addEventListener('mouseleave', () => close());
+  });
+
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    if (!target.closest('.nav-has-drop')) {
+      dropHosts.forEach(h => {
+        h.querySelector('.drop-panel')?.classList.remove('drop-open');
+        h.classList.remove('drop-open');
+      });
+    }
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    dropHosts.forEach(h => {
+      h.querySelector('.drop-panel')?.classList.remove('drop-open');
+      h.classList.remove('drop-open');
+    });
+    hamburger.classList.remove('hbg-open');
+    mobileMenu.classList.remove('mob-open');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+  });
+}
+</script>

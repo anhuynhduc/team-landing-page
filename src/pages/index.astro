@@ -1,11 +1,744 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const projects = [
+  {
+    title: 'VNG Cloud Platform',
+    cat: 'Điện toán đám mây',
+    desc: 'Website 3D đặc sắc, đăng ký mua trực tuyến, tích hợp dashboard quản trị',
+    color: '#0F2027',
+    accent: '#00B09B',
+    tag: 'Cloud & Hosting',
+    img: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80&fit=crop',
+  },
+  {
+    title: 'Organic Farm Store',
+    cat: 'Thương mại điện tử',
+    desc: 'Giao diện organic, sản phẩm nổi bật, giỏ hàng thông minh & thanh toán online',
+    color: '#1B4332',
+    accent: '#52B788',
+    tag: 'E-Commerce',
+    img: 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&q=80&fit=crop',
+  },
+  {
+    title: 'Catapult Coin',
+    cat: 'Tài chính & Blockchain',
+    desc: 'Nền tảng đầu tư tiền điện tử, dashboard realtime, bảo mật đa lớp',
+    color: '#1C1C3A',
+    accent: '#6C63FF',
+    tag: 'Blockchain',
+    img: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=600&q=80&fit=crop',
+  },
+  {
+    title: 'Luxe Beauty Spa',
+    cat: 'Làm đẹp & Wellness',
+    desc: 'Thiết kế sang trọng, tone pastel, đặt lịch online tích hợp CRM khách hàng',
+    color: '#4A1942',
+    accent: '#F9A8D4',
+    tag: 'Beauty & Spa',
+    img: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80&fit=crop',
+  },
+];
+
+const services = [
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>`,
+    title: 'Thiết Kế Website',
+    desc: 'Giao diện chuẩn UX/UI, responsive hoàn hảo trên mọi thiết bị, tốc độ tải trang vượt trội và thân thiện với Google.',
+    href: '/dich-vu/thiet-ke-website',
+  },
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>`,
+    title: 'Dịch Vụ SEO',
+    desc: 'Tối ưu từ khóa chiến lược, xây dựng backlink chất lượng, đưa website lên top Google bền vững và tăng trưởng organic.',
+    href: '/dich-vu/seo',
+  },
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>`,
+    title: 'Mobile App',
+    desc: 'Phát triển ứng dụng iOS & Android với trải nghiệm người dùng vượt trội, hiệu năng cao và dễ maintain.',
+    href: '/dich-vu/mobile-app',
+  },
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>`,
+    title: 'Digital Marketing',
+    desc: 'Chiến lược quảng cáo đa kênh: Google Ads, Facebook Ads, TikTok Ads — đúng tệp khách hàng, tối ưu ROI liên tục.',
+    href: '/dich-vu',
+  },
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+    title: 'Hosting & Bảo Mật',
+    desc: 'Hosting tốc độ cao NVMe SSD, CDN toàn cầu, SSL miễn phí, backup tự động, uptime 99.99% đảm bảo.',
+    href: '/dich-vu',
+  },
+  {
+    icon: `<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`,
+    title: 'Quản Trị & Bảo Trì',
+    desc: 'Theo dõi hiệu suất 24/7, cập nhật nội dung, backup định kỳ và tối ưu hóa website liên tục sau bàn giao.',
+    href: '/dich-vu',
+  },
+];
+
+const stats = [
+  { number: 850, suffix: '+', label: 'Dự án hoàn thành' },
+  { number: 12,  suffix: ' năm', label: 'Kinh nghiệm thực chiến' },
+  { number: 620, suffix: '+', label: 'Khách hàng tin tưởng' },
+  { number: 98,  suffix: '%', label: 'Tỷ lệ hài lòng' },
+];
+
+const techs = [
+  'React', 'Next.js', 'Vue.js', 'Node.js', 'WordPress', 'Laravel',
+  'AWS Cloud', 'Docker', 'Shopify', 'Firebase', 'TypeScript', 'Figma',
+];
+
+const processes = [
+  {
+    step: '01',
+    title: 'Tư Vấn & Phân Tích',
+    desc: 'Lắng nghe mục tiêu kinh doanh, phân tích đối thủ và đề xuất giải pháp phù hợp nhất.',
+    icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`,
+  },
+  {
+    step: '02',
+    title: 'Thiết Kế UI/UX',
+    desc: 'Wireframe, prototype và thiết kế giao diện theo thương hiệu, đảm bảo trải nghiệm người dùng tối ưu.',
+    icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>`,
+  },
+  {
+    step: '03',
+    title: 'Phát Triển & Testing',
+    desc: 'Lập trình với công nghệ hiện đại, kiểm thử toàn diện trên mọi thiết bị và trình duyệt.',
+    icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>`,
+  },
+  {
+    step: '04',
+    title: 'Ra Mắt & Hỗ Trợ',
+    desc: 'Deploy production, training nhân viên và hỗ trợ kỹ thuật 24/7 trong suốt quá trình vận hành.',
+    icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`,
+  },
+];
+
+const testimonials = [
+  {
+    name: 'Nguyễn Anh Tiến',
+    role: 'CEO, Công ty TNHH Phú Mỹ Giàu Đẹp',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=120&q=80&fit=crop&crop=face',
+    content: 'PMGĐ muốn xây dựng kênh rao vặt bất động sản trung gian. Global Tech đã hiểu ngay yêu cầu và triển khai website với đầy đủ tính năng vượt trội trong thời gian ngắn. Hiệu quả vượt ngoài mong đợi của chúng tôi.',
+    project: 'Website BĐS trung gian',
+    stars: 5,
+  },
+  {
+    name: 'Trần Văn Thành',
+    role: 'Tổng Giám Đốc, RINO Super App',
+    avatar: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=120&q=80&fit=crop&crop=face',
+    content: 'RINO cần một website chuyên nghiệp để giới thiệu ứng dụng giao hàng. Nhờ Global Tech, lượt tải app tăng trưởng 3x chỉ sau 2 tháng ra mắt. Giao diện đẹp tạo ấn tượng mạnh với đối tác và nhà đầu tư.',
+    project: 'Website giới thiệu app RINO',
+    stars: 5,
+  },
+  {
+    name: 'Lê Thanh Mai',
+    role: 'Founder, MINIGA Boutique',
+    avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=120&q=80&fit=crop&crop=face',
+    content: 'Sau đại dịch tôi quyết định chuyển sang bán hàng online. Global Tech đã xây dựng website thương mại điện tử ấn tượng, khác biệt so với đối thủ. Doanh thu tăng 40% chỉ sau 3 tháng nhờ kênh online.',
+    project: 'E-commerce MINIGA',
+    stars: 5,
+  },
+  {
+    name: 'Phạm Minh Khoa',
+    role: 'Giám Đốc, Phong Thủy Tâm An',
+    avatar: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=120&q=80&fit=crop&crop=face',
+    content: 'Đội ngũ đã hiểu được tư tưởng và triết lý thương hiệu của chúng tôi, tạo ra website không chỉ đẹp về giao diện mà còn truyền tải được tinh thần của ngành phong thủy. Khách hàng rất ấn tượng.',
+    project: 'Website Phong Thủy Tâm An',
+    stars: 5,
+  },
+];
+
+const blogs = [
+  {
+    date: '27/04/2026',
+    cat: 'SEO & Content',
+    title: 'Table of Contents là gì? Hướng dẫn tạo mục lục chuẩn SEO cho website',
+    excerpt: 'Các bài viết dài cần Table of Contents để cải thiện UX và tăng điểm E-E-A-T với Google. Hướng dẫn chi tiết cách triển khai hiệu quả nhất hiện nay.',
+    img: 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=600&q=80&fit=crop',
+  },
+  {
+    date: '20/04/2026',
+    cat: 'Thiết kế Web',
+    title: 'Elementor Pro vs Bricks Builder: So sánh toàn diện 2026',
+    excerpt: 'Hai page builder hàng đầu WordPress đang cạnh tranh rất gay gắt. Phân tích chi tiết hiệu suất, tính năng và khả năng SEO để bạn chọn đúng công cụ.',
+    img: 'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&q=80&fit=crop',
+  },
+  {
+    date: '15/04/2026',
+    cat: 'Digital Marketing',
+    title: 'Google Knowledge Graph 2026: Cách tối ưu Entity SEO hiệu quả',
+    excerpt: 'Knowledge Graph của Google ngày càng quan trọng trong kỷ nguyên AI Search. Chiến lược Entity SEO giúp thương hiệu xuất hiện nổi bật trên SERP.',
+    img: 'https://images.unsplash.com/photo-1432888622747-4eb9a8f5a07d?w=600&q=80&fit=crop',
+  },
+];
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout title="Global Tech – Thiết Kế Website & Giải Pháp Marketing Số Chuyên Nghiệp">
+
+  <!-- HERO -->
+  <section class="hero">
+    <canvas id="heroCanvas"></canvas>
+    <div class="hero-bg-shape"></div>
+    <div class="hero-bg-dots"></div>
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <div class="hero-label"><span class="label">Giải Pháp Số Toàn Diện</span></div>
+        <h1 class="hero-title">
+          <span class="hero-title-line clip-word"><span>Thiết Kế</span></span>
+          <span class="hero-title-line clip-word"><span>Website &</span></span>
+          <span class="hero-title-line clip-word hero-title-accent"><span>Marketing</span></span>
+          <span class="hero-title-line clip-word hero-title-accent"><span>Toàn Diện</span></span>
+        </h1>
+        <p class="hero-desc">Hơn 850 dự án đã hoàn thành, Global Tech là đối tác tin cậy giúp doanh nghiệp xây dựng hình ảnh số mạnh mẽ — từ thiết kế website, SEO đến chiến lược marketing đa kênh.</p>
+        <div class="hero-actions">
+          <a href="/dich-vu" class="btn-primary hero-cta magnetic">Khám phá dịch vụ <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+          <a href="/lien-he" class="btn-outline magnetic">Tư vấn miễn phí</a>
+        </div>
+        <div class="hero-trust">
+          <div class="trust-item"><span class="trust-icon">✅</span><span>Cam kết chất lượng</span></div>
+          <div class="trust-item"><span class="trust-icon">⚡</span><span>Bàn giao đúng hạn</span></div>
+          <div class="trust-item"><span class="trust-icon">🔒</span><span>Bảo hành 12 tháng</span></div>
+        </div>
+      </div>
+      <div class="hero-grid">
+        {projects.map((p, i) => (
+          <a href="/du-an" class="project-card" style={`--card-color: ${p.color}; --card-accent: ${p.accent};`}>
+            <div class="project-card-inner">
+              <div class="project-img-wrap">
+                <img src={p.img} alt={p.title} loading={i < 2 ? "eager" : "lazy"} />
+                <div class="project-img-overlay">
+                  <span class="project-tag" style={`background:${p.accent}33; color:${p.accent}`}>{p.tag}</span>
+                </div>
+              </div>
+              <div class="project-info">
+                <h3 class="project-title">{p.title}</h3>
+                <p class="project-desc">{p.desc}</p>
+              </div>
+              <div class="project-hover-overlay"><span>Xem dự án →</span></div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+    <div class="hero-scroll-hint"><div class="scroll-ball"></div></div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats-section">
+    <div class="stats-inner">
+      {stats.map((s) => (
+        <div class="stat-item">
+          <span class="stat-number" data-counter={s.number} data-suffix={s.suffix}>{s.number}{s.suffix}</span>
+          <p class="stat-label">{s.label}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- TECH MARQUEE -->
+  <div class="marquee-section">
+    <div class="marquee-label"><span class="label">Công nghệ chúng tôi sử dụng</span></div>
+    <div class="marquee-wrapper">
+      <div class="marquee-track">
+        <div class="marquee-set">
+          {techs.map(t => (
+            <span class="tech-pill"><span class="tech-pill-dot"></span>{t}</span>
+          ))}
+        </div>
+        <div class="marquee-set" aria-hidden="true">
+          {techs.map(t => (
+            <span class="tech-pill"><span class="tech-pill-dot"></span>{t}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="label anim-fade-up">Những Gì Chúng Tôi Làm</span>
+        <h2 class="section-title anim-fade-up" style="margin-top:12px">Giải Pháp Dịch Vụ<br><span class="text-teal">Toàn Diện</span></h2>
+        <p class="section-desc anim-fade-up" style="margin:20px auto 0">Đầy đủ các dịch vụ công nghệ và marketing — từ một điểm đến, bạn nhận được toàn bộ hệ sinh thái số cần thiết để phát triển bền vững.</p>
+      </div>
+      <div class="services-grid-6">
+        {services.map((svc) => (
+          <a href={svc.href} class="service-card-pro">
+            <div class="svc-icon-wrap"><Fragment set:html={svc.icon} /></div>
+            <h3 class="service-title">{svc.title}</h3>
+            <p class="service-desc">{svc.desc}</p>
+            <span class="service-cta">Xem chi tiết <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            <div class="svc-border-bottom"></div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section process-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="label anim-fade-up">Quy Trình Làm Việc</span>
+        <h2 class="section-title anim-fade-up" style="margin-top:12px">4 Bước Đến<br><span class="text-teal">Thành Công</span></h2>
+        <p class="section-desc anim-fade-up" style="margin:20px auto 0">Quy trình chuẩn hóa giúp đảm bảo mỗi dự án được triển khai đúng tiến độ, đúng chất lượng và đúng mục tiêu kinh doanh.</p>
+      </div>
+      <div class="process-grid">
+        {processes.map((p, i) => (
+          <div class="process-step">
+            <div class="process-num"><Fragment set:html={p.icon} /></div>
+            <h3 class="process-title">{p.title}</h3>
+            <p class="process-desc">{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT TEASER -->
+  <section class="section about-teaser">
+    <div class="container about-teaser-inner">
+      <div class="about-teaser-text">
+        <span class="label anim-fade-up">Về Chúng Tôi</span>
+        <h2 class="section-title anim-fade-up" style="margin-top:12px">Đội Ngũ Chiến Binh<br><span class="text-teal">Công Nghệ</span></h2>
+        <p class="section-desc anim-fade-up" style="margin-top:20px">Hơn 12 năm đồng hành cùng hàng trăm doanh nghiệp — từ startup đến tập đoàn — chúng tôi không chỉ xây dựng website mà kiến tạo cả một hệ sinh thái số giúp thương hiệu bứt phá.</p>
+        <div class="value-pills anim-fade-up">
+          {["🎯 Sáng Tạo", "💡 12 Năm KN", "🤝 Thấu Hiểu", "🌐 Đa Nền Tảng"].map(v => (
+            <span class="value-pill">{v}</span>
+          ))}
+        </div>
+        <div class="about-mini-stats anim-fade-up">
+          <div class="ams-item"><span class="ams-number">850+</span><span class="ams-label">Dự án</span></div>
+          <div class="ams-divider"></div>
+          <div class="ams-item"><span class="ams-number">620+</span><span class="ams-label">Khách hàng</span></div>
+          <div class="ams-divider"></div>
+          <div class="ams-item"><span class="ams-number">98%</span><span class="ams-label">Hài lòng</span></div>
+        </div>
+        <a href="/gioi-thieu" class="btn-primary anim-fade-up magnetic" style="margin-top:32px">Tìm hiểu về chúng tôi</a>
+      </div>
+      <div class="about-teaser-visual anim-scale">
+        <div class="about-img-wrap">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80&fit=crop" alt="Đội ngũ Global Tech" class="about-team-img" loading="lazy" />
+          <div class="float-card float-card--1">
+            <div class="fc-icon">🚀</div>
+            <div class="fc-content">
+              <div class="fc-title">Dự án mới</div>
+              <div class="fc-sub">VNG Cloud Platform</div>
+            </div>
+          </div>
+          <div class="float-card float-card--2">
+            <div class="fc-stat"><span class="fc-number">4.9</span><div class="fc-stars">★★★★★</div></div>
+            <div class="fc-rating-label">Đánh giá từ khách hàng</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section class="section portfolio-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="label anim-fade-up">Dự Án Nổi Bật</span>
+        <h2 class="section-title anim-fade-up" style="margin-top:12px">Những Công Trình<br><span class="text-teal">Chúng Tôi Tự Hào</span></h2>
+        <p class="section-desc anim-fade-up" style="margin:16px auto 0">Mỗi dự án là một hành trình sáng tạo — từ ý tưởng đến sản phẩm hoàn chỉnh đã tạo nên giá trị thực sự cho doanh nghiệp.</p>
+      </div>
+      <div class="portfolio-grid">
+        {projects.map((p) => (
+          <a href="/du-an" class="portfolio-item" style={`--pa:${p.accent}; --pc:${p.color}`}>
+            <div class="port-img-wrap">
+              <img src={p.img} alt={p.title} loading="lazy" />
+              <div class="portfolio-overlay"><span>Xem chi tiết →</span></div>
+            </div>
+            <div class="portfolio-meta">
+              <span class="portfolio-cat">{p.cat}</span>
+              <h3 class="portfolio-title">{p.title}</h3>
+              <p class="portfolio-desc-sm">{p.desc}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+      <div class="text-center" style="margin-top:48px">
+        <a href="/du-an" class="btn-outline anim-fade-up magnetic">Xem tất cả dự án</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section testi-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="label anim-fade-up">Khách Hàng Nói Gì</span>
+        <h2 class="section-title anim-fade-up" style="margin-top:12px">Niềm Tin Từ<br><span class="text-teal">Đối Tác</span></h2>
+        <p class="section-desc anim-fade-up" style="margin:16px auto 0">Hơn 620 doanh nghiệp đã lựa chọn chúng tôi. Đây là những gì họ chia sẻ sau khi hợp tác.</p>
+      </div>
+      <div class="testi-grid">
+        {testimonials.map((t) => (
+          <div class="testi-card anim-fade-up">
+            <div class="testi-stars">{Array(t.stars).fill(0).map(() => <span>★</span>)}</div>
+            <p class="testi-text">"{t.content}"</p>
+            <div class="testi-author">
+              <img src={t.avatar} alt={t.name} class="testi-avatar" loading="lazy" />
+              <div>
+                <div class="testi-name">{t.name}</div>
+                <div class="testi-role">{t.role}</div>
+                <span class="testi-tag">{t.project}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG -->
+  <section class="section blog-section" style="background:var(--white)">
+    <div class="container">
+      <div class="section-header" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px">
+        <div>
+          <span class="label anim-fade-up">Kiến Thức & Xu Hướng</span>
+          <h2 class="section-title anim-fade-up" style="margin-top:12px">Bài Viết Mới Nhất</h2>
+          <p class="section-desc anim-fade-up" style="margin-top:12px">Cập nhật xu hướng công nghệ và kiến thức SEO mới nhất từ đội ngũ chuyên gia.</p>
+        </div>
+        <a href="/blog" class="btn-outline anim-fade-up">Xem tất cả →</a>
+      </div>
+      <div class="blog-grid">
+        {blogs.map((b) => (
+          <article class="blog-card card">
+            <div class="blog-card-img-real">
+              <img src={b.img} alt={b.title} loading="lazy" />
+              <span class="blog-cat-tag">{b.cat}</span>
+            </div>
+            <div class="blog-card-body">
+              <span class="blog-date">{b.date}</span>
+              <h3 class="blog-title">{b.title}</h3>
+              <p class="blog-excerpt">{b.excerpt}</p>
+              <a href="/blog" class="blog-read-more">Đọc tiếp →</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <div class="cta-bg-anim">
+      <div class="cta-blob cta-blob--1"></div>
+      <div class="cta-blob cta-blob--2"></div>
+    </div>
+    <div class="container cta-inner">
+      <div class="cta-text">
+        <h2 class="cta-title">Sẵn sàng đưa thương hiệu<br>lên tầm cao mới?</h2>
+        <p class="cta-desc">Đội ngũ chuyên gia của chúng tôi sẵn sàng tư vấn miễn phí — không ràng buộc, không cam kết.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="/lien-he" class="btn-white cta-btn magnetic">Liên hệ ngay <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        <a href="tel:0909326456" class="cta-phone-link">📞 0909 326 456</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+/* HERO */
+.hero { min-height:100vh; padding:calc(var(--header-h) + 48px) 0 80px; position:relative; overflow:hidden; display:flex; flex-direction:column; justify-content:center; }
+#heroCanvas { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:0; }
+.hero-bg-shape { position:absolute; top:-20%; right:-10%; width:60%; height:130%; background:linear-gradient(135deg,#00B09B18,#4ECDC420,transparent 70%); border-radius:40% 60% 60% 40%/40% 50% 50% 60%; pointer-events:none; }
+.hero-bg-dots { position:absolute; inset:0; background-image:radial-gradient(circle,#00B09B18 1.5px,transparent 1.5px); background-size:36px 36px; pointer-events:none; mask-image:radial-gradient(ellipse at 80% 50%,black 30%,transparent 70%); }
+.hero-inner { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; position:relative; z-index:1; }
+.hero-label { margin-bottom:20px; }
+.hero-title { font-size:clamp(2.5rem,5vw,4rem); font-weight:900; line-height:1.05; text-transform:uppercase; letter-spacing:.01em; }
+.hero-title-line { display:block; overflow:hidden; }
+.hero-title-line > span { display:block; }
+.hero-title-accent > span { color:var(--primary); }
+.hero-desc { margin-top:24px; font-size:1rem; color:var(--text-muted); line-height:1.75; max-width:460px; }
+.hero-actions { display:flex; gap:16px; margin-top:36px; flex-wrap:wrap; }
+.hero-cta { font-size:1rem; padding:16px 36px; }
+.hero-trust { display:flex; gap:24px; margin-top:32px; flex-wrap:wrap; }
+.trust-item { display:flex; align-items:center; gap:8px; font-size:.82rem; font-family:var(--font-heading); font-weight:600; color:var(--text-muted); }
+
+/* Hero grid */
+.hero-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.project-card { border-radius:var(--radius-md); overflow:hidden; background:var(--white); box-shadow:var(--shadow-sm); transition:transform .4s var(--transition),box-shadow .4s var(--transition); position:relative; display:block; }
+.project-card:hover { transform:translateY(-10px) scale(1.02); box-shadow:0 20px 50px rgba(0,0,0,.12); }
+.project-card-inner { height:100%; display:flex; flex-direction:column; }
+.project-img-wrap { height:130px; overflow:hidden; position:relative; }
+.project-img-wrap img { width:100%; height:100%; object-fit:cover; transition:transform .5s var(--transition); }
+.project-card:hover .project-img-wrap img { transform:scale(1.1); }
+.project-img-overlay { position:absolute; bottom:8px; left:8px; }
+.project-info { padding:12px 14px; flex:1; }
+.project-tag { display:inline-block; font-size:.65rem; font-weight:700; padding:3px 8px; border-radius:var(--radius-pill); font-family:var(--font-heading); letter-spacing:.05em; text-transform:uppercase; }
+.project-title { font-size:.9rem; font-weight:800; margin-bottom:4px; margin-top:6px; }
+.project-desc { font-size:.72rem; color:var(--text-muted); line-height:1.5; }
+.project-hover-overlay { position:absolute; inset:0; background:linear-gradient(135deg,rgba(0,176,155,.92),rgba(78,205,196,.92)); display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .35s; border-radius:var(--radius-md); }
+.project-hover-overlay span { color:#fff; font-family:var(--font-heading); font-weight:700; font-size:1rem; }
+.project-card:hover .project-hover-overlay { opacity:1; }
+
+/* Scroll hint */
+.hero-scroll-hint { position:absolute; bottom:30px; left:50%; transform:translateX(-50%); width:28px; height:46px; border:2px solid rgba(0,176,155,.3); border-radius:14px; display:flex; justify-content:center; padding-top:6px; z-index:1; }
+.scroll-ball { width:6px; height:6px; background:var(--primary); border-radius:50%; animation:scrollBall 2s ease-in-out infinite; }
+@keyframes scrollBall { 0%{transform:translateY(0);opacity:1} 80%{transform:translateY(18px);opacity:0} 100%{transform:translateY(0);opacity:0} }
+
+/* STATS */
+.stats-section { background:linear-gradient(135deg,var(--primary),var(--primary-light) 60%,#96C93D); padding:0; }
+.stats-inner { max-width:1200px; margin:0 auto; padding:56px 24px; display:grid; grid-template-columns:repeat(4,1fr); }
+.stat-item { text-align:center; padding:20px; border-right:1px solid rgba(255,255,255,.2); }
+.stat-item:last-child { border-right:none; }
+.stat-number { display:block; font-family:var(--font-heading); font-weight:900; font-size:clamp(2.5rem,5vw,3.5rem); color:#fff; line-height:1; }
+.stat-label { margin-top:10px; font-size:.85rem; color:rgba(255,255,255,.8); font-family:var(--font-heading); font-weight:500; }
+
+/* MARQUEE SECTION */
+.marquee-section { padding:40px 0; background:var(--bg); }
+.marquee-label { text-align:center; margin-bottom:20px; }
+
+/* SERVICES 6 grid */
+.services-grid-6 { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:56px; }
+.service-card-pro { background:var(--white); border-radius:var(--radius-md); padding:36px 28px; position:relative; overflow:hidden; transition:transform .35s var(--transition),box-shadow .35s var(--transition); display:flex; flex-direction:column; gap:12px; box-shadow:var(--shadow-sm); }
+.service-card-pro:hover { transform:translateY(-10px); box-shadow:var(--shadow-lg); }
+.service-card-pro:hover .svc-border-bottom { bottom:0; }
+.svc-border-bottom { position:absolute; left:0; right:0; bottom:-4px; height:4px; background:linear-gradient(90deg,var(--primary),var(--primary-light)); transition:bottom .35s; }
+.svc-icon-wrap { width:60px; height:60px; background:var(--primary-glow); border-radius:var(--radius-sm); display:flex; align-items:center; justify-content:center; color:var(--primary); transition:background .3s,transform .3s; flex-shrink:0; }
+.service-card-pro:hover .svc-icon-wrap { background:var(--primary); color:#fff; transform:rotate(-5deg) scale(1.1); }
+.service-title { font-size:1.05rem; font-weight:800; line-height:1.2; }
+.service-desc { font-size:.875rem; color:var(--text-muted); line-height:1.65; flex:1; }
+.service-cta { display:flex; align-items:center; gap:6px; color:var(--primary); font-family:var(--font-heading); font-weight:700; font-size:.85rem; margin-top:8px; transition:gap .2s; }
+.service-card-pro:hover .service-cta { gap:10px; }
+
+/* PROCESS */
+.process-section { background:var(--bg); }
+.process-num { background:linear-gradient(135deg,var(--primary),var(--primary-light)); color:white; }
+
+/* ABOUT */
+.about-teaser { background:var(--white); }
+.about-teaser-inner { display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+.value-pills { display:flex; flex-wrap:wrap; gap:10px; margin-top:28px; }
+.value-pill { display:inline-flex; align-items:center; gap:6px; padding:8px 18px; background:var(--bg); border:2px solid var(--border); border-radius:var(--radius-pill); font-family:var(--font-heading); font-weight:700; font-size:.82rem; color:var(--text); transition:background .3s,border-color .3s,color .3s; }
+.value-pill:hover { background:var(--primary); border-color:var(--primary); color:#fff; }
+.about-mini-stats { display:flex; align-items:center; gap:24px; margin-top:28px; padding:24px; background:var(--bg); border-radius:var(--radius-md); }
+.ams-item { text-align:center; }
+.ams-number { display:block; font-family:var(--font-heading); font-weight:900; font-size:1.8rem; color:var(--primary); line-height:1; }
+.ams-label { font-size:.75rem; color:var(--text-muted); margin-top:4px; }
+.ams-divider { width:1px; height:40px; background:var(--border); }
+.about-teaser-visual { position:relative; }
+.about-img-wrap { position:relative; border-radius:var(--radius-lg); overflow:visible; }
+.about-team-img { width:100%; border-radius:var(--radius-lg); aspect-ratio:4/3; object-fit:cover; box-shadow:var(--shadow-lg); }
+.float-card { position:absolute; background:white; border-radius:var(--radius-md); padding:14px 18px; box-shadow:0 12px 40px rgba(0,0,0,.15); display:flex; align-items:center; gap:12px; }
+.float-card--1 { bottom:-20px; left:-20px; animation:floatCard 4s ease-in-out infinite; }
+.float-card--2 { top:-20px; right:-20px; flex-direction:column; align-items:flex-start; animation:floatCard 4s ease-in-out infinite 1.5s; }
+@keyframes floatCard { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+.fc-icon { font-size:1.5rem; }
+.fc-title { font-family:var(--font-heading); font-weight:800; font-size:.85rem; }
+.fc-sub { font-size:.72rem; color:var(--text-muted); }
+.fc-number { font-family:var(--font-heading); font-weight:900; font-size:2rem; color:var(--primary); line-height:1; }
+.fc-stars { color:#F59E0B; font-size:.7rem; }
+.fc-stat { display:flex; align-items:center; gap:8px; }
+.fc-rating-label { font-size:.72rem; color:var(--text-muted); }
+
+/* PORTFOLIO */
+.portfolio-section { background:var(--bg); }
+.portfolio-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:56px; }
+.portfolio-item { border-radius:var(--radius-md); overflow:hidden; box-shadow:var(--shadow-sm); transition:transform .35s var(--transition),box-shadow .35s var(--transition); }
+.portfolio-item:hover { transform:translateY(-6px); box-shadow:var(--shadow-md); }
+.portfolio-meta { background:var(--white); padding:16px; }
+.portfolio-cat { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--primary); font-family:var(--font-heading); }
+.portfolio-title { font-size:1rem; font-weight:800; margin-top:4px; }
+.portfolio-desc-sm { font-size:.78rem; color:var(--text-muted); margin-top:4px; line-height:1.5; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.portfolio-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,.7),transparent); display:flex; align-items:flex-end; justify-content:center; padding-bottom:16px; opacity:0; transition:opacity .35s; }
+.portfolio-overlay span { color:#fff; font-family:var(--font-heading); font-weight:700; font-size:.9rem; }
+.portfolio-item:hover .portfolio-overlay { opacity:1; }
+
+/* TESTIMONIALS */
+.testi-section { background:var(--bg); }
+
+/* BLOG */
+.blog-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:48px; }
+.blog-card { display:flex; flex-direction:column; }
+.blog-card-body { padding:20px; display:flex; flex-direction:column; flex:1; }
+.blog-date { font-size:.78rem; color:var(--text-light); font-family:var(--font-heading); font-weight:600; }
+.blog-title { font-size:1rem; font-weight:800; margin-top:8px; line-height:1.35; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.blog-excerpt { font-size:.85rem; color:var(--text-muted); line-height:1.65; margin-top:10px; flex:1; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+.blog-read-more { color:var(--primary); font-family:var(--font-heading); font-weight:700; font-size:.85rem; margin-top:16px; display:inline-flex; align-items:center; gap:4px; transition:gap .2s; }
+.blog-read-more:hover { gap:8px; }
+
+/* CTA */
+.cta-banner { background:linear-gradient(135deg,var(--primary),#4ECDC4 60%,#96C93D); padding:80px 0; position:relative; overflow:hidden; }
+.cta-bg-anim { position:absolute; inset:0; pointer-events:none; }
+.cta-blob { position:absolute; border-radius:50%; filter:blur(60px); opacity:.3; }
+.cta-blob--1 { width:400px; height:400px; background:#fff; top:-150px; left:-100px; animation:blobFloat 6s ease-in-out infinite; }
+.cta-blob--2 { width:300px; height:300px; background:#96C93D; bottom:-100px; right:-80px; animation:blobFloat 8s ease-in-out infinite reverse; }
+@keyframes blobFloat { 0%,100%{transform:translate(0,0)} 50%{transform:translate(20px,-20px)} }
+.cta-inner { display:flex; align-items:center; justify-content:space-between; gap:40px; flex-wrap:wrap; position:relative; }
+.cta-title { font-size:clamp(1.5rem,3vw,2.4rem); color:#fff; font-weight:900; line-height:1.2; }
+.cta-desc { font-size:1rem; color:rgba(255,255,255,.85); margin-top:12px; }
+.cta-actions { display:flex; align-items:center; gap:20px; flex-shrink:0; flex-wrap:wrap; }
+.cta-btn { font-size:1.05rem; padding:16px 40px; }
+.cta-phone-link { display:flex; align-items:center; gap:8px; color:rgba(255,255,255,.9); font-family:var(--font-heading); font-weight:700; font-size:1rem; transition:color .2s; }
+.cta-phone-link:hover { color:#fff; }
+
+/* RESPONSIVE */
+@media (max-width:1024px) {
+  .hero-inner { grid-template-columns:1fr; gap:48px; }
+  .hero-grid { max-width:560px; }
+  .about-teaser-inner { grid-template-columns:1fr; gap:48px; }
+  .about-teaser-visual { display:none; }
+  .stats-inner { grid-template-columns:repeat(2,1fr); padding:48px 24px; }
+  .stat-item { border-right:none; border-bottom:1px solid rgba(255,255,255,.2); }
+  .stat-item:nth-child(3),.stat-item:nth-child(4) { border-bottom:none; }
+  .portfolio-grid { grid-template-columns:repeat(2,1fr); }
+  .blog-grid { grid-template-columns:repeat(2,1fr); }
+  .services-grid-6 { grid-template-columns:repeat(2,1fr); }
+}
+@media (max-width:768px) {
+  .hero-title { font-size:clamp(2rem,6vw,3rem); }
+  .hero-desc { margin-top:16px; }
+  .hero-actions { gap:12px; margin-top:24px; }
+  .cta-inner { flex-direction:column; text-align:center; justify-content:center; }
+  .cta-actions { justify-content:center; }
+  .testi-grid { grid-template-columns:1fr; }
+}
+@media (max-width:640px) {
+  .hero-inner { gap:24px; }
+  .hero-grid { grid-template-columns:1fr; }
+  .stats-inner { grid-template-columns:1fr; padding:40px 16px; }
+  .stat-item { border-bottom:1px solid rgba(255,255,255,.2); }
+  .stat-item:last-child { border-bottom:none; }
+  .portfolio-grid { grid-template-columns:1fr; }
+  .blog-grid { grid-template-columns:1fr; }
+  .services-grid-6 { grid-template-columns:1fr; }
+  .process-grid { grid-template-columns:1fr; gap:24px; }
+  .process-grid::before { display:none; }
+}
+</style>
+
+<script>
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
+// Hero particles canvas
+(function() {
+  const canvas = document.getElementById("heroCanvas");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  let W = canvas.offsetWidth, H = canvas.offsetHeight;
+  canvas.width = W; canvas.height = H;
+  const N = 50;
+  const pts = Array.from({length:N}, () => ({
+    x: Math.random()*W, y: Math.random()*H,
+    r: Math.random()*2+0.5,
+    vx: (Math.random()-.5)*.35,
+    vy: (Math.random()-.5)*.35,
+    a: Math.random()*.35+.08
+  }));
+  let raf;
+  function draw() {
+    ctx.clearRect(0,0,W,H);
+    pts.forEach(p => {
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0)p.x=W; if(p.x>W)p.x=0;
+      if(p.y<0)p.y=H; if(p.y>H)p.y=0;
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=`rgba(0,176,155,${p.a})`; ctx.fill();
+    });
+    pts.forEach((a,i) => {
+      pts.slice(i+1).forEach(b => {
+        const d=Math.hypot(a.x-b.x,a.y-b.y);
+        if(d<100) {
+          ctx.beginPath(); ctx.moveTo(a.x,a.y); ctx.lineTo(b.x,b.y);
+          ctx.strokeStyle=`rgba(0,176,155,${.07*(1-d/100)})`; ctx.lineWidth=.5; ctx.stroke();
+        }
+      });
+    });
+    raf=requestAnimationFrame(draw);
+  }
+  draw();
+  window.addEventListener("resize",()=>{
+    cancelAnimationFrame(raf); W=canvas.offsetWidth; H=canvas.offsetHeight;
+    canvas.width=W; canvas.height=H; draw();
+  });
+})();
+
+// Hero entrance
+const tl = gsap.timeline({delay:.5});
+tl.from(".hero-label",{y:20,opacity:0,duration:.6,ease:"power3.out"})
+  .from(".hero-title-line > span",{y:"110%",stagger:.1,duration:.8,ease:"power4.out"},"-=.3")
+  .from(".hero-desc",{y:20,opacity:0,duration:.6,ease:"power2.out"},"-=.4")
+  .from(".hero-actions > *",{y:20,opacity:0,stagger:.1,duration:.5,ease:"power2.out"},"-=.3")
+  .from(".trust-item",{y:15,opacity:0,stagger:.08,duration:.4,ease:"power2.out"},"-=.2")
+  .from(".project-card",{x:60,opacity:0,stagger:{amount:.4,from:"start"},duration:.7,ease:"power3.out"},"-=.8");
+
+// Float project cards
+document.querySelectorAll(".project-card").forEach((c,i)=>{
+  gsap.to(c,{y:-8,duration:2.2+i*.3,repeat:-1,yoyo:true,ease:"sine.inOut",delay:i*.4});
+});
+
+// Stats counter
+document.querySelectorAll("[data-counter]").forEach(el=>{
+  const target=parseInt(el.dataset.counter||"0");
+  const suffix=el.dataset.suffix||"";
+  ScrollTrigger.create({trigger:el,start:"top 80%",once:true,onEnter:()=>{
+    const obj={val:0};
+    gsap.to(obj,{val:target,duration:2.2,ease:"power2.out",
+      onUpdate(){el.textContent=Math.round(obj.val)+suffix;},
+      onComplete(){el.textContent=target+suffix;}
+    });
+  }});
+});
+
+// Process steps
+document.querySelectorAll(".process-step").forEach((step,i)=>{
+  gsap.from(step,{scrollTrigger:{trigger:step,start:"top 85%"},y:50,opacity:0,duration:.7,delay:i*.15,ease:"power3.out"});
+  gsap.from(step.querySelector(".process-num"),{scrollTrigger:{trigger:step,start:"top 85%"},scale:0,rotation:-20,duration:.7,delay:i*.15+.2,ease:"back.out(2)"});
+});
+
+// Services reveal
+document.querySelectorAll(".service-card-pro").forEach((c,i)=>{
+  gsap.from(c,{scrollTrigger:{trigger:c,start:"top 85%"},y:40,opacity:0,duration:.6,delay:(i%3)*.1,ease:"power3.out"});
+});
+
+// About text
+gsap.from(".about-teaser-text > *",{scrollTrigger:{trigger:".about-teaser",start:"top 75%"},y:30,opacity:0,stagger:.12,duration:.7,ease:"power3.out"});
+
+// Portfolio
+document.querySelectorAll(".portfolio-item").forEach((item,i)=>{
+  gsap.from(item,{scrollTrigger:{trigger:item,start:"top 85%"},y:50,opacity:0,duration:.6,delay:(i%4)*.1,ease:"power3.out"});
+});
+
+// Testimonials
+document.querySelectorAll(".testi-card").forEach((c,i)=>{
+  gsap.from(c,{scrollTrigger:{trigger:c,start:"top 85%"},x:i%2===0?-40:40,opacity:0,duration:.7,ease:"power3.out"});
+});
+
+// Blog cards
+document.querySelectorAll(".blog-card").forEach((c,i)=>{
+  gsap.from(c,{scrollTrigger:{trigger:c,start:"top 88%"},y:40,opacity:0,duration:.6,delay:i*.1,ease:"power3.out"});
+});
+
+// CTA
+gsap.from(".cta-title",{scrollTrigger:{trigger:".cta-banner",start:"top 75%"},y:30,opacity:0,duration:.8,ease:"power3.out"});
+gsap.from(".cta-desc",{scrollTrigger:{trigger:".cta-banner",start:"top 75%"},y:20,opacity:0,duration:.7,delay:.15,ease:"power2.out"});
+gsap.from(".cta-actions",{scrollTrigger:{trigger:".cta-banner",start:"top 75%"},scale:.9,opacity:0,duration:.6,delay:.25,ease:"back.out(2)"});
+
+// Parallax hero
+gsap.to(".hero-bg-shape",{scrollTrigger:{trigger:".hero",start:"top top",end:"bottom top",scrub:1},y:-150,scale:1.1});
+
+// Magnetic buttons
+document.querySelectorAll(".magnetic").forEach(btn=>{
+  btn.addEventListener("mousemove",e=>{
+    const r=btn.getBoundingClientRect();
+    const x=e.clientX-r.left-r.width/2, y=e.clientY-r.top-r.height/2;
+    gsap.to(btn,{x:x*.25,y:y*.25,duration:.4,ease:"power2.out"});
+  });
+  btn.addEventListener("mouseleave",()=>{
+    gsap.to(btn,{x:0,y:0,duration:.5,ease:"elastic.out(1,.5)"});
+  });
+});
+</script>

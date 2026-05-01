@@ -1,0 +1,141 @@
+---
+// src/pages/du-an.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const categories = ['Tất cả', 'Website', 'E-commerce', 'Mobile App', 'Landing Page', 'SEO'];
+
+const projects = [
+  { title: 'RINO – Siêu Thị Online',       cat: 'Mobile App',   tag: 'Mobile App',   color: '#5c1fb4', textWhite: true,  icon: '🛒', desc: 'App giao hàng siêu tốc trong 10 phút, hoạt động 24/7 tại TP.HCM.' },
+  { title: 'Phú Mỹ Giàu Đẹp',              cat: 'E-commerce',   tag: 'Website',      color: '#e8e0d5', textWhite: false, icon: '🏠', desc: 'Nền tảng bất động sản trung gian kết nối người mua và người bán.' },
+  { title: 'MINIGA Boutique',               cat: 'E-commerce',   tag: 'E-commerce',   color: '#f5e6d3', textWhite: false, icon: '👜', desc: 'Website thương mại điện tử túi xách và phụ kiện thời trang cao cấp.' },
+  { title: 'Coin Catapult',                 cat: 'Website',      tag: 'Web App',      color: '#1a1a2e', textWhite: true,  icon: '₿', desc: 'Nền tảng nghiên cứu và theo dõi đầu tư tiền điện tử.' },
+  { title: 'Phong Thủy Tâm An',            cat: 'Website',      tag: 'Website',      color: '#8b1a1a', textWhite: true,  icon: '🔮', desc: 'Website phong thủy chuyên nghiệp với giao diện tâm linh tinh tế.' },
+  { title: 'Dining Experience',            cat: 'Website',      tag: 'Restaurant',   color: '#2d4a22', textWhite: true,  icon: '🍽️', desc: 'Website nhà hàng fine dining với hệ thống đặt bàn trực tuyến.' },
+  { title: 'TechCorp Solution',            cat: 'Landing Page', tag: 'Landing Page', color: '#0d2137', textWhite: true,  icon: '💻', desc: 'Landing page chuyển đổi cao cho công ty phần mềm B2B.' },
+  { title: 'GreenMart Organic',            cat: 'E-commerce',   tag: 'E-commerce',   color: '#1a4a2e', textWhite: true,  icon: '🥦', desc: 'Siêu thị thực phẩm sạch online với hệ thống quản lý kho thông minh.' },
+  { title: 'MediCare Clinic',             cat: 'Website',      tag: 'Y tế',         color: '#e8f4f8', textWhite: false, icon: '🏥', desc: 'Website phòng khám với tính năng đặt lịch và quản lý bệnh nhân.' },
+  { title: 'EduLearn Platform',           cat: 'Website',      tag: 'Giáo dục',     color: '#fff8e8', textWhite: false, icon: '🎓', desc: 'Nền tảng học trực tuyến với hơn 200 khoá học và 50.000 học viên.' },
+  { title: 'FitLife Gym',                  cat: 'Landing Page', tag: 'Landing Page', color: '#1a1a2e', textWhite: true,  icon: '💪', desc: 'Landing page và landing funnel cho chuỗi gym tại TP.HCM.' },
+  { title: 'TravelVN',                     cat: 'Website',      tag: 'Du lịch',      color: '#e8f9f7', textWhite: false, icon: '✈️', desc: 'Cổng thông tin du lịch Việt Nam với booking tour và khách sạn.' },
+];
+---
+
+<BaseLayout title="Dự Án" description="Khám phá 500+ dự án mà MIKO TECH đã thực hiện cho khách hàng trên toàn Việt Nam và quốc tế.">
+  <main>
+
+    <!-- Page Hero -->
+    <div class="page-hero">
+      <div style="position:absolute;top:-60px;right:-60px;width:280px;height:280px;border-radius:50%;border:40px solid rgba(255,255,255,0.06);pointer-events:none;"></div>
+      <div class="container" style="position:relative;z-index:1;">
+        <div class="label-tag" style="color:rgba(255,255,255,0.7);margin-bottom:12px;" data-hero-animate>DỰ ÁN</div>
+        <h1 data-hero-animate>500+ DỰ ÁN ĐÃ HOÀN THÀNH<br/>TẠI 20+ LĨNH VỰC</h1>
+        <p data-hero-animate>Từ startup đến tập đoàn lớn — Miko Tech đã đồng hành và tạo ra những sản phẩm số xuất sắc, đo được kết quả thực.</p>
+      </div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div style="background:white;border-bottom:1px solid #f0f0f0;padding:32px 0;">
+      <div class="container">
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center;">
+          {[
+            { number: '500', suffix: '+', label: 'Dự án hoàn thành' },
+            { number: '300', suffix: '+', label: 'Khách hàng' },
+            { number: '20',  suffix: '+', label: 'Lĩnh vực' },
+            { number: '98',  suffix: '%', label: 'Khách hàng hài lòng' },
+          ].map(s => (
+            <div>
+              <div class="stat-number" data-count={s.number} data-suffix={s.suffix}>0{s.suffix}</div>
+              <div class="stat-label" style="margin-top:6px;">{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Filter & Projects -->
+    <section class="section" style="background:var(--bg-light);">
+      <div class="container">
+
+        <!-- Filter -->
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px;" id="filterBtns">
+          {categories.map((cat, i) => (
+            <button
+              class="filter-btn"
+              data-cat={cat}
+              style={`padding:8px 20px;border-radius:50px;font-size:13px;font-weight:600;cursor:pointer;border:2px solid ${i===0?'var(--teal)':'#ddd'};background:${i===0?'var(--teal)':'white'};color:${i===0?'white':'var(--text-mid)'};transition:all 0.3s;`}>
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        <!-- Projects Grid -->
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;" id="projectsGrid">
+          {projects.map((p, i) => (
+            <div class="project-item card" data-cat={p.cat} data-animate data-delay={String(i%3+1)} style="overflow:hidden;">
+              <!-- Preview -->
+              <div style={`background:${p.color};height:200px;display:flex;align-items:center;justify-content:center;position:relative;`}>
+                <div style="text-align:center;">
+                  <div style="font-size:56px;margin-bottom:8px;">{p.icon}</div>
+                  <div style={`font-size:11px;font-weight:800;letter-spacing:1px;${p.textWhite?'color:rgba(255,255,255,0.7)':'color:var(--teal)'}`}>{p.tag}</div>
+                </div>
+                <div class="overlay">
+                  <p style="color:white;font-weight:700;font-size:14px;text-align:center;">{p.title}</p>
+                  <span style="color:rgba(255,255,255,0.8);font-size:12px;text-align:center;">{p.desc}</span>
+                </div>
+              </div>
+              <!-- Info -->
+              <div style="padding:20px;">
+                <div style="font-size:11px;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">{p.tag}</div>
+                <h3 style="font-size:15px;font-weight:700;color:var(--text-dark);">{p.title}</h3>
+                <p style="font-size:13px;color:var(--text-mid);margin-top:6px;line-height:1.6;">{p.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+
+    <CTABanner />
+  </main>
+</BaseLayout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btns  = document.querySelectorAll('.filter-btn');
+    const items = document.querySelectorAll('.project-item');
+
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Update button styles
+        btns.forEach(b => {
+          b.style.background   = 'white';
+          b.style.color        = 'var(--text-mid)';
+          b.style.borderColor  = '#ddd';
+        });
+        btn.style.background  = 'var(--teal)';
+        btn.style.color       = 'white';
+        btn.style.borderColor = 'var(--teal)';
+
+        const cat = btn.dataset.cat;
+        items.forEach(item => {
+          const show = cat === 'Tất cả' || item.dataset.cat === cat;
+          item.style.display   = show ? 'block'   : 'none';
+          item.style.opacity   = show ? '1'       : '0';
+          item.style.transform = show ? 'scale(1)': 'scale(0.95)';
+          item.style.transition= 'all 0.35s ease';
+        });
+      });
+    });
+  });
+</script>
+
+<style>
+  @media (max-width: 1024px) {
+    #projectsGrid { grid-template-columns: repeat(2, 1fr) !important; }
+  }
+  @media (max-width: 640px) {
+    #projectsGrid { grid-template-columns: 1fr !important; }
+  }
+</style>

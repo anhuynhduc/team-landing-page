@@ -1,0 +1,234 @@
+---
+// src/pages/thiet-ke-website.astro
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTABanner from '../components/CTABanner.astro';
+
+const packages = [
+  {
+    name: 'STARTER',
+    price: '5.000.000đ',
+    desc: 'Phù hợp cho cá nhân, startup và doanh nghiệp nhỏ mới bắt đầu online.',
+    features: [
+      'Thiết kế tối đa 5 trang',
+      'Responsive mobile',
+      'Cài đặt WordPress/Astro',
+      'Form liên hệ',
+      'SEO cơ bản',
+      'Bảo hành 3 tháng',
+    ],
+    highlight: false,
+  },
+  {
+    name: 'BUSINESS',
+    price: '12.000.000đ',
+    desc: 'Giải pháp toàn diện cho doanh nghiệp vừa và nhỏ muốn bứt phá online.',
+    features: [
+      'Thiết kế tối đa 15 trang',
+      'Responsive + PWA',
+      'CMS quản lý nội dung',
+      'Tích hợp Google Analytics',
+      'SEO on-page đầy đủ',
+      'Tốc độ tải < 3 giây',
+      'Blog & News module',
+      'Bảo hành 6 tháng',
+    ],
+    highlight: true,
+  },
+  {
+    name: 'ENTERPRISE',
+    price: 'Liên hệ',
+    desc: 'Giải pháp tuỳ chỉnh cao cấp cho doanh nghiệp lớn với yêu cầu đặc thù.',
+    features: [
+      'Không giới hạn trang',
+      'Custom design 100%',
+      'Hệ thống thành viên',
+      'Tích hợp CRM/ERP',
+      'Multi-language',
+      'CDN toàn cầu',
+      'SLA 99.9% uptime',
+      'Bảo hành 12 tháng',
+      'Hỗ trợ ưu tiên 24/7',
+    ],
+    highlight: false,
+  },
+];
+
+const webTypes = [
+  { icon: '🏪', name: 'Website Bán Hàng', desc: 'E-commerce với giỏ hàng, thanh toán online' },
+  { icon: '🏢', name: 'Website Công Ty', desc: 'Giới thiệu dịch vụ và thương hiệu chuyên nghiệp' },
+  { icon: '📰', name: 'Website Tin Tức', desc: 'Blog, báo điện tử, cổng thông tin' },
+  { icon: '🏨', name: 'Website Đặt Phòng', desc: 'Khách sạn, resort, dịch vụ lưu trú' },
+  { icon: '🍕', name: 'Website Nhà Hàng', desc: 'Menu online, đặt bàn, order delivery' },
+  { icon: '🎓', name: 'Website Giáo Dục', desc: 'Khoá học online, LMS, trung tâm đào tạo' },
+  { icon: '🏥', name: 'Website Y Tế', desc: 'Phòng khám, bệnh viện, đặt lịch khám' },
+  { icon: '🏠', name: 'Website Bất Động Sản', desc: 'Đăng tin, tìm kiếm, quản lý BĐS' },
+];
+---
+
+<BaseLayout title="Thiết Kế Website" description="Dịch vụ thiết kế website chuyên nghiệp tại MIKO TECH - chuẩn UI/UX, chuẩn SEO, responsive mọi thiết bị.">
+  <main>
+
+    <!-- Page Hero -->
+    <div class="page-hero">
+      <div style="position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;border:50px solid rgba(255,255,255,0.06);pointer-events:none;"></div>
+      <div style="position:absolute;bottom:-40px;left:-40px;width:200px;height:200px;border-radius:50%;border:30px solid rgba(255,255,255,0.06);pointer-events:none;"></div>
+      <div class="container" style="position:relative;z-index:1;">
+        <div class="label-tag" style="color:rgba(255,255,255,0.7);margin-bottom:12px;" data-hero-animate>THIẾT KẾ WEBSITE</div>
+        <h1 data-hero-animate>WEBSITE ĐẸP – CHUẨN SEO<br/>CHUYỂN ĐỔI CAO</h1>
+        <p data-hero-animate>Chúng tôi không chỉ xây dựng website đẹp, mà còn tạo ra những công cụ kinh doanh hiệu quả, giúp bạn thu hút khách hàng và tăng doanh thu.</p>
+        <div style="margin-top:28px;" data-hero-animate>
+          <a href="/lien-he" class="btn btn-white" style="margin-right:16px;">Nhận báo giá miễn phí</a>
+          <a href="/du-an" class="btn" style="background:rgba(255,255,255,0.15);color:white;border-color:rgba(255,255,255,0.3);">Xem dự án mẫu</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Web Types -->
+    <section class="section" style="background:white;">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:52px;">
+          <div data-animate class="label-tag" style="margin-bottom:12px;">LOẠI WEBSITE</div>
+          <h2 data-animate data-delay="2" class="section-title">Chúng Tôi Thiết Kế <span>Mọi Loại Website</span></h2>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+          {webTypes.map((type, i) => (
+            <div class="card" data-animate data-delay={String(i % 4 + 1)}
+              style="padding:28px 20px;text-align:center;cursor:pointer;">
+              <div style="font-size:40px;margin-bottom:12px;">{type.icon}</div>
+              <h3 style="font-size:14px;font-weight:700;color:var(--text-dark);margin-bottom:6px;">{type.name}</h3>
+              <p style="font-size:12px;color:var(--text-mid);line-height:1.6;">{type.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Us -->
+    <section class="section" style="background:var(--bg-light);">
+      <div class="container">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+          <div>
+            <div data-animate="fade-left" class="label-tag" style="margin-bottom:12px;">TẠI SAO CHỌN CHÚNG TÔI</div>
+            <h2 data-animate="fade-left" data-delay="2" class="section-title" style="margin-bottom:24px;">
+              Website Không Chỉ Đẹp,<br/><span>Mà Còn Hiệu Quả</span>
+            </h2>
+            {[
+              { icon: '⚡', title: 'Tốc độ tải < 3 giây', desc: 'Tối ưu Core Web Vitals, điểm PageSpeed 90+, giúp cải thiện SEO và trải nghiệm người dùng.' },
+              { icon: '📱', title: 'Responsive 100%', desc: 'Hiển thị hoàn hảo trên mọi thiết bị: desktop, tablet, mobile, từ iPhone đến Android.' },
+              { icon: '🔒', title: 'Bảo mật cao', desc: 'SSL miễn phí, bảo vệ chống DDoS, backup tự động hàng ngày, quét malware định kỳ.' },
+              { icon: '📊', title: 'Chuẩn SEO', desc: 'Cấu trúc URL sạch, Schema Markup, sitemap, robot.txt, meta tags tối ưu từ đầu.' },
+            ].map((item, i) => (
+              <div data-animate="fade-left" data-delay={String(i + 2)} style="display:flex;gap:16px;margin-bottom:24px;align-items:flex-start;">
+                <div style="width:48px;height:48px;border-radius:12px;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">
+                  {item.icon}
+                </div>
+                <div>
+                  <h3 style="font-size:15px;font-weight:700;color:var(--text-dark);margin-bottom:4px;">{item.title}</h3>
+                  <p style="font-size:13px;color:var(--text-mid);line-height:1.7;">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <!-- Mock browser preview -->
+          <div data-animate="fade-right" data-delay="2">
+            <div style="background:#1a1a2e;border-radius:16px;padding:12px;box-shadow:0 32px 80px rgba(0,0,0,0.2);">
+              <div style="display:flex;gap:6px;margin-bottom:10px;padding:0 4px;">
+                <span style="width:12px;height:12px;border-radius:50%;background:#ff5f56;"></span>
+                <span style="width:12px;height:12px;border-radius:50%;background:#ffbd2e;"></span>
+                <span style="width:12px;height:12px;border-radius:50%;background:#27c93f;"></span>
+                <div style="flex:1;background:rgba(255,255,255,0.08);border-radius:4px;height:20px;margin-left:8px;display:flex;align-items:center;padding:0 10px;">
+                  <span style="font-size:10px;color:rgba(255,255,255,0.4);">🔒 mikotech.vn</span>
+                </div>
+              </div>
+              <div style="border-radius:8px;overflow:hidden;">
+                <!-- Mini website preview -->
+                <div style="background:var(--teal);padding:20px;text-align:center;">
+                  <div style="font-size:10px;font-weight:800;color:white;letter-spacing:2px;margin-bottom:8px;">YOUR BRAND</div>
+                  <div style="font-size:16px;font-weight:900;color:white;margin-bottom:12px;">Tiêu đề ấn tượng<br/>Thu hút khách hàng</div>
+                  <div style="display:flex;gap:8px;justify-content:center;">
+                    <div style="background:white;color:var(--teal);font-size:9px;font-weight:700;padding:6px 14px;border-radius:20px;">Khám phá →</div>
+                    <div style="border:1px solid white;color:white;font-size:9px;font-weight:700;padding:6px 14px;border-radius:20px;">Liên hệ</div>
+                  </div>
+                </div>
+                <div style="background:white;padding:16px;">
+                  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px;">
+                    {['🎯', '⚡', '💎'].map(icon => (
+                      <div style="background:var(--teal-light);border-radius:8px;padding:10px;text-align:center;">
+                        <div style="font-size:16px;">{icon}</div>
+                        <div style="height:4px;background:#ddd;border-radius:2px;margin:6px auto 4px;width:60%;"></div>
+                        <div style="height:3px;background:#eee;border-radius:2px;width:80%;margin:0 auto;"></div>
+                      </div>
+                    ))}
+                  </div>
+                  <div style="background:#f5f5f5;border-radius:8px;height:60px;display:flex;align-items:center;justify-content:center;">
+                    <div style="font-size:10px;color:#999;">Footer • © 2026</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="section" style="background:white;">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:52px;">
+          <div data-animate class="label-tag" style="margin-bottom:12px;">BẢNG GIÁ</div>
+          <h2 data-animate data-delay="2" class="section-title">Gói Dịch Vụ <span>Phù Hợp Với Bạn</span></h2>
+          <p data-animate data-delay="3" style="color:var(--text-mid);font-size:15px;margin-top:12px;">Minh bạch chi phí, không phát sinh. Tư vấn miễn phí trước khi ký hợp đồng.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start;">
+          {packages.map((pkg, i) => (
+            <div data-animate data-delay={String(i + 1)}
+              style={`border-radius:20px;overflow:hidden;border:2px solid ${pkg.highlight ? 'var(--teal)' : '#f0f0f0'};box-shadow:${pkg.highlight ? '0 20px 60px rgba(26,188,173,0.2)' : 'var(--shadow-sm)'};position:relative;transform:${pkg.highlight ? 'scale(1.04)' : 'none'};`}>
+              {pkg.highlight && (
+                <div style="background:var(--teal);color:white;text-align:center;font-size:11px;font-weight:800;letter-spacing:2px;padding:8px;text-transform:uppercase;">
+                  ⭐ PHỔ BIẾN NHẤT
+                </div>
+              )}
+              <div style={`padding:32px;background:${pkg.highlight ? 'var(--teal-pale)' : 'white'};`}>
+                <div style="font-size:13px;font-weight:800;letter-spacing:2px;color:var(--teal);margin-bottom:8px;">{pkg.name}</div>
+                <div style="font-size:28px;font-weight:900;color:var(--text-dark);margin-bottom:8px;">{pkg.price}</div>
+                <p style="font-size:13px;color:var(--text-mid);line-height:1.6;margin-bottom:24px;">{pkg.desc}</p>
+                <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px;">
+                  {pkg.features.map(f => (
+                    <div style="display:flex;align-items:center;gap:10px;font-size:13px;color:var(--text-dark);">
+                      <div style="width:18px;height:18px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3">
+                          <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                      </div>
+                      {f}
+                    </div>
+                  ))}
+                </div>
+                <a href="/lien-he" class={`btn ${pkg.highlight ? 'btn-primary' : 'btn-outline'}`} style="width:100%;justify-content:center;">
+                  {pkg.price === 'Liên hệ' ? 'Liên hệ tư vấn' : 'Đăng ký ngay'}
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <CTABanner />
+  </main>
+</BaseLayout>
+
+<style>
+  @media (max-width: 1024px) {
+    section .container > div[style*="grid-template-columns:repeat(4"] {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+    section .container > div[style*="grid-template-columns:repeat(3"] {
+      grid-template-columns: 1fr !important;
+    }
+    section .container > div[style*="grid-template-columns:1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>

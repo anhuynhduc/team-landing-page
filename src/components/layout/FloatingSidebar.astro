@@ -1,0 +1,78 @@
+---
+const buttons = [
+  { icon: '📄', label: 'Báo giá PDF', href: '#', cls: 'pdf' },
+  { icon: '📞', label: '0909 326 456', href: 'tel:0909326456', cls: 'phone' },
+  { icon: '💬', label: 'Messenger', href: '#', cls: 'messenger' },
+  { icon: '🇿', label: 'Zalo', href: '#', cls: 'zalo' },
+  { icon: '💬', label: 'WhatsApp', href: '#', cls: 'whatsapp' },
+];
+---
+
+<div class="floating-sidebar">
+  {buttons.map((btn) => (
+    <a href={btn.href} class={`sidebar-btn sidebar-btn--${btn.cls}`} title={btn.label} aria-label={btn.label}>
+      <span class="sidebar-icon">{btn.icon}</span>
+      <span class="sidebar-label">{btn.label}</span>
+    </a>
+  ))}
+</div>
+
+<style>
+.floating-sidebar {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  z-index: 500;
+  gap: 2px;
+}
+.sidebar-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 52px;
+  height: 52px;
+  padding: 0 14px;
+  background: var(--primary);
+  color: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: width 0.35s cubic-bezier(0.25,0.46,0.45,0.94), background 0.25s, transform 0.25s;
+  position: relative;
+}
+.sidebar-btn:first-child { border-radius: 10px 0 0 0; }
+.sidebar-btn:last-child  { border-radius: 0 0 0 10px; }
+
+.sidebar-btn:hover {
+  width: 160px;
+  background: var(--primary-dark);
+  transform: translateX(-4px);
+}
+.sidebar-icon { font-size: 1.2rem; flex-shrink: 0; }
+.sidebar-label {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.8rem;
+  opacity: 0;
+  transition: opacity 0.2s 0.1s;
+}
+.sidebar-btn:hover .sidebar-label { opacity: 1; }
+
+.sidebar-btn--phone {
+  background: var(--primary);
+  animation: phonePulse 2.5s ease-in-out infinite;
+}
+.sidebar-btn--zalo { background: #0068FF; }
+.sidebar-btn--messenger { background: #006AFF; }
+.sidebar-btn--whatsapp { background: #25D366; }
+.sidebar-btn--pdf { background: #E53E3E; }
+
+@keyframes phonePulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0,176,155,0.5); }
+  50%       { box-shadow: 0 0 0 10px rgba(0,176,155,0); }
+}
+
+@media (max-width: 768px) { .floating-sidebar { display: none; } }
+</style>

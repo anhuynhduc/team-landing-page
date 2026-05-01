@@ -1,0 +1,55 @@
+---
+// src/components/About.astro
+---
+
+<section class="section" style="background:white;position:relative;overflow:hidden;">
+  <!-- Decorative elements -->
+  <div style="position:absolute;width:120px;height:120px;background:var(--teal);opacity:0.06;border-radius:16px;top:40px;left:-40px;transform:rotate(25deg);animation:spin 20s linear infinite;"></div>
+  <div style="position:absolute;width:80px;height:80px;background:var(--teal);opacity:0.06;border-radius:12px;bottom:60px;left:80px;transform:rotate(-15deg);animation:spin 20s linear infinite reverse;"></div>
+  <div style="position:absolute;width:180px;height:180px;border-radius:50%;background:var(--teal);opacity:0.04;top:-40px;right:-60px;"></div>
+  <div style="position:absolute;width:300px;height:300px;border-radius:50%;background:var(--teal);opacity:0.04;bottom:-100px;right:-100px;"></div>
+
+  <div class="container" style="text-align:center;position:relative;z-index:1;">
+
+    <!-- Label -->
+    <div data-animate="fade-up" class="label-tag" style="margin-bottom:16px;">
+      MIKO TECH
+    </div>
+
+    <!-- Heading -->
+    <h2 data-animate="fade-up" data-delay="2" class="section-title" style="margin-bottom:24px;max-width:700px;margin-left:auto;margin-right:auto;">
+      Chúng tôi mang đến giải pháp Marketing<br/>
+      <span>SÁNG TẠO, TỐI ƯU VÀ HIỆU QUẢ</span>
+    </h2>
+
+    <!-- Paragraph -->
+    <p data-animate="fade-up" data-delay="3" style="font-size:16px;color:var(--text-mid);line-height:1.9;max-width:700px;margin:0 auto 40px;">
+      Liệu thương hiệu của bạn có đủ lực để chiến tiếp trên thương trường trong thời kỳ chuyển đổi số? Làm sao để tối ưu nguồn lực và đẩy mạnh thương hiệu cho doanh nghiệp? Miko Tech ở đây để cùng bạn dựng xây và phát triển thương hiệu thông qua dịch vụ thiết kế web và các giải pháp Marketing tổng thể: sáng tạo nội dung, quản trị website, SEO tổng thể, thiết kế app, thiết kế nhận diện thương hiệu, quảng cáo đa nền tảng...
+    </p>
+
+    <!-- CTA -->
+    <div data-animate="zoom-in" data-delay="4">
+      <a href="/gioi-thieu" class="btn btn-outline">Về chúng tôi</a>
+    </div>
+
+    <!-- Stats Row -->
+    <div data-animate="fade-up" data-delay="2" style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:72px;padding-top:56px;border-top:1px solid #f0f0f0;">
+      <div style="text-align:center;">
+        <div class="stat-number" data-count="500" data-suffix="+">0+</div>
+        <div class="stat-label" style="margin-top:8px;">Dự án hoàn thành</div>
+      </div>
+      <div style="text-align:center;">
+        <div class="stat-number" data-count="300" data-suffix="+">0+</div>
+        <div class="stat-label" style="margin-top:8px;">Khách hàng tin tưởng</div>
+      </div>
+      <div style="text-align:center;">
+        <div class="stat-number" data-count="8" data-suffix="+">0+</div>
+        <div class="stat-label" style="margin-top:8px;">Năm kinh nghiệm</div>
+      </div>
+      <div style="text-align:center;">
+        <div class="stat-number" data-count="50" data-suffix="+">0+</div>
+        <div class="stat-label" style="margin-top:8px;">Chuyên gia</div>
+      </div>
+    </div>
+  </div>
+</section>
