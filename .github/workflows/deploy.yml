@@ -19,6 +19,9 @@ jobs:
         with:
           node-version: '22'  # Phiên bản Node.js phù hợp
 
+      - name: Install dependencies  # install
+        run: npm install
+
       - name: Build project
         run: npm run build  # Lệnh build tùy vào dự án (ví dụ: `next build`)
 
