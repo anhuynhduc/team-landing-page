@@ -261,6 +261,12 @@ gsap.utils.toArray<HTMLElement>('.anim-stagger').forEach((group) => {
 // ─── Page Skeleton Transition ───
 const skeleton   = document.getElementById('pageSkeleton')!;
 const progressEl = document.getElementById('pskProgress')!;
+let skeletonTimeouts: number[] = [];
+
+function clearSkeletonTimeouts() {
+  skeletonTimeouts.forEach(id => clearTimeout(id));
+  skeletonTimeouts = [];
+}
 
 function showSkeleton() {
   skeleton.classList.add('is-active');
@@ -301,13 +307,39 @@ function hideSkeleton() {
 
 // Page load reveal – show briefly then hide
 showSkeleton();
-window.addEventListener('load', () => {
-  setTimeout(hideSkeleton, 150);
-});
-// Fallback in case load already fired
-if (document.readyState === 'complete') {
-  setTimeout(hideSkeleton, 200);
+let safetyTimeoutId: number | null = null;
+
+function setupSkeletonHide() {
+  clearSkeletonTimeouts();
+  // pageshow fires both on initial load and when restored from history
+  const id = setTimeout(hideSkeleton, 150) as unknown as number;
+  skeletonTimeouts.push(id);
+
+  // Safety net: force hide skeleton after 5 seconds if still showing
+  if (safetyTimeoutId) clearTimeout(safetyTimeoutId);
+  safetyTimeoutId = setTimeout(() => {
+    if (skeleton.classList.contains('is-active')) {
+      hideSkeleton();
+    }
+  }, 5000) as unknown as number;
 }
+
+// Handle both initial load and back-forward cache restoration
+window.addEventListener('pageshow', setupSkeletonHide);
+
+// Fallback: also listen to load event for older browsers
+window.addEventListener('load', setupSkeletonHide);
+
+// If page already loaded before script executes
+if (document.readyState === 'complete') {
+  setupSkeletonHide();
+}
+
+// Hide skeleton immediately on page hide (when navigating away)
+window.addEventListener('pagehide', () => {
+  clearSkeletonTimeouts();
+  if (safetyTimeoutId) clearTimeout(safetyTimeoutId);
+});
 
 // Link clicks → show skeleton, navigate
 document.querySelectorAll<HTMLAnchorElement>('a[href]').forEach((link) => {
@@ -322,9 +354,12 @@ document.querySelectorAll<HTMLAnchorElement>('a[href]').forEach((link) => {
   ) {
     link.addEventListener('click', (e) => {
       e.preventDefault();
+      clearSkeletonTimeouts();
+      if (safetyTimeoutId) clearTimeout(safetyTimeoutId);
       showSkeleton();
       // Give skeleton 350ms to appear, then navigate
-      setTimeout(() => { window.location.href = href; }, 350);
+      const id = setTimeout(() => { window.location.href = href; }, 350) as unknown as number;
+      skeletonTimeouts.push(id);
     });
   }
 });
