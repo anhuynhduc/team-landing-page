@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const projects = [
   {
-    title: 'VNG Cloud Platform',
+    title: 'CloudViet Platform',
     cat: 'Điện toán đám mây',
     desc: 'Website 3D đặc sắc, đăng ký mua trực tuyến, tích hợp dashboard quản trị',
     color: '#0F2027',
@@ -118,6 +118,52 @@ const processes = [
   },
 ];
 
+const academicProjects = [
+  {
+    icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>`,
+    title: 'Đồ án Website',
+    tech: 'PHP · Laravel · ASP.NET · Node.js',
+    desc: 'Website bán hàng, quản lý, đặt phòng… kèm cơ sở dữ liệu, phân quyền và báo cáo đầy đủ.',
+  },
+  {
+    icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>`,
+    title: 'Đồ án Mobile App',
+    tech: 'Java · Kotlin · Flutter · React Native',
+    desc: 'Ứng dụng Android/iOS hoàn chỉnh, kết nối API & cơ sở dữ liệu thời gian thực.',
+  },
+  {
+    icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg>`,
+    title: 'Đồ án AI / Machine Learning',
+    tech: 'Python · TensorFlow · OpenCV · YOLO',
+    desc: 'Nhận diện ảnh, chatbot, dự đoán dữ liệu, hệ thống gợi ý — kèm mô hình đã huấn luyện.',
+  },
+  {
+    icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5M3 12a9 3 0 0 0 18 0"/></svg>`,
+    title: 'Đồ án Quản lý',
+    tech: 'C# WinForms · Java Swing · SQL Server',
+    desc: 'Phần mềm quản lý kho, nhân sự, bán hàng, thư viện… đúng yêu cầu môn học.',
+  },
+  {
+    icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9zM9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg>`,
+    title: 'Đồ án IoT / Nhúng',
+    tech: 'Arduino · ESP32 · Raspberry Pi',
+    desc: 'Nhà thông minh, đo cảm biến, điều khiển từ xa — kèm sơ đồ mạch và mô hình demo.',
+  },
+  {
+    icon: `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>`,
+    title: 'Luận văn & Báo cáo',
+    tech: 'Word · LaTeX · Slide thuyết trình',
+    desc: 'Hỗ trợ viết báo cáo chuẩn format, slide bảo vệ và hướng dẫn trình bày trước hội đồng.',
+  },
+];
+
+const academicSteps = [
+  { step: '01', title: 'Gửi đề tài', desc: 'Bạn gửi đề bài, công nghệ yêu cầu và thời hạn.' },
+  { step: '02', title: 'Báo giá & cọc', desc: 'Chốt chức năng, báo giá minh bạch và mốc bàn giao.' },
+  { step: '03', title: 'Code & cập nhật', desc: 'Cập nhật tiến độ từng phần, chỉnh sửa theo góp ý.' },
+  { step: '04', title: 'Bàn giao & hỗ trợ', desc: 'Bàn giao source, báo cáo, slide và hướng dẫn bảo vệ.' },
+];
+
 const testimonials = [
   {
     name: 'Nguyễn Anh Tiến',
@@ -194,7 +240,7 @@ const blogs = [
           <span class="hero-title-line clip-word hero-title-accent"><span>Marketing</span></span>
           <span class="hero-title-line clip-word hero-title-accent"><span>Toàn Diện</span></span>
         </h1>
-        <p class="hero-desc">Hơn 850 dự án đã hoàn thành, Global Tech là đối tác tin cậy giúp doanh nghiệp xây dựng hình ảnh số mạnh mẽ — từ thiết kế website, SEO đến chiến lược marketing đa kênh.</p>
+        <p class="hero-desc">Global Tech là đội ngũ trẻ chuyên thiết kế website, triển khai marketing số và nhận làm đồ án công nghệ thông tin theo yêu cầu — đồng hành cùng doanh nghiệp và sinh viên trên hành trình chuyển đổi số.</p>
         <div class="hero-actions">
           <a href="/dich-vu" class="btn-primary hero-cta magnetic">Khám phá dịch vụ <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           <a href="/lien-he" class="btn-outline magnetic">Tư vấn miễn phí</a>
@@ -205,24 +251,131 @@ const blogs = [
           <div class="trust-item"><span class="trust-icon">🔒</span><span>Bảo hành 12 tháng</span></div>
         </div>
       </div>
-      <div class="hero-grid">
-        {projects.map((p, i) => (
-          <a href="/du-an" class="project-card" style={`--card-color: ${p.color}; --card-accent: ${p.accent};`}>
-            <div class="project-card-inner">
-              <div class="project-img-wrap">
-                <img src={p.img} alt={p.title} loading={i < 2 ? "eager" : "lazy"} />
-                <div class="project-img-overlay">
-                  <span class="project-tag" style={`background:${p.accent}33; color:${p.accent}`}>{p.tag}</span>
-                </div>
-              </div>
-              <div class="project-info">
-                <h3 class="project-title">{p.title}</h3>
-                <p class="project-desc">{p.desc}</p>
-              </div>
-              <div class="project-hover-overlay"><span>Xem dự án →</span></div>
-            </div>
-          </a>
-        ))}
+      <div class="hero-visual">
+        <div class="hv-blob"></div>
+
+        <!-- Illustration: nhóm dev đang "xây dựng" sản phẩm số -->
+        <svg class="hv-scene" viewBox="0 0 600 470" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Đội ngũ Global Tech lập trình website và ứng dụng">
+          <!-- Clouds -->
+          <g fill="#D7F0EB">
+            <ellipse cx="110" cy="80" rx="46" ry="20"/>
+            <ellipse cx="150" cy="72" rx="30" ry="16"/>
+            <ellipse cx="470" cy="120" rx="40" ry="17"/>
+            <ellipse cx="505" cy="113" rx="26" ry="13"/>
+          </g>
+
+          <!-- Ground platform -->
+          <ellipse cx="300" cy="412" rx="250" ry="30" fill="#BFE9E2"/>
+
+          <!-- Construction crane (ẩn dụ "xây dựng" sản phẩm) -->
+          <g stroke="#2D2A45" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
+            <line x1="455" y1="150" x2="455" y2="392"/>
+            <line x1="320" y1="150" x2="470" y2="150"/>
+            <line x1="455" y1="120" x2="470" y2="150"/>
+            <line x1="455" y1="120" x2="345" y2="150"/>
+            <path d="M455 175 L435 195 M455 175 L475 195 M435 195 L475 195" stroke-width="3"/>
+            <line x1="345" y1="150" x2="345" y2="205"/>
+          </g>
+          <rect x="328" y="205" width="34" height="26" rx="5" fill="#FFFFFF" stroke="#2D2A45" stroke-width="3"/>
+          <circle cx="345" cy="218" r="7" fill="none" stroke="#00B09B" stroke-width="3"/>
+
+          <!-- Big monitor: dashboard -->
+          <g>
+            <rect x="300" y="208" width="190" height="140" rx="12" fill="#1C7A6E"/>
+            <rect x="312" y="220" width="166" height="116" rx="6" fill="#EAFBF7"/>
+            <rect x="324" y="232" width="60" height="10" rx="5" fill="#9BE0D4"/>
+            <rect x="324" y="252" width="142" height="8" rx="4" fill="#CDEFE8"/>
+            <rect x="324" y="268" width="120" height="8" rx="4" fill="#CDEFE8"/>
+            <g fill="#00B09B">
+              <rect x="328" y="300" width="16" height="24" rx="2"/>
+              <rect x="352" y="290" width="16" height="34" rx="2"/>
+              <rect x="376" y="306" width="16" height="18" rx="2"/>
+            </g>
+            <circle cx="440" cy="306" r="20" fill="none" stroke="#4ECDC4" stroke-width="7"/>
+            <path d="M440 306 L440 286 A20 20 0 0 1 457 316 Z" fill="#F4B740"/>
+            <rect x="372" y="348" width="46" height="44" fill="#15655B"/>
+          </g>
+
+          <!-- Laptop / left screen: code editor -->
+          <g>
+            <rect x="150" y="250" width="150" height="104" rx="10" fill="#243B55"/>
+            <rect x="160" y="260" width="130" height="84" rx="5" fill="#0F2233"/>
+            <circle cx="170" cy="270" r="3" fill="#FF6B6B"/>
+            <circle cx="180" cy="270" r="3" fill="#F4B740"/>
+            <circle cx="190" cy="270" r="3" fill="#4ECDC4"/>
+            <g stroke-linecap="round" stroke-width="4">
+              <line x1="170" y1="286" x2="190" y2="286" stroke="#4ECDC4"/>
+              <line x1="196" y1="286" x2="232" y2="286" stroke="#7C8CA5"/>
+              <line x1="178" y1="298" x2="210" y2="298" stroke="#F4B740"/>
+              <line x1="216" y1="298" x2="246" y2="298" stroke="#7C8CA5"/>
+              <line x1="178" y1="310" x2="200" y2="310" stroke="#7C8CA5"/>
+              <line x1="206" y1="310" x2="240" y2="310" stroke="#00B09B"/>
+              <line x1="170" y1="322" x2="194" y2="322" stroke="#7C8CA5"/>
+            </g>
+            <rect x="196" y="354" width="58" height="8" rx="4" fill="#1C2E42"/>
+          </g>
+
+          <!-- Developer ngồi (áo teal) -->
+          <g>
+            <rect x="250" y="360" width="36" height="10" rx="5" fill="#2D2A45"/>
+            <line x1="268" y1="370" x2="268" y2="400" stroke="#2D2A45" stroke-width="6" stroke-linecap="round"/>
+            <path d="M252 360 q16 -34 34 0 Z" fill="#2BB3A3"/>
+            <path d="M286 372 q12 -6 6 -22" stroke="#2BB3A3" stroke-width="11" fill="none" stroke-linecap="round"/>
+            <circle cx="269" cy="322" r="16" fill="#F2C9A0"/>
+            <path d="M255 318 q14 -22 28 0 q-14 -8 -28 0Z" fill="#2D2A45"/>
+            <path d="M260 392 l-6 14 M278 392 l4 14" stroke="#2D2A45" stroke-width="6" stroke-linecap="round"/>
+          </g>
+
+          <!-- Developer đứng chỉ tay (áo vàng) -->
+          <g>
+            <circle cx="118" cy="276" r="17" fill="#F2C9A0"/>
+            <path d="M102 270 q16 -24 32 0 q-16 -10 -32 0Z" fill="#2D2A45"/>
+            <path d="M100 300 q18 -26 36 0 l-4 50 h-28 Z" fill="#F4B740"/>
+            <path d="M132 306 q26 -8 24 -40" stroke="#F4B740" stroke-width="11" fill="none" stroke-linecap="round"/>
+            <circle cx="158" cy="266" r="6" fill="#F2C9A0"/>
+            <path d="M106 350 l-4 42 M126 350 l6 42" stroke="#2D2A45" stroke-width="7" stroke-linecap="round"/>
+          </g>
+
+          <!-- Plants -->
+          <g>
+            <path d="M40 392 l8 -34 l8 34 Z" fill="#2E9E6A"/>
+            <path d="M48 392 q-22 -16 -16 -44 q20 6 16 44Z" fill="#4FB477"/>
+            <path d="M48 392 q22 -20 18 -50 q-22 8 -18 50Z" fill="#3FA56E"/>
+            <path d="M38 392 h20 l-3 18 h-14 Z" fill="#E08A4B"/>
+          </g>
+          <g>
+            <path d="M540 396 q-20 -22 -14 -52 q20 10 14 52Z" fill="#4FB477"/>
+            <path d="M540 396 q20 -18 16 -46 q-20 8 -16 46Z" fill="#3FA56E"/>
+            <path d="M530 396 h22 l-3 18 h-16 Z" fill="#E08A4B"/>
+          </g>
+
+          <!-- Gears + code marks trang trí -->
+          <g stroke="#9BE0D4" stroke-width="3" fill="none">
+            <circle cx="225" cy="190" r="14"/>
+            <circle cx="225" cy="190" r="5"/>
+            <path d="M225 172 v-8 M225 208 v8 M207 190 h-8 M243 190 h8"/>
+          </g>
+          <text x="150" y="190" font-family="monospace" font-size="22" font-weight="700" fill="#7FD3C6">&lt;/&gt;</text>
+          <text x="500" y="240" font-family="monospace" font-size="18" font-weight="700" fill="#9BE0D4">{ }</text>
+        </svg>
+
+        <!-- Floating tech badges -->
+        <div class="hv-badge hv-badge--react" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="30" height="30">
+            <circle cx="12" cy="12" r="2.1" fill="#00B09B"/>
+            <g fill="none" stroke="#00B09B" stroke-width="1"><ellipse cx="12" cy="12" rx="10" ry="4.3"/><ellipse cx="12" cy="12" rx="10" ry="4.3" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4.3" transform="rotate(120 12 12)"/></g>
+          </svg>
+        </div>
+        <div class="hv-badge hv-badge--php" aria-hidden="true"><span class="hv-php">php</span></div>
+        <div class="hv-badge hv-badge--java" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="26" height="26">
+            <path d="M9 13c-2 1.4-1 3 3 3 5 0 6-2 4-3.6" fill="none" stroke="#E76F00" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M11 4c2 2-1 3-1 4.5 0 1 1 1.6 2 2.4" fill="none" stroke="#E76F00" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M8 16.5c4 1.4 8 .6 8 .6M9 19c3 1 6 .4 6 .4" stroke="#E76F00" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="hv-badge hv-badge--js" aria-hidden="true"><span class="hv-js">JS</span></div>
+        <div class="hv-badge hv-badge--css" aria-hidden="true"><span class="hv-css">CSS</span></div>
       </div>
     </div>
     <div class="hero-scroll-hint"><div class="scroll-ball"></div></div>
@@ -329,7 +482,7 @@ const blogs = [
             <div class="fc-icon">🚀</div>
             <div class="fc-content">
               <div class="fc-title">Dự án mới</div>
-              <div class="fc-sub">VNG Cloud Platform</div>
+              <div class="fc-sub">CloudViet Platform</div>
             </div>
           </div>
           <div class="float-card float-card--2">
@@ -366,6 +519,47 @@ const blogs = [
       </div>
       <div class="text-center" style="margin-top:48px">
         <a href="/du-an" class="btn-outline anim-fade-up magnetic">Xem tất cả dự án</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ĐỒ ÁN CNTT -->
+  <section id="do-an" class="section academic-section">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="label anim-fade-up">Dành Cho Sinh Viên</span>
+        <h2 class="section-title anim-fade-up" style="margin-top:12px">Nhận Làm Đồ Án<br><span class="text-teal">Công Nghệ Thông Tin</span></h2>
+        <p class="section-desc anim-fade-up" style="margin:20px auto 0">Đồ án môn học, đồ án tốt nghiệp, luận văn — đúng đề tài, đúng công nghệ, đúng deadline. Bàn giao đầy đủ source code, cơ sở dữ liệu, báo cáo và hỗ trợ giải thích để bạn tự tin bảo vệ.</p>
+      </div>
+
+      <div class="academic-grid">
+        {academicProjects.map((p) => (
+          <div class="academic-card">
+            <div class="ac-icon"><Fragment set:html={p.icon} /></div>
+            <h3 class="ac-title">{p.title}</h3>
+            <span class="ac-tech">{p.tech}</span>
+            <p class="ac-desc">{p.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="academic-flow">
+        {academicSteps.map((s) => (
+          <div class="af-step">
+            <span class="af-num">{s.step}</span>
+            <div>
+              <h4 class="af-title">{s.title}</h4>
+              <p class="af-desc">{s.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="academic-note anim-fade-up">
+        <div class="an-text">
+          <strong>Cam kết:</strong> code sạch, có chú thích, chạy được trên máy bạn — chỉnh sửa miễn phí đến khi bảo vệ xong.
+        </div>
+        <a href="/lien-he" class="btn-primary magnetic">Gửi đề tài, nhận báo giá</a>
       </div>
     </div>
   </section>
@@ -455,32 +649,31 @@ const blogs = [
 .hero-bg-dots { position:absolute; inset:0; background-image:radial-gradient(circle,#00B09B18 1.5px,transparent 1.5px); background-size:36px 36px; pointer-events:none; mask-image:radial-gradient(ellipse at 80% 50%,black 30%,transparent 70%); }
 .hero-inner { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; position:relative; z-index:1; }
 .hero-label { margin-bottom:20px; }
-.hero-title { font-size:clamp(2.5rem,5vw,4rem); font-weight:900; line-height:1.05; text-transform:uppercase; letter-spacing:.01em; }
-.hero-title-line { display:block; overflow:hidden; }
+.hero-title { font-size:clamp(2rem,3.8vw,3rem); font-weight:900; line-height:1.1; text-transform:uppercase; letter-spacing:.01em; }
+.hero-title-line { display:block; overflow:hidden; padding:0.14em 0; margin:-0.06em 0; }
 .hero-title-line > span { display:block; }
 .hero-title-accent > span { color:var(--primary); }
 .hero-desc { margin-top:24px; font-size:1rem; color:var(--text-muted); line-height:1.75; max-width:460px; }
-.hero-actions { display:flex; gap:16px; margin-top:36px; flex-wrap:wrap; }
+.hero-actions { display:flex; gap:16px; margin-top:36px; flex-wrap:wrap; align-items:center; }
 .hero-cta { font-size:1rem; padding:16px 36px; }
 .hero-trust { display:flex; gap:24px; margin-top:32px; flex-wrap:wrap; }
 .trust-item { display:flex; align-items:center; gap:8px; font-size:.82rem; font-family:var(--font-heading); font-weight:600; color:var(--text-muted); }
 
-/* Hero grid */
-.hero-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-.project-card { border-radius:var(--radius-md); overflow:hidden; background:var(--white); box-shadow:var(--shadow-sm); transition:transform .4s var(--transition),box-shadow .4s var(--transition); position:relative; display:block; }
-.project-card:hover { transform:translateY(-10px) scale(1.02); box-shadow:0 20px 50px rgba(0,0,0,.12); }
-.project-card-inner { height:100%; display:flex; flex-direction:column; }
-.project-img-wrap { height:130px; overflow:hidden; position:relative; }
-.project-img-wrap img { width:100%; height:100%; object-fit:cover; transition:transform .5s var(--transition); }
-.project-card:hover .project-img-wrap img { transform:scale(1.1); }
-.project-img-overlay { position:absolute; bottom:8px; left:8px; }
-.project-info { padding:12px 14px; flex:1; }
-.project-tag { display:inline-block; font-size:.65rem; font-weight:700; padding:3px 8px; border-radius:var(--radius-pill); font-family:var(--font-heading); letter-spacing:.05em; text-transform:uppercase; }
-.project-title { font-size:.9rem; font-weight:800; margin-bottom:4px; margin-top:6px; }
-.project-desc { font-size:.72rem; color:var(--text-muted); line-height:1.5; }
-.project-hover-overlay { position:absolute; inset:0; background:linear-gradient(135deg,rgba(0,176,155,.92),rgba(78,205,196,.92)); display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity .35s; border-radius:var(--radius-md); }
-.project-hover-overlay span { color:#fff; font-family:var(--font-heading); font-weight:700; font-size:1rem; }
-.project-card:hover .project-hover-overlay { opacity:1; }
+/* Hero visual (illustration) */
+.hero-visual { position:relative; width:100%; max-width:600px; margin:0 auto; aspect-ratio:600/470; }
+.hv-blob { position:absolute; inset:6% 4% 12% 6%; background:linear-gradient(135deg,#A6E3DA,#CFEFE9 70%); border-radius:46% 54% 58% 42%/50% 44% 56% 50%; filter:blur(2px); opacity:.85; animation:hvBlob 9s ease-in-out infinite; }
+@keyframes hvBlob { 0%,100%{border-radius:46% 54% 58% 42%/50% 44% 56% 50%} 50%{border-radius:56% 44% 48% 52%/44% 56% 44% 56%} }
+.hv-scene { position:relative; width:100%; height:100%; z-index:1; }
+.hv-badge { position:absolute; z-index:2; width:58px; height:58px; background:#fff; border-radius:16px; box-shadow:0 14px 34px rgba(15,40,55,.14); display:flex; align-items:center; justify-content:center; }
+.hv-badge--react { top:50%; left:-2%; animation:hvFloat 4.5s ease-in-out infinite; }
+.hv-badge--php   { top:22%; left:6%;  animation:hvFloat 5.2s ease-in-out infinite .4s; }
+.hv-badge--java  { top:6%;  right:4%; animation:hvFloat 4.8s ease-in-out infinite .8s; }
+.hv-badge--js    { top:30%; right:0%; width:48px; height:48px; border-radius:13px; animation:hvFloat 5.5s ease-in-out infinite .2s; }
+.hv-badge--css   { top:46%; right:10%; width:48px; height:48px; border-radius:13px; animation:hvFloat 4.2s ease-in-out infinite .6s; }
+@keyframes hvFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+.hv-php { font-family:var(--font-body); font-weight:800; font-style:italic; font-size:1rem; color:#777BB4; letter-spacing:-.02em; }
+.hv-js  { font-family:var(--font-heading); font-weight:900; font-size:.85rem; color:#fff; background:#F4B740; width:30px; height:30px; border-radius:7px; display:flex; align-items:center; justify-content:center; }
+.hv-css { font-family:var(--font-heading); font-weight:900; font-size:.7rem; color:#fff; background:#3F78C4; width:32px; height:30px; border-radius:7px; display:flex; align-items:center; justify-content:center; }
 
 /* Scroll hint */
 .hero-scroll-hint { position:absolute; bottom:30px; left:50%; transform:translateX(-50%); width:28px; height:46px; border:2px solid rgba(0,176,155,.3); border-radius:14px; display:flex; justify-content:center; padding-top:6px; z-index:1; }
@@ -555,6 +748,25 @@ const blogs = [
 .portfolio-overlay span { color:#fff; font-family:var(--font-heading); font-weight:700; font-size:.9rem; }
 .portfolio-item:hover .portfolio-overlay { opacity:1; }
 
+/* ĐỒ ÁN CNTT */
+.academic-section { background:var(--white); }
+.academic-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:56px; }
+.academic-card { background:var(--bg); border-radius:var(--radius-md); padding:30px 26px; border:2px solid transparent; transition:transform .35s var(--transition),border-color .35s,box-shadow .35s; }
+.academic-card:hover { transform:translateY(-8px); border-color:var(--primary-light); box-shadow:var(--shadow-md); }
+.ac-icon { width:54px; height:54px; border-radius:var(--radius-sm); background:var(--primary-glow); color:var(--primary); display:flex; align-items:center; justify-content:center; transition:background .3s,color .3s; }
+.academic-card:hover .ac-icon { background:var(--primary); color:#fff; }
+.ac-title { font-size:1.05rem; font-weight:800; margin-top:18px; }
+.ac-tech { display:inline-block; margin-top:8px; font-family:var(--font-heading); font-weight:600; font-size:.72rem; color:var(--primary); letter-spacing:.02em; }
+.ac-desc { font-size:.85rem; color:var(--text-muted); line-height:1.65; margin-top:10px; }
+.academic-flow { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:48px; }
+.af-step { display:flex; gap:14px; align-items:flex-start; padding:20px; background:var(--bg); border-radius:var(--radius-md); }
+.af-num { font-family:var(--font-heading); font-weight:900; font-size:1.4rem; color:var(--primary); opacity:.55; line-height:1; flex-shrink:0; }
+.af-title { font-size:.95rem; font-weight:800; }
+.af-desc { font-size:.78rem; color:var(--text-muted); line-height:1.55; margin-top:5px; }
+.academic-note { display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-top:40px; padding:28px 32px; border-radius:var(--radius-md); background:linear-gradient(135deg,var(--primary-glow),rgba(78,205,196,.12)); }
+.an-text { font-size:.95rem; color:var(--text); line-height:1.6; max-width:560px; }
+.an-text strong { color:var(--primary-dark); }
+
 /* TESTIMONIALS */
 .testi-section { background:var(--bg); }
 
@@ -586,7 +798,7 @@ const blogs = [
 /* RESPONSIVE */
 @media (max-width:1024px) {
   .hero-inner { grid-template-columns:1fr; gap:48px; }
-  .hero-grid { max-width:560px; }
+  .hero-visual { max-width:520px; }
   .about-teaser-inner { grid-template-columns:1fr; gap:48px; }
   .about-teaser-visual { display:none; }
   .stats-inner { grid-template-columns:repeat(2,1fr); padding:48px 24px; }
@@ -595,9 +807,11 @@ const blogs = [
   .portfolio-grid { grid-template-columns:repeat(2,1fr); }
   .blog-grid { grid-template-columns:repeat(2,1fr); }
   .services-grid-6 { grid-template-columns:repeat(2,1fr); }
+  .academic-grid { grid-template-columns:repeat(2,1fr); }
+  .academic-flow { grid-template-columns:repeat(2,1fr); }
 }
 @media (max-width:768px) {
-  .hero-title { font-size:clamp(2rem,6vw,3rem); }
+  .hero-title { font-size:clamp(1.7rem,5vw,2.5rem); }
   .hero-desc { margin-top:16px; }
   .hero-actions { gap:12px; margin-top:24px; }
   .cta-inner { flex-direction:column; text-align:center; justify-content:center; }
@@ -606,13 +820,16 @@ const blogs = [
 }
 @media (max-width:640px) {
   .hero-inner { gap:24px; }
-  .hero-grid { grid-template-columns:1fr; }
+  .hero-visual { max-width:420px; }
   .stats-inner { grid-template-columns:1fr; padding:40px 16px; }
   .stat-item { border-bottom:1px solid rgba(255,255,255,.2); }
   .stat-item:last-child { border-bottom:none; }
   .portfolio-grid { grid-template-columns:1fr; }
   .blog-grid { grid-template-columns:1fr; }
   .services-grid-6 { grid-template-columns:1fr; }
+  .academic-grid { grid-template-columns:1fr; }
+  .academic-flow { grid-template-columns:1fr; }
+  .academic-note { flex-direction:column; align-items:flex-start; }
   .process-grid { grid-template-columns:1fr; gap:24px; }
   .process-grid::before { display:none; }
 }
@@ -673,12 +890,8 @@ tl.from(".hero-label",{y:20,opacity:0,duration:.6,ease:"power3.out"})
   .from(".hero-desc",{y:20,opacity:0,duration:.6,ease:"power2.out"},"-=.4")
   .from(".hero-actions > *",{y:20,opacity:0,stagger:.1,duration:.5,ease:"power2.out"},"-=.3")
   .from(".trust-item",{y:15,opacity:0,stagger:.08,duration:.4,ease:"power2.out"},"-=.2")
-  .from(".project-card",{x:60,opacity:0,stagger:{amount:.4,from:"start"},duration:.7,ease:"power3.out"},"-=.8");
-
-// Float project cards
-document.querySelectorAll(".project-card").forEach((c,i)=>{
-  gsap.to(c,{y:-8,duration:2.2+i*.3,repeat:-1,yoyo:true,ease:"sine.inOut",delay:i*.4});
-});
+  .from(".hero-visual .hv-scene",{scale:.9,opacity:0,duration:.9,ease:"power3.out"},"-=.8")
+  .from(".hero-visual .hv-badge",{scale:0,opacity:0,stagger:.1,duration:.6,ease:"back.out(2)"},"-=.5");
 
 // Stats counter
 document.querySelectorAll("[data-counter]").forEach(el=>{
@@ -707,6 +920,14 @@ document.querySelectorAll(".service-card-pro").forEach((c,i)=>{
 // About text
 gsap.from(".about-teaser-text > *",{scrollTrigger:{trigger:".about-teaser",start:"top 75%"},y:30,opacity:0,stagger:.12,duration:.7,ease:"power3.out"});
 
+// Academic project cards
+document.querySelectorAll(".academic-card").forEach((c,i)=>{
+  gsap.from(c,{scrollTrigger:{trigger:c,start:"top 85%"},y:40,opacity:0,duration:.6,delay:(i%3)*.1,ease:"power3.out"});
+});
+document.querySelectorAll(".af-step").forEach((s,i)=>{
+  gsap.from(s,{scrollTrigger:{trigger:s,start:"top 88%"},y:30,opacity:0,duration:.5,delay:(i%4)*.08,ease:"power2.out"});
+});
+
 // Portfolio
 document.querySelectorAll(".portfolio-item").forEach((item,i)=>{
   gsap.from(item,{scrollTrigger:{trigger:item,start:"top 85%"},y:50,opacity:0,duration:.6,delay:(i%4)*.1,ease:"power3.out"});
@@ -730,15 +951,4 @@ gsap.from(".cta-actions",{scrollTrigger:{trigger:".cta-banner",start:"top 75%"},
 // Parallax hero
 gsap.to(".hero-bg-shape",{scrollTrigger:{trigger:".hero",start:"top top",end:"bottom top",scrub:1},y:-150,scale:1.1});
 
-// Magnetic buttons
-document.querySelectorAll(".magnetic").forEach(btn=>{
-  btn.addEventListener("mousemove",e=>{
-    const r=btn.getBoundingClientRect();
-    const x=e.clientX-r.left-r.width/2, y=e.clientY-r.top-r.height/2;
-    gsap.to(btn,{x:x*.25,y:y*.25,duration:.4,ease:"power2.out"});
-  });
-  btn.addEventListener("mouseleave",()=>{
-    gsap.to(btn,{x:0,y:0,duration:.5,ease:"elastic.out(1,.5)"});
-  });
-});
 </script>

@@ -8,7 +8,7 @@ export function getStaticPaths() {
     {
       slug: 'table-of-contents-la-gi',
       title: 'Table of Contents là gì? Hướng dẫn tạo mục lục cho website',
-      date: '27/02/2026', cat: 'SEO', icon: '📝', color: '#e8f4fd', readTime: '5 phút',
+      date: '27/02/2026', cat: 'SEO', readTime: '5 phút', img: 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=1000&q=80&fit=crop',
       content: `
         <h2>Table of Contents là gì?</h2>
         <p>Table of Contents (TOC) hay còn gọi là mục lục, là một danh sách có cấu trúc liệt kê các đề mục và tiêu đề chính trong một bài viết hoặc trang web. TOC giúp người đọc dễ dàng điều hướng đến phần nội dung họ quan tâm chỉ bằng một cú nhấp chuột.</p>
@@ -28,7 +28,7 @@ export function getStaticPaths() {
     {
       slug: 'elementor-la-gi',
       title: 'Elementor là gì? Cách cài đặt và cấu hình cho người mới',
-      date: '20/02/2026', cat: 'Website', icon: '⚙️', color: '#e8f9f7', readTime: '7 phút',
+      date: '20/02/2026', cat: 'Website', readTime: '7 phút', img: 'https://images.unsplash.com/photo-1547658719-da2b51169166?w=1000&q=80&fit=crop',
       content: `
         <h2>Elementor là gì?</h2>
         <p>Elementor là một trình xây dựng trang (Page Builder) kéo và thả (drag-and-drop) phổ biến nhất cho WordPress. Với hơn 12 triệu website đang sử dụng, Elementor cho phép bạn tạo ra những trang web đẹp mà không cần kiến thức lập trình.</p>
@@ -50,7 +50,7 @@ export function getStaticPaths() {
   const defaultPost = {
     slug: 'default',
     title: 'Bài viết đang được cập nhật',
-    date: '2026', cat: 'Blog', icon: '📄', color: '#e8f9f7', readTime: '5 phút',
+    date: '2026', cat: 'Blog', readTime: '5 phút', img: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1000&q=80&fit=crop',
     content: '<p>Nội dung bài viết đang được biên soạn. Vui lòng quay lại sau!</p>',
   };
 
@@ -69,36 +69,38 @@ export function getStaticPaths() {
 const { post } = Astro.props;
 
 const related = [
-  { title: 'Google Knowledge Graph là gì?', slug: 'google-knowledge-graph-la-gi', icon: '🔍' },
-  { title: 'Top 10+ công ty SEO Việt Nam', slug: 'top-cong-ty-seo-viet-nam', icon: '📈' },
-  { title: 'Schema Markup từ A đến Z', slug: 'schema-markup-la-gi', icon: '🗂️' },
+  { title: 'Google Knowledge Graph là gì?', slug: 'google-knowledge-graph-la-gi', img: 'https://images.unsplash.com/photo-1432888622747-4eb9a8f5a07d?w=200&q=80&fit=crop' },
+  { title: 'Top 10+ công ty SEO Việt Nam', slug: 'top-cong-ty-seo-viet-nam', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=200&q=80&fit=crop' },
+  { title: 'Schema Markup từ A đến Z', slug: 'schema-markup-la-gi', img: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=200&q=80&fit=crop' },
 ];
 ---
 
-<BaseLayout title={post.title} description={`${post.title} — Kiến thức từ đội ngũ chuyên gia MIKO TECH.`}>
+<BaseLayout title={post.title} description={`${post.title} — Kiến thức từ đội ngũ chuyên gia GLOBAL TECH.`}>
   <main>
 
     <!-- Article Hero -->
-    <div style={`background:${post.color};padding:140px 0 60px;position:relative;overflow:hidden;`}>
+    <div style="background:linear-gradient(160deg,var(--bg-light,#f6f8f7) 55%,rgba(26,188,173,0.08));padding:130px 0 56px;position:relative;overflow:hidden;">
       <div class="container" style="position:relative;z-index:1;">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px;flex-wrap:wrap;">
           <a href="/" style="color:var(--text-mid);font-size:13px;text-decoration:none;">Trang chủ</a>
           <span style="color:var(--text-light);">/</span>
           <a href="/blog" style="color:var(--text-mid);font-size:13px;text-decoration:none;">Blog</a>
           <span style="color:var(--text-light);">/</span>
           <span style="color:var(--teal);font-size:13px;font-weight:600;">{post.cat}</span>
         </div>
-        <div style="display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;">
+        <div class="article-hero-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;">
           <div>
             <span class="service-tag" style="margin-bottom:16px;display:inline-block;">{post.cat}</span>
             <h1 style="font-size:clamp(24px,4vw,40px);font-weight:900;color:var(--text-dark);line-height:1.3;margin-bottom:16px;">{post.title}</h1>
             <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
               <span style="font-size:13px;color:var(--text-mid);">📅 {post.date}</span>
               <span style="font-size:13px;color:var(--text-mid);">⏱️ {post.readTime} đọc</span>
-              <span style="font-size:13px;color:var(--text-mid);">✍️ MIKO TECH</span>
+              <span style="font-size:13px;color:var(--text-mid);">✍️ GLOBAL TECH</span>
             </div>
           </div>
-          <div style="font-size:80px;opacity:0.8;">{post.icon}</div>
+          <div class="article-hero-img" style="border-radius:18px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,0.16);aspect-ratio:16/10;">
+            <img src={post.img} alt={post.title} loading="eager" style="width:100%;height:100%;object-fit:cover;display:block;" />
+          </div>
         </div>
       </div>
     </div>
@@ -119,7 +121,7 @@ const related = [
             <!-- Author -->
             <div class="card" style="padding:24px;margin-bottom:24px;text-align:center;">
               <div style="width:64px;height:64px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:28px;margin:0 auto 12px;">👨‍💻</div>
-              <h3 style="font-size:15px;font-weight:700;margin-bottom:4px;">MIKO TECH Team</h3>
+              <h3 style="font-size:15px;font-weight:700;margin-bottom:4px;">GLOBAL TECH Team</h3>
               <p style="font-size:12px;color:var(--text-mid);line-height:1.6;">Đội ngũ chuyên gia với 8+ năm kinh nghiệm thiết kế web và digital marketing.</p>
             </div>
 
@@ -128,8 +130,8 @@ const related = [
               <h3 style="font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;color:var(--text-dark);">Bài viết liên quan</h3>
               {related.map(r => (
                 <a href={`/blog/${r.slug}`} style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #f5f5f5;text-decoration:none;">
-                  <span style="font-size:24px;">{r.icon}</span>
-                  <span style="font-size:13px;color:var(--text-dark);font-weight:500;line-height:1.5;hover:color:var(--teal);">{r.title}</span>
+                  <img src={r.img} alt={r.title} loading="lazy" style="width:56px;height:56px;border-radius:10px;object-fit:cover;flex-shrink:0;" />
+                  <span style="font-size:13px;color:var(--text-dark);font-weight:500;line-height:1.5;">{r.title}</span>
                 </a>
               ))}
             </div>
@@ -138,7 +140,7 @@ const related = [
             <div style="background:var(--teal);border-radius:16px;padding:28px;text-align:center;margin-top:24px;">
               <div style="font-size:32px;margin-bottom:12px;">🚀</div>
               <h3 style="font-size:16px;font-weight:800;color:white;margin-bottom:8px;">Cần tư vấn website?</h3>
-              <p style="font-size:13px;color:rgba(255,255,255,0.8);margin-bottom:16px;line-height:1.6;">Nhận tư vấn miễn phí từ đội ngũ chuyên gia Miko Tech.</p>
+              <p style="font-size:13px;color:rgba(255,255,255,0.8);margin-bottom:16px;line-height:1.6;">Nhận tư vấn miễn phí từ đội ngũ chuyên gia Global Tech.</p>
               <a href="/lien-he" class="btn btn-white" style="width:100%;justify-content:center;font-size:13px;">Liên hệ ngay</a>
             </div>
 
@@ -195,5 +197,7 @@ const related = [
   @media (max-width: 1024px) {
     section .container > div { grid-template-columns: 1fr !important; }
     aside { position: static !important; }
+    .article-hero-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+    .article-hero-img { max-width: 520px; }
   }
 </style>

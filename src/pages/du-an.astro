@@ -3,25 +3,28 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CTABanner from '../components/CTABanner.astro';
 
-const categories = ['Tất cả', 'Website', 'E-commerce', 'Mobile App', 'Landing Page', 'SEO'];
+const categories = ['Tất cả', 'Website', 'E-commerce', 'Mobile App', 'Landing Page', 'Đồ án CNTT'];
 
 const projects = [
-  { title: 'RINO – Siêu Thị Online',       cat: 'Mobile App',   tag: 'Mobile App',   color: '#5c1fb4', textWhite: true,  icon: '🛒', desc: 'App giao hàng siêu tốc trong 10 phút, hoạt động 24/7 tại TP.HCM.' },
-  { title: 'Phú Mỹ Giàu Đẹp',              cat: 'E-commerce',   tag: 'Website',      color: '#e8e0d5', textWhite: false, icon: '🏠', desc: 'Nền tảng bất động sản trung gian kết nối người mua và người bán.' },
-  { title: 'MINIGA Boutique',               cat: 'E-commerce',   tag: 'E-commerce',   color: '#f5e6d3', textWhite: false, icon: '👜', desc: 'Website thương mại điện tử túi xách và phụ kiện thời trang cao cấp.' },
-  { title: 'Coin Catapult',                 cat: 'Website',      tag: 'Web App',      color: '#1a1a2e', textWhite: true,  icon: '₿', desc: 'Nền tảng nghiên cứu và theo dõi đầu tư tiền điện tử.' },
-  { title: 'Phong Thủy Tâm An',            cat: 'Website',      tag: 'Website',      color: '#8b1a1a', textWhite: true,  icon: '🔮', desc: 'Website phong thủy chuyên nghiệp với giao diện tâm linh tinh tế.' },
-  { title: 'Dining Experience',            cat: 'Website',      tag: 'Restaurant',   color: '#2d4a22', textWhite: true,  icon: '🍽️', desc: 'Website nhà hàng fine dining với hệ thống đặt bàn trực tuyến.' },
-  { title: 'TechCorp Solution',            cat: 'Landing Page', tag: 'Landing Page', color: '#0d2137', textWhite: true,  icon: '💻', desc: 'Landing page chuyển đổi cao cho công ty phần mềm B2B.' },
-  { title: 'GreenMart Organic',            cat: 'E-commerce',   tag: 'E-commerce',   color: '#1a4a2e', textWhite: true,  icon: '🥦', desc: 'Siêu thị thực phẩm sạch online với hệ thống quản lý kho thông minh.' },
-  { title: 'MediCare Clinic',             cat: 'Website',      tag: 'Y tế',         color: '#e8f4f8', textWhite: false, icon: '🏥', desc: 'Website phòng khám với tính năng đặt lịch và quản lý bệnh nhân.' },
-  { title: 'EduLearn Platform',           cat: 'Website',      tag: 'Giáo dục',     color: '#fff8e8', textWhite: false, icon: '🎓', desc: 'Nền tảng học trực tuyến với hơn 200 khoá học và 50.000 học viên.' },
-  { title: 'FitLife Gym',                  cat: 'Landing Page', tag: 'Landing Page', color: '#1a1a2e', textWhite: true,  icon: '💪', desc: 'Landing page và landing funnel cho chuỗi gym tại TP.HCM.' },
-  { title: 'TravelVN',                     cat: 'Website',      tag: 'Du lịch',      color: '#e8f9f7', textWhite: false, icon: '✈️', desc: 'Cổng thông tin du lịch Việt Nam với booking tour và khách sạn.' },
+  { title: 'RINO – Siêu Thị Online',     cat: 'Mobile App',   tag: 'Mobile App',   desc: 'App giao hàng siêu tốc trong 10 phút, hoạt động 24/7 tại TP.HCM.',           img: 'https://images.unsplash.com/photo-1604719312566-8912e9227c6a?w=700&q=80&fit=crop' },
+  { title: 'Phú Mỹ Giàu Đẹp',            cat: 'Website',      tag: 'Bất động sản', desc: 'Nền tảng bất động sản trung gian kết nối người mua và người bán.',          img: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=700&q=80&fit=crop' },
+  { title: 'MINIGA Boutique',            cat: 'E-commerce',   tag: 'E-commerce',   desc: 'Website thương mại điện tử túi xách và phụ kiện thời trang cao cấp.',        img: 'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=700&q=80&fit=crop' },
+  { title: 'Coin Catapult',              cat: 'Website',      tag: 'Web App',      desc: 'Nền tảng nghiên cứu và theo dõi đầu tư tiền điện tử thời gian thực.',        img: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=700&q=80&fit=crop' },
+  { title: 'Phong Thủy Tâm An',          cat: 'Website',      tag: 'Website',      desc: 'Website phong thủy chuyên nghiệp với giao diện tâm linh tinh tế.',           img: 'https://images.unsplash.com/photo-1545048702-79362596cdc9?w=700&q=80&fit=crop' },
+  { title: 'Dining Experience',          cat: 'Website',      tag: 'Nhà hàng',     desc: 'Website nhà hàng fine dining với hệ thống đặt bàn trực tuyến.',              img: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=700&q=80&fit=crop' },
+  { title: 'TechCorp Solution',          cat: 'Landing Page', tag: 'Landing Page', desc: 'Landing page chuyển đổi cao cho công ty phần mềm B2B.',                     img: 'https://images.unsplash.com/photo-1551434678-e076c223a692?w=700&q=80&fit=crop' },
+  { title: 'GreenMart Organic',          cat: 'E-commerce',   tag: 'E-commerce',   desc: 'Siêu thị thực phẩm sạch online với hệ thống quản lý kho thông minh.',        img: 'https://images.unsplash.com/photo-1542838132-92c53300491e?w=700&q=80&fit=crop' },
+  { title: 'MediCare Clinic',            cat: 'Website',      tag: 'Y tế',         desc: 'Website phòng khám với tính năng đặt lịch và quản lý bệnh nhân.',            img: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=700&q=80&fit=crop' },
+  { title: 'EduLearn Platform',          cat: 'Website',      tag: 'Giáo dục',     desc: 'Nền tảng học trực tuyến với hơn 200 khoá học và 50.000 học viên.',          img: 'https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=700&q=80&fit=crop' },
+  { title: 'FitLife Gym',                cat: 'Landing Page', tag: 'Landing Page', desc: 'Landing page và phễu chuyển đổi cho chuỗi phòng gym tại TP.HCM.',            img: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=700&q=80&fit=crop' },
+  { title: 'TravelVN',                   cat: 'Website',      tag: 'Du lịch',      desc: 'Cổng thông tin du lịch Việt Nam với booking tour và khách sạn.',            img: 'https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=700&q=80&fit=crop' },
+  { title: 'Đồ án Quản Lý Bán Hàng',     cat: 'Đồ án CNTT',   tag: 'C# · SQL',     desc: 'Đồ án tốt nghiệp: phần mềm quản lý bán hàng C# WinForms + SQL Server, kèm báo cáo.', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80&fit=crop' },
+  { title: 'Đồ án Web Đặt Lịch Khám',    cat: 'Đồ án CNTT',   tag: 'PHP · Laravel', desc: 'Đồ án môn học: website đặt lịch khám bệnh bằng Laravel, phân quyền admin/bác sĩ/bệnh nhân.', img: 'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=700&q=80&fit=crop' },
+  { title: 'Đồ án Nhận Diện Khuôn Mặt',  cat: 'Đồ án CNTT',   tag: 'Python · AI',  desc: 'Đồ án AI: điểm danh bằng nhận diện khuôn mặt với Python, OpenCV và mô hình đã huấn luyện.', img: 'https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=700&q=80&fit=crop' },
 ];
 ---
 
-<BaseLayout title="Dự Án" description="Khám phá 500+ dự án mà MIKO TECH đã thực hiện cho khách hàng trên toàn Việt Nam và quốc tế.">
+<BaseLayout title="Dự Án" description="Khám phá các dự án website, ứng dụng, chiến dịch marketing và đồ án CNTT tiêu biểu mà Global Tech đã thực hiện.">
   <main>
 
     <!-- Page Hero -->
@@ -29,8 +32,8 @@ const projects = [
       <div style="position:absolute;top:-60px;right:-60px;width:280px;height:280px;border-radius:50%;border:40px solid rgba(255,255,255,0.06);pointer-events:none;"></div>
       <div class="container" style="position:relative;z-index:1;">
         <div class="label-tag" style="color:rgba(255,255,255,0.7);margin-bottom:12px;" data-hero-animate>DỰ ÁN</div>
-        <h1 data-hero-animate>500+ DỰ ÁN ĐÃ HOÀN THÀNH<br/>TẠI 20+ LĨNH VỰC</h1>
-        <p data-hero-animate>Từ startup đến tập đoàn lớn — Miko Tech đã đồng hành và tạo ra những sản phẩm số xuất sắc, đo được kết quả thực.</p>
+        <h1 data-hero-animate>DỰ ÁN TIÊU BIỂU<br/>CHÚNG TÔI ĐÃ THỰC HIỆN</h1>
+        <p data-hero-animate>Từ website doanh nghiệp, ứng dụng, chiến dịch marketing đến đồ án CNTT cho sinh viên — mỗi sản phẩm đều được làm chỉn chu và đo được kết quả.</p>
       </div>
     </div>
 
@@ -39,13 +42,13 @@ const projects = [
       <div class="container">
         <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center;">
           {[
-            { number: '500', suffix: '+', label: 'Dự án hoàn thành' },
-            { number: '300', suffix: '+', label: 'Khách hàng' },
+            { number: '850', suffix: '+', label: 'Dự án hoàn thành' },
+            { number: '620', suffix: '+', label: 'Khách hàng tin tưởng' },
             { number: '20',  suffix: '+', label: 'Lĩnh vực' },
             { number: '98',  suffix: '%', label: 'Khách hàng hài lòng' },
           ].map(s => (
             <div>
-              <div class="stat-number" data-count={s.number} data-suffix={s.suffix}>0{s.suffix}</div>
+              <div class="stat-number" data-count={s.number} data-suffix={s.suffix}>{s.number}{s.suffix}</div>
               <div class="stat-label" style="margin-top:6px;">{s.label}</div>
             </div>
           ))}
@@ -74,14 +77,11 @@ const projects = [
           {projects.map((p, i) => (
             <div class="project-item card" data-cat={p.cat} data-animate data-delay={String(i%3+1)} style="overflow:hidden;">
               <!-- Preview -->
-              <div style={`background:${p.color};height:200px;display:flex;align-items:center;justify-content:center;position:relative;`}>
-                <div style="text-align:center;">
-                  <div style="font-size:56px;margin-bottom:8px;">{p.icon}</div>
-                  <div style={`font-size:11px;font-weight:800;letter-spacing:1px;${p.textWhite?'color:rgba(255,255,255,0.7)':'color:var(--teal)'}`}>{p.tag}</div>
-                </div>
+              <div class="proj-img-wrap">
+                <img src={p.img} alt={p.title} loading={i < 3 ? 'eager' : 'lazy'} />
+                <span class="proj-tag">{p.tag}</span>
                 <div class="overlay">
-                  <p style="color:white;font-weight:700;font-size:14px;text-align:center;">{p.title}</p>
-                  <span style="color:rgba(255,255,255,0.8);font-size:12px;text-align:center;">{p.desc}</span>
+                  <span style="color:#fff;font-weight:700;font-size:15px;">Xem chi tiết →</span>
                 </div>
               </div>
               <!-- Info -->
@@ -132,6 +132,30 @@ const projects = [
 </script>
 
 <style>
+  .project-item { transition: transform 0.35s ease, box-shadow 0.35s ease; }
+  .project-item:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,0,0,0.12); }
+  .proj-img-wrap { position: relative; height: 200px; overflow: hidden; }
+  .proj-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+  .project-item:hover .proj-img-wrap img { transform: scale(1.08); }
+  .proj-tag {
+    position: absolute; top: 12px; left: 12px;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(4px);
+    color: var(--teal);
+    font-size: 11px; font-weight: 800;
+    letter-spacing: 0.5px;
+    padding: 5px 12px;
+    border-radius: 50px;
+    z-index: 2;
+  }
+  .proj-img-wrap .overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(26,188,173,0.85), rgba(0,0,0,0.25));
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0; transition: opacity 0.35s;
+  }
+  .project-item:hover .proj-img-wrap .overlay { opacity: 1; }
+
   @media (max-width: 1024px) {
     #projectsGrid { grid-template-columns: repeat(2, 1fr) !important; }
   }

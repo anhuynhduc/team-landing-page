@@ -30,6 +30,16 @@
   --font-body:      'Inter', sans-serif;
   --transition:     cubic-bezier(0.25, 0.46, 0.45, 0.94);
   --header-h:       76px;
+
+  /* Aliases dùng ở các trang dịch vụ / dự án / blog */
+  --teal:           #00B09B;
+  --teal-light:     #E3F7F3;
+  --teal-dark:      #007A6E;
+  --teal-darker:    #005F55;
+  --teal-pale:      #F0FBF9;
+  --bg-light:       #F4F7F6;
+  --text-dark:      #1A1A2E;
+  --text-mid:       #5B6470;
 }
 
 /* ─── Reset ─── */
@@ -44,6 +54,7 @@ body {
   cursor: none;
 }
 img, video { max-width: 100%; display: block; }
+img.img-fallback { object-fit: cover; background: var(--primary); }
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 button { cursor: none; border: none; background: none; font-family: inherit; }

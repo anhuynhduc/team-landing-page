@@ -10,7 +10,7 @@ const values = [
   {
     num: '02',
     title: 'Kinh Nghiệm',
-    desc: 'Với nhiều năm chinh chiến trên thị trường Marketing & Công nghệ, đội ngũ TechViet sẽ giúp bạn giải quyết mọi vấn đề một cách dễ dàng.',
+    desc: 'Đội ngũ developer và marketer giàu kinh nghiệm thực chiến trên đa nền tảng, sẵn sàng giải quyết mọi bài toán công nghệ của bạn.',
   },
   {
     num: '03',
@@ -20,66 +20,66 @@ const values = [
   {
     num: '04',
     title: 'Đa Dạng',
-    desc: 'Từ startup đến doanh nghiệp lớn, từ thương mại điện tử đến SaaS — chúng tôi có đủ năng lực phục vụ mọi quy mô.',
+    desc: 'Từ website doanh nghiệp, app, chiến dịch marketing đến đồ án CNTT cho sinh viên — chúng tôi phục vụ đa dạng nhu cầu và quy mô.',
   },
 ];
 
 const team = [
-  { name: 'Nguyễn Minh Tuấn', role: 'CEO & Co-Founder', emoji: '👨‍💻' },
-  { name: 'Trần Thị Lan', role: 'Creative Director', emoji: '👩‍🎨' },
-  { name: 'Lê Văn Hùng', role: 'Lead Developer', emoji: '🧑‍💻' },
-  { name: 'Phạm Thu Hà', role: 'Marketing Lead', emoji: '👩‍💼' },
+  { name: 'Nguyễn Minh Tuấn', role: 'CEO & Founder',      skill: 'Chiến lược sản phẩm',  img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80&fit=crop&crop=faces' },
+  { name: 'Trần Thị Lan',     role: 'Creative Director',   skill: 'UI/UX & Thương hiệu',  img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80&fit=crop&crop=faces' },
+  { name: 'Lê Văn Hùng',      role: 'Lead Developer',      skill: 'Web · App · Hệ thống', img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80&fit=crop&crop=faces' },
+  { name: 'Phạm Thu Hà',      role: 'Marketing Lead',      skill: 'SEO · Ads · Content',  img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80&fit=crop&crop=faces' },
+  { name: 'Đỗ Quang Huy',     role: 'Backend Engineer',    skill: 'API · Database · Cloud', img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80&fit=crop&crop=faces' },
+  { name: 'Vũ Khánh Linh',    role: 'Project Manager',     skill: 'Điều phối & QA',       img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80&fit=crop&crop=faces' },
 ];
 ---
 
-<BaseLayout title="Giới Thiệu – TechViet">
+<BaseLayout title="Giới Thiệu – Global Tech">
 
   <!-- Hero About -->
   <section class="about-hero">
     <div class="container">
       <div class="about-hero-content">
-        <span class="label about-label">Về TechViet</span>
+        <span class="label about-label">Về Global Tech</span>
         <h1 class="about-h1">
-          Chúng Tôi Là<br><span class="text-teal">Đội Chiến Binh</span><br>Công Nghệ
+          Chúng Tôi Là<br><span class="text-teal">Đội Ngũ</span><br>Công Nghệ Trẻ
         </h1>
         <p class="about-lead">
-          Đội ngũ TechViet với kinh nghiệm tham gia nhiều cuộc chiến trong nhiều năm liên ở thị trường Marketing, giờ đây chúng tôi chính thức là một đội quân hùng mạnh với mong muốn đồng hành và phát triển cùng bạn.
+          Global Tech là đội ngũ chuyên thiết kế website, triển khai marketing số và nhận làm đồ án công nghệ thông tin theo yêu cầu. Chúng tôi kết hợp tư duy sản phẩm, kỹ thuật vững vàng và sự tận tâm để biến ý tưởng của bạn thành sản phẩm số thực sự hiệu quả.
         </p>
       </div>
 
-      <!-- MacBook display -->
-      <div class="about-macbook-wrap">
-        <div class="about-macbook">
-          <div class="about-screen">
-            <div class="as-topbar">
-              <div class="as-dots">
-                <span style="background:#FF5F57"></span>
-                <span style="background:#FFBD2E"></span>
-                <span style="background:#28C840"></span>
-              </div>
-              <div class="as-url-bar">
-                <span>🔒</span>
-                <span style="color:#666;font-size:11px">techviet.vn</span>
-              </div>
-            </div>
-            <div class="as-body">
-              <div class="as-nav"></div>
-              <div class="as-hero-block">
-                <div class="as-3d-visual">
-                  <div class="floating-shapes">
-                    <div class="shape shape-1"></div>
-                    <div class="shape shape-2"></div>
-                    <div class="shape shape-3"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="ab-notch"></div>
-          <div class="ab-base"></div>
-          <div class="ab-foot"></div>
+      <!-- Hero image collage -->
+      <div class="about-hero-visual">
+        <div class="ahv-glow"></div>
+        <div class="ahv-dots"></div>
+
+        <div class="ahv-main">
+          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&q=80&fit=crop" alt="Đội ngũ Global Tech làm việc cùng nhau" loading="eager" />
+          <span class="ahv-main-tag"><span class="ahv-dot"></span>Global Tech Team</span>
         </div>
-        <div class="about-mac-glow"></div>
+
+        <div class="ahv-sub">
+          <img src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=600&q=80&fit=crop" alt="Phòng họp lên ý tưởng dự án" loading="lazy" />
+        </div>
+
+        <div class="ahv-badge ahv-badge--exp">
+          <span class="ahvb-num" data-counter="12" data-suffix="+">12+</span>
+          <span class="ahvb-label">Năm kinh nghiệm</span>
+        </div>
+
+        <div class="ahv-badge ahv-badge--proj">
+          <div class="ahvb-icon">🚀</div>
+          <div>
+            <span class="ahvb-num-sm" data-counter="850" data-suffix="+">850+</span>
+            <span class="ahvb-label">Dự án bàn giao</span>
+          </div>
+        </div>
+
+        <div class="ahv-badge ahv-badge--rating">
+          <div class="ahvb-stars">★★★★★</div>
+          <span class="ahvb-label">4.9/5 từ khách hàng</span>
+        </div>
       </div>
     </div>
   </section>
@@ -89,7 +89,7 @@ const team = [
     <div class="container" style="max-width:780px">
       <span class="label anim-fade-up">Chúng Tôi Là</span>
       <h2 class="section-title anim-fade-up" style="margin-top:12px">
-        Làm Việc Tận Tâm Đã Tạo Nên<br><span class="text-teal">Uy Tín Cho TechViet</span>
+        Làm Việc Tận Tâm Đã Tạo Nên<br><span class="text-teal">Uy Tín Cho Global Tech</span>
       </h2>
       <p class="section-desc anim-fade-up" style="margin:20px auto 0">
         Chúng tôi không chỉ xây dựng website — chúng tôi kiến tạo hành trình số cho doanh nghiệp của bạn. Mỗi dự án là một cam kết về chất lượng, thẩm mỹ và hiệu quả kinh doanh thực tế.
@@ -113,10 +113,10 @@ const team = [
       <div class="about-services-img anim-scale">
         <div class="office-visual">
           <div class="office-card">
-            <div class="office-img-mock"></div>
+            <img class="office-photo" src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?w=800&q=80&fit=crop" alt="Đội ngũ Global Tech trao đổi dự án" loading="lazy" />
             <div class="office-info">
-              <div class="oi-line"></div>
-              <div class="oi-line oi-line--short"></div>
+              <h4 class="oi-title">Tận tâm trong từng chi tiết</h4>
+              <p class="oi-sub">Quy trình minh bạch — báo giá rõ ràng — bàn giao đúng hẹn.</p>
             </div>
           </div>
           <div class="office-stat-bubble">
@@ -134,19 +134,29 @@ const team = [
       <div class="text-center">
         <span class="label anim-fade-up">Đội Ngũ</span>
         <h2 class="section-title anim-fade-up" style="margin-top:12px">
-          Những Chiến Binh<br><span class="text-teal">TechViet</span>
+          Những Con Người<br><span class="text-teal">Global Tech</span>
         </h2>
+        <p class="section-desc anim-fade-up" style="margin:20px auto 0">
+          Mỗi thành viên là một mảnh ghép chuyên môn — cùng nhau biến mỗi dự án thành sản phẩm hoàn chỉnh và đáng tự hào.
+        </p>
       </div>
 
-      <div class="team-grid anim-stagger">
+      <div class="team-grid">
         {team.map((member) => (
           <div class="team-card">
-            <div class="team-avatar">
-              <span class="team-emoji">{member.emoji}</span>
-              <div class="team-avatar-ring"></div>
+            <div class="team-photo">
+              <img src={member.img} alt={member.name} loading="lazy" />
+              <div class="team-photo-overlay">
+                <div class="team-socials">
+                  <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+                  <a href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.25 8h4.5v12h-4.5zM8 8h4.3v1.64h.06c.6-1.06 2.06-2.18 4.24-2.18 4.54 0 5.38 2.74 5.38 6.3V20h-4.5v-5.34c0-1.27-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.81V20H8z"/></svg></a>
+                  <a href="#" aria-label="Email"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg></a>
+                </div>
+              </div>
             </div>
             <h3 class="team-name">{member.name}</h3>
             <p class="team-role">{member.role}</p>
+            <span class="team-skill">{member.skill}</span>
           </div>
         ))}
       </div>
@@ -159,10 +169,10 @@ const team = [
       <div class="values-text">
         <span class="label anim-fade-up">Giá Trị Cốt Lõi</span>
         <h2 class="section-title anim-fade-up" style="margin-top:12px">
-          Giá Trị Khác Biệt<br><span class="text-teal">Tại TechViet</span>
+          Giá Trị Khác Biệt<br><span class="text-teal">Tại Global Tech</span>
         </h2>
         <p class="section-desc anim-fade-up" style="margin-top:20px">
-          Chúng tôi sở hữu đội ngũ chiến binh dày dặn kinh nghiệm thực chiến trên thị trường. Luôn trong tâm thế sẵn sàng tham gia bất kỳ cuộc chiến nào cùng với doanh nghiệp bạn.
+          Bốn giá trị cốt lõi định hình cách chúng tôi làm việc mỗi ngày — đảm bảo mỗi sản phẩm bàn giao đều chỉn chu, đúng hẹn và mang lại giá trị thực cho khách hàng.
         </p>
       </div>
 
@@ -206,92 +216,99 @@ const team = [
   line-height: 1.75;
 }
 
-/* MacBook */
-.about-macbook-wrap {
-  max-width: 780px;
+/* Hero image collage */
+.about-hero-visual {
+  position: relative;
+  max-width: 880px;
   margin: 0 auto;
-  position: relative;
+  aspect-ratio: 16/10;
 }
-.about-macbook { position: relative; }
-.about-screen {
-  background: #1A1A2E;
-  border-radius: 14px 14px 0 0;
-  padding: 8px;
-  border: 8px solid #2D2D44;
-  box-shadow: 0 0 0 2px #3D3D5C, 0 30px 80px rgba(0,0,0,0.4);
-  aspect-ratio: 16/9;
-  overflow: hidden;
-}
-.as-topbar {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background: #2D2D44;
-  padding: 6px 12px;
-  border-radius: 6px 6px 0 0;
-}
-.as-dots { display: flex; gap: 5px; }
-.as-dots span { width: 8px; height: 8px; border-radius: 50%; }
-.as-url-bar {
-  flex: 1;
-  background: rgba(255,255,255,0.07);
-  border-radius: 6px;
-  padding: 4px 10px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  color: rgba(255,255,255,0.4);
-}
-
-.as-body { flex: 1; }
-.as-nav {
-  height: 28px;
-  background: rgba(255,255,255,0.03);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-.as-hero-block {
-  height: 200px;
-  background: linear-gradient(135deg, var(--primary)99, #4ECDC499);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  position: relative;
-}
-
-.floating-shapes { position: absolute; inset: 0; }
-.shape {
+.ahv-glow {
   position: absolute;
-  border-radius: 50%;
-  opacity: 0.6;
-}
-.shape-1 { width: 80px; height: 80px; background: rgba(255,255,255,0.2); top: 20px; left: 30px; animation: shapeFloat 4s ease-in-out infinite; }
-.shape-2 { width: 50px; height: 50px; background: rgba(255,255,255,0.15); bottom: 20px; right: 60px; animation: shapeFloat 5s ease-in-out infinite 1s; }
-.shape-3 { width: 30px; height: 30px; background: rgba(150,201,61,0.5); top: 50%; right: 20px; animation: shapeFloat 3.5s ease-in-out infinite 0.5s; }
-@keyframes shapeFloat {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-15px) rotate(10deg); }
-}
-
-.ab-notch { height: 4px; background: #2D2D44; }
-.ab-base { height: 20px; background: linear-gradient(180deg,#C0C0C0,#A0A0A0); border-radius: 0 0 4px 4px; }
-.ab-foot { width: 55%; height: 8px; background: #A0A0A0; margin: 0 auto; border-radius: 0 0 6px 6px; }
-.about-mac-glow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width: 50%;
-  height: 30%;
-  background: radial-gradient(ellipse, rgba(0,176,155,0.25), transparent 70%);
+  top: 8%; left: 10%;
+  width: 70%; height: 80%;
+  background: radial-gradient(ellipse, rgba(0,176,155,0.22), transparent 70%);
+  filter: blur(10px);
   pointer-events: none;
-  animation: macGlow2 3s ease-in-out infinite;
+  animation: ahvGlow 4s ease-in-out infinite;
 }
-@keyframes macGlow2 {
-  0%,100% { opacity: 0.5; }
-  50% { opacity: 1; }
+@keyframes ahvGlow { 0%,100%{opacity:.55} 50%{opacity:1} }
+.ahv-dots {
+  position: absolute;
+  bottom: 4%; right: 2%;
+  width: 120px; height: 120px;
+  background-image: radial-gradient(circle, var(--primary) 1.6px, transparent 1.6px);
+  background-size: 16px 16px;
+  opacity: 0.35;
+  pointer-events: none;
 }
+.ahv-main {
+  position: absolute;
+  top: 0; left: 4%;
+  width: 70%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.ahv-main img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+.ahv-main-tag {
+  position: absolute;
+  top: 14px; left: 14px;
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(6px);
+  padding: 7px 14px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.78rem;
+  color: var(--text);
+}
+.ahv-dot { width: 8px; height: 8px; border-radius: 50%; background: #2BCB5E; box-shadow: 0 0 0 3px rgba(43,203,94,0.25); }
+.ahv-sub {
+  position: absolute;
+  bottom: 2%; right: 2%;
+  width: 42%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 5px solid var(--white);
+  box-shadow: var(--shadow-md);
+}
+.ahv-sub img { width: 100%; aspect-ratio: 5/4; object-fit: cover; }
+.ahv-badge {
+  position: absolute;
+  background: var(--white);
+  border-radius: var(--radius-md);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+  padding: 14px 18px;
+}
+.ahv-badge--exp {
+  top: 14%; right: 0;
+  text-align: center;
+  animation: ahvFloat 4.5s ease-in-out infinite;
+}
+.ahvb-num { display: block; font-family: var(--font-heading); font-weight: 900; font-size: 1.9rem; color: var(--primary); line-height: 1; }
+.ahvb-num-sm { display: block; font-family: var(--font-heading); font-weight: 900; font-size: 1.2rem; color: var(--primary); line-height: 1; }
+.ahvb-label { display: block; font-size: 0.7rem; color: var(--text-muted); margin-top: 4px; font-family: var(--font-heading); font-weight: 600; }
+.ahv-badge--proj {
+  bottom: 16%; left: 0;
+  display: flex; align-items: center; gap: 12px;
+  animation: ahvFloat 5.2s ease-in-out infinite 0.6s;
+}
+.ahvb-icon {
+  width: 40px; height: 40px; flex-shrink: 0;
+  background: var(--primary-glow);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+}
+.ahv-badge--rating {
+  top: -3%; left: 24%;
+  text-align: center;
+  animation: ahvFloat 4s ease-in-out infinite 1.2s;
+}
+.ahvb-stars { color: #F59E0B; font-size: 0.9rem; letter-spacing: 1px; }
+@keyframes ahvFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
 
 /* Services split */
 .about-services { background: var(--bg); }
@@ -313,20 +330,15 @@ const team = [
   border-radius: var(--radius-md);
   overflow: hidden;
 }
-.office-img-mock {
-  height: 160px;
-  background: linear-gradient(135deg, #00B09B22, #4ECDC422);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.office-photo {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
 }
-.office-img-mock::after {
-  content: '🏢';
-  font-size: 4rem;
-}
-.office-info { padding: 16px; display: flex; flex-direction: column; gap: 8px; }
-.oi-line { height: 8px; background: #E5E7EB; border-radius: 4px; }
-.oi-line--short { width: 60%; }
+.office-info { padding: 18px 16px; display: flex; flex-direction: column; gap: 6px; }
+.oi-title { font-size: 1rem; font-weight: 800; color: var(--text); }
+.oi-sub { font-size: 0.82rem; color: var(--text-muted); line-height: 1.55; }
 .office-stat-bubble {
   position: absolute;
   top: 20px; right: -20px;
@@ -354,39 +366,69 @@ const team = [
 /* Team */
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 28px;
   margin-top: 56px;
 }
 .team-card {
   text-align: center;
-  background: var(--bg);
+  background: var(--white);
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  padding: 36px 24px;
-  transition: transform 0.35s, box-shadow 0.35s;
+  padding: 24px 24px 30px;
+  transition: transform 0.35s, box-shadow 0.35s, border-color 0.35s;
 }
-.team-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-md); }
-.team-avatar {
+.team-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: var(--primary-light); }
+.team-photo {
   position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 90px; height: 90px;
+  width: 130px; height: 130px;
   margin: 0 auto 20px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
 }
-.team-emoji { font-size: 3rem; position: relative; z-index: 1; }
-.team-avatar-ring {
+.team-photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s var(--transition);
+}
+.team-card:hover .team-photo img { transform: scale(1.08); }
+.team-photo-overlay {
   position: absolute;
   inset: 0;
-  border-radius: 50%;
-  border: 2px solid var(--primary);
+  background: linear-gradient(to top, rgba(0,176,155,0.85), transparent 65%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 14px;
   opacity: 0;
-  transform: scale(0.8);
-  transition: opacity 0.35s, transform 0.35s;
+  transition: opacity 0.35s;
 }
-.team-card:hover .team-avatar-ring { opacity: 1; transform: scale(1.1); }
-.team-name { font-size: 1rem; font-weight: 800; }
-.team-role { font-size: 0.82rem; color: var(--primary); font-family: var(--font-heading); font-weight: 600; margin-top: 4px; }
+.team-card:hover .team-photo-overlay { opacity: 1; }
+.team-socials { display: flex; gap: 8px; transform: translateY(10px); transition: transform 0.35s; }
+.team-card:hover .team-socials { transform: translateY(0); }
+.team-socials a {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.95);
+  color: var(--primary);
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+}
+.team-socials a:hover { background: var(--text); color: #fff; transform: translateY(-3px); }
+.team-name { font-size: 1.1rem; font-weight: 800; }
+.team-role { font-size: 0.85rem; color: var(--primary); font-family: var(--font-heading); font-weight: 700; margin-top: 4px; }
+.team-skill {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 5px 14px;
+  background: var(--bg);
+  border-radius: var(--radius-pill);
+  font-size: 0.72rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--text-muted);
+}
 
 /* Values */
 .values-section { background: var(--bg); }
@@ -443,9 +485,20 @@ const team = [
   .team-grid { grid-template-columns: repeat(2, 1fr); }
   .values-inner { grid-template-columns: 1fr; }
 }
+@media (max-width: 768px) {
+  .about-hero-visual { max-width: 480px; aspect-ratio: 4/3; }
+  .ahv-badge { padding: 10px 14px; }
+  .ahvb-num { font-size: 1.5rem; }
+  .ahv-badge--exp { top: 8%; }
+  .ahv-badge--rating { display: none; }
+}
 @media (max-width: 640px) {
-  .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .team-grid { grid-template-columns: 1fr; max-width: 320px; margin-left: auto; margin-right: auto; }
+  .team-grid { margin-top: 40px; }
   .values-cards { grid-template-columns: 1fr; }
+  .about-hero-visual { max-width: 360px; }
+  .ahv-badge--proj { padding: 8px 12px; }
+  .ahvb-icon { width: 32px; height: 32px; font-size: 1rem; }
 }
 </style>
 
@@ -458,16 +511,9 @@ gsap.registerPlugin(ScrollTrigger);
 const tl = gsap.timeline({ delay: 0.4 });
 tl.from('.about-h1', { y: 50, opacity: 0, duration: 0.8, ease: 'power4.out' });
 tl.from('.about-lead', { y: 20, opacity: 0, duration: 0.6, ease: 'power2.out' }, '-=0.4');
-tl.from('.about-macbook-wrap', { y: 60, opacity: 0, scale: 0.95, duration: 1, ease: 'power3.out' }, '-=0.3');
-
-// MacBook float
-gsap.to('.about-macbook', {
-  y: -12,
-  duration: 4,
-  repeat: -1,
-  yoyo: true,
-  ease: 'sine.inOut',
-});
+tl.from('.ahv-main', { y: 50, opacity: 0, scale: 0.95, duration: 0.9, ease: 'power3.out' }, '-=0.3');
+tl.from('.ahv-sub', { x: 40, opacity: 0, duration: 0.7, ease: 'power3.out' }, '-=0.5');
+tl.from('.ahv-badge', { scale: 0, opacity: 0, stagger: 0.12, duration: 0.6, ease: 'back.out(2)' }, '-=0.4');
 
 // Value cards interaction
 const valueCards = document.querySelectorAll<HTMLElement>('.value-card');
@@ -502,3 +548,4 @@ gsap.from('.value-card', {
   ease: 'power2.out',
 });
 </script>
+

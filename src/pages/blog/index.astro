@@ -4,21 +4,21 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTABanner from '../../components/CTABanner.astro';
 
 const posts = [
-  { slug: 'table-of-contents-la-gi',         title: 'Table of Contents là gì? Hướng dẫn tạo mục lục cho website',           date: '27/02/2026', cat: 'SEO',         icon: '📝', color: '#e8f4fd', readTime: '5 phút' },
-  { slug: 'elementor-la-gi',                  title: 'Elementor là gì? Cách cài đặt và cấu hình cho người mới',               date: '20/02/2026', cat: 'Website',     icon: '⚙️', color: '#e8f9f7', readTime: '7 phút' },
-  { slug: 'google-knowledge-graph-la-gi',     title: 'Google Knowledge Graph là gì? Hướng dẫn tối ưu chi tiết',              date: '16/02/2026', cat: 'SEO',         icon: '🔍', color: '#fef9e7', readTime: '8 phút' },
-  { slug: 'top-cong-ty-seo-viet-nam',         title: 'Top 10+ công ty SEO uy tín, chuyên nghiệp Việt Nam',                   date: '06/02/2026', cat: 'SEO',         icon: '📈', color: '#f5f0ff', readTime: '10 phút' },
-  { slug: 'link-building-la-gi',              title: 'Link Building là gì? Chiến lược xây dựng backlink hiệu quả 2026',      date: '30/01/2026', cat: 'SEO',         icon: '🔗', color: '#fdecea', readTime: '9 phút' },
-  { slug: 'schema-markup-la-gi',              title: 'Schema Markup là gì? Hướng dẫn triển khai từ A đến Z',                 date: '15/01/2026', cat: 'SEO',         icon: '🗂️', color: '#f0f4ff', readTime: '11 phút' },
-  { slug: 'thiet-ke-ux-ui-la-gi',             title: 'UI/UX Design là gì? Nguyên tắc thiết kế trải nghiệm người dùng',       date: '10/01/2026', cat: 'Design',      icon: '🎨', color: '#fff8e8', readTime: '6 phút' },
-  { slug: 'astro-framework-la-gi',            title: 'Astro Framework là gì? Hướng dẫn xây dựng website siêu nhanh',         date: '03/01/2026', cat: 'Dev',         icon: '🚀', color: '#e8fdf5', readTime: '12 phút' },
-  { slug: 'google-analytics-4-huong-dan',     title: 'Google Analytics 4 — Hướng dẫn cài đặt và phân tích dữ liệu',         date: '25/12/2025', cat: 'Marketing',   icon: '📊', color: '#e8f4fd', readTime: '8 phút' },
+  { slug: 'table-of-contents-la-gi',     title: 'Table of Contents là gì? Hướng dẫn tạo mục lục cho website',      date: '27/02/2026', cat: 'SEO',       readTime: '5 phút',  img: 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=800&q=80&fit=crop' },
+  { slug: 'elementor-la-gi',             title: 'Elementor là gì? Cách cài đặt và cấu hình cho người mới',         date: '20/02/2026', cat: 'Website',   readTime: '7 phút',  img: 'https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80&fit=crop' },
+  { slug: 'google-knowledge-graph-la-gi', title: 'Google Knowledge Graph là gì? Hướng dẫn tối ưu chi tiết',        date: '16/02/2026', cat: 'SEO',       readTime: '8 phút',  img: 'https://images.unsplash.com/photo-1432888622747-4eb9a8f5a07d?w=800&q=80&fit=crop' },
+  { slug: 'top-cong-ty-seo-viet-nam',    title: 'Top 10+ công ty SEO uy tín, chuyên nghiệp Việt Nam',              date: '06/02/2026', cat: 'SEO',       readTime: '10 phút', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80&fit=crop' },
+  { slug: 'link-building-la-gi',         title: 'Link Building là gì? Chiến lược xây dựng backlink hiệu quả 2026',  date: '30/01/2026', cat: 'SEO',       readTime: '9 phút',  img: 'https://images.unsplash.com/photo-1526378722484-bd91ca387e72?w=800&q=80&fit=crop' },
+  { slug: 'schema-markup-la-gi',         title: 'Schema Markup là gì? Hướng dẫn triển khai từ A đến Z',            date: '15/01/2026', cat: 'SEO',       readTime: '11 phút', img: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80&fit=crop' },
+  { slug: 'thiet-ke-ux-ui-la-gi',        title: 'UI/UX Design là gì? Nguyên tắc thiết kế trải nghiệm người dùng',  date: '10/01/2026', cat: 'Design',    readTime: '6 phút',  img: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80&fit=crop' },
+  { slug: 'astro-framework-la-gi',       title: 'Astro Framework là gì? Hướng dẫn xây dựng website siêu nhanh',    date: '03/01/2026', cat: 'Dev',       readTime: '12 phút', img: 'https://images.unsplash.com/photo-1517180102446-f3ece451e9d8?w=800&q=80&fit=crop' },
+  { slug: 'google-analytics-4-huong-dan', title: 'Google Analytics 4 — Hướng dẫn cài đặt và phân tích dữ liệu',    date: '25/12/2025', cat: 'Marketing', readTime: '8 phút',  img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80&fit=crop' },
 ];
 
 const cats = ['Tất cả', 'SEO', 'Website', 'Design', 'Dev', 'Marketing'];
 ---
 
-<BaseLayout title="Blog" description="Kiến thức website, SEO, design và marketing số từ đội ngũ chuyên gia MIKO TECH.">
+<BaseLayout title="Blog" description="Kiến thức website, SEO, design và marketing số từ đội ngũ chuyên gia GLOBAL TECH.">
   <main>
 
     <!-- Page Hero -->
@@ -26,7 +26,7 @@ const cats = ['Tất cả', 'SEO', 'Website', 'Design', 'Dev', 'Marketing'];
       <div class="container" style="position:relative;z-index:1;">
         <div class="label-tag" style="color:rgba(255,255,255,0.7);margin-bottom:12px;" data-hero-animate>TIN TỨC & KIẾN THỨC</div>
         <h1 data-hero-animate>KIẾN THỨC WEBSITE<br/>& MARKETING SỐ</h1>
-        <p data-hero-animate>Cập nhật liên tục các thông tin, kiến thức và xu hướng mới nhất về website, SEO và digital marketing từ đội ngũ chuyên gia Miko Tech.</p>
+        <p data-hero-animate>Cập nhật liên tục các thông tin, kiến thức và xu hướng mới nhất về website, SEO và digital marketing từ đội ngũ chuyên gia Global Tech.</p>
       </div>
     </div>
 
@@ -56,8 +56,8 @@ const cats = ['Tất cả', 'SEO', 'Website', 'Design', 'Dev', 'Marketing'];
             </div>
             <a href={`/blog/${posts[0].slug}`} class="btn btn-white" style="align-self:flex-start;">Đọc ngay →</a>
           </div>
-          <div style={`background:${posts[0].color};display:flex;align-items:center;justify-content:center;font-size:120px;`}>
-            {posts[0].icon}
+          <div style="overflow:hidden;">
+            <img src={posts[0].img} alt={posts[0].title} loading="eager" style="width:100%;height:100%;min-height:260px;object-fit:cover;display:block;" />
           </div>
         </div>
 
@@ -66,10 +66,10 @@ const cats = ['Tất cả', 'SEO', 'Website', 'Design', 'Dev', 'Marketing'];
           {posts.slice(1).map((post, i) => (
             <a href={`/blog/${post.slug}`} class="blog-card card post-item" data-cat={post.cat}
               data-animate data-delay={String(i%3+1)} style="display:block;text-decoration:none;">
-              <div style={`background:${post.color};height:180px;display:flex;align-items:center;justify-content:center;font-size:64px;position:relative;`}>
-                {post.icon}
-                <div style="position:absolute;top:12px;left:50%;transform:translateX(-50%);">
-                  <span class="service-tag" style="font-size:10px;white-space:nowrap;">{post.cat}</span>
+              <div class="blog-img-wrap" style="height:180px;position:relative;overflow:hidden;">
+                <img src={post.img} alt={post.title} loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+                <div style="position:absolute;top:12px;left:12px;">
+                  <span class="service-tag" style="font-size:10px;white-space:nowrap;background:rgba(255,255,255,0.92);color:var(--teal);">{post.cat}</span>
                 </div>
               </div>
               <div class="blog-content">
@@ -114,6 +114,26 @@ const cats = ['Tất cả', 'SEO', 'Website', 'Design', 'Dev', 'Marketing'];
 </script>
 
 <style>
+  .blog-img-wrap img { transition: transform 0.5s ease; }
+  .post-item:hover .blog-img-wrap img { transform: scale(1.07); }
+
+  /* Blog card content */
+  .post-item { display: flex; flex-direction: column; }
+  .blog-content { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; }
+  .blog-date { font-size: 12px; color: var(--text-light); font-weight: 600; }
+  .blog-title {
+    font-size: 15.5px;
+    font-weight: 800;
+    color: var(--text-dark);
+    line-height: 1.5;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .post-item:hover .blog-title { color: var(--teal); }
+
   @media (max-width: 1024px) {
     #postsGrid { grid-template-columns: repeat(2, 1fr) !important; }
     section .container > div[style*="grid-template-columns:1.2fr 1fr"] { grid-template-columns: 1fr !important; }

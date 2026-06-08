@@ -9,7 +9,7 @@ interface Props {
   description?: string;
 }
 const {
-  title = 'TechViet – Thiết Kế Website & Dịch Vụ Marketing',
+  title = 'Global Tech – Thiết Kế Website & Dịch Vụ Marketing',
   description = 'Chúng tôi không chỉ thiết kế website chuẩn giao diện mà còn cung cấp giải pháp Marketing toàn diện giúp doanh nghiệp phát triển bền vững.',
 } = Astro.props;
 ---
@@ -391,4 +391,33 @@ counters.forEach((counter) => {
     }
   });
 });
+
+// ─── Image fallback (ảnh lỗi → placeholder thương hiệu) ───
+const IMG_FALLBACK = '/placeholder.svg';
+function applyImgFallback(img: HTMLImageElement) {
+  if (img.dataset.fallbackApplied || img.getAttribute('src') === IMG_FALLBACK) return;
+  img.dataset.fallbackApplied = '1';
+  img.src = IMG_FALLBACK;
+  img.classList.add('img-fallback');
+}
+// Bắt lỗi tải ảnh (capture vì sự kiện 'error' của <img> không bubble)
+document.addEventListener('error', (e) => {
+  const t = e.target as HTMLElement | null;
+  if (t && t.tagName === 'IMG') applyImgFallback(t as HTMLImageElement);
+}, true);
+// Quét các ảnh đã hỏng trước khi listener gắn + gắn handler cho ảnh tương lai
+function scanBrokenImages() {
+  document.querySelectorAll<HTMLImageElement>('img').forEach((img) => {
+    if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) {
+      applyImgFallback(img);
+    }
+    img.addEventListener('error', () => applyImgFallback(img));
+  });
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', scanBrokenImages);
+} else {
+  scanBrokenImages();
+}
+window.addEventListener('pageshow', scanBrokenImages);
 </script>

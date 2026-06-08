@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="Global Tech - Hình ảnh đang cập nhật">
+  <defs>
+    <linearGradient id="gtBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#00B09B"/>
+      <stop offset="0.6" stop-color="#1FBFAE"/>
+      <stop offset="1" stop-color="#4ECDC4"/>
+    </linearGradient>
+    <pattern id="gtDots" width="46" height="46" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="3" fill="#ffffff" opacity="0.10"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#gtBg)"/>
+  <rect width="1200" height="800" fill="url(#gtDots)"/>
+
+  <!-- soft blobs -->
+  <circle cx="120" cy="120" r="220" fill="#ffffff" opacity="0.07"/>
+  <circle cx="1080" cy="700" r="260" fill="#ffffff" opacity="0.07"/>
+
+  <!-- logo + text -->
+  <g transform="translate(600 360)">
+    <g transform="translate(-46 -46)">
+      <polygon points="46,6 84,28 84,72 46,94 8,72 8,28" fill="none" stroke="#ffffff" stroke-width="6" stroke-linejoin="round"/>
+      <polygon points="46,26 67,38 67,62 46,74 25,62 25,38" fill="#ffffff" opacity="0.85"/>
+    </g>
+  </g>
+
+  <text x="600" y="470" text-anchor="middle" font-family="'Be Vietnam Pro', Arial, sans-serif" font-size="68" font-weight="900" letter-spacing="6" fill="#ffffff">GLOBAL TECH</text>
+  <text x="600" y="528" text-anchor="middle" font-family="'Be Vietnam Pro', Arial, sans-serif" font-size="28" font-weight="600" letter-spacing="2" fill="#ffffff" opacity="0.85">Hình ảnh đang được cập nhật</text>
+</svg>
