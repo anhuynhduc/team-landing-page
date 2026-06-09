@@ -475,10 +475,15 @@ form?.addEventListener('submit', async (e) => {
   btn.disabled = true;
 
   try {
+    const fd = new FormData(form);
+    // Đảm bảo access_key luôn có (dự phòng nếu hidden input rỗng)
+    if (!fd.get('access_key')) {
+      fd.set('access_key', import.meta.env.PUBLIC_WEB3FORMS_KEY ?? '');
+    }
     const res = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
       headers: { Accept: 'application/json' },
-      body: new FormData(form),
+      body: fd,
     });
     const data = await res.json();
 
