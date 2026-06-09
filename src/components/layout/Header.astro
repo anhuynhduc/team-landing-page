@@ -3,23 +3,13 @@ const navItems = [
   { label: 'Trang chủ',        href: '/' },
   { label: 'Giới thiệu',       href: '/gioi-thieu' },
   { label: 'Thiết kế website', href: '/dich-vu/thiet-ke-website' },
-  {
-    label: 'Dịch Vụ',
-    href: '/dich-vu',
-    dropdown: [
-      { label: 'Thiết kế Website',      href: '/dich-vu/thiet-ke-website' },
-      { label: 'Dịch vụ SEO Tổng Thể', href: '/dich-vu/seo' },
-      { label: 'Domain – Tên Miền',     href: '/dich-vu/domain' },
-      { label: 'Hosting',               href: '/dich-vu/hosting' },
-      { label: 'Quản trị website',      href: '/dich-vu/quan-tri' },
-      { label: 'Thiết Kế Mobile App',   href: '/dich-vu/mobile-app' },
-      { label: 'Làm Đồ Án CNTT',        href: '/#do-an' },
-    ],
-  },
+  { label: 'Dịch Vụ',          href: '/dich-vu' },
   { label: 'Dự án',      href: '/du-an' },
   { label: 'Blog',        href: '/blog' },
 ];
 const currentPath = Astro.url.pathname;
+// Các href đã có nav item riêng — dùng để tránh "Dịch Vụ" bị active chồng lên
+const navHrefs = navItems.map((i) => i.href);
 ---
 
 <header id="siteHeader">
@@ -46,7 +36,10 @@ const currentPath = Astro.url.pathname;
             class={[
               'nav-a',
               currentPath === item.href ? 'nav-a--active' : '',
-              currentPath.startsWith('/dich-vu') && item.label === 'Dịch Vụ' ? 'nav-a--active' : '',
+              item.label === 'Dịch Vụ'
+                && currentPath.startsWith('/dich-vu')
+                && !navHrefs.includes(currentPath)
+                ? 'nav-a--active' : '',
             ].join(' ')}
             data-drop-trigger={item.dropdown ? 'true' : undefined}
           >

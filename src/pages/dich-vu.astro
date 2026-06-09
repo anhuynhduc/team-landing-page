@@ -5,7 +5,7 @@ import CTABanner from '../components/CTABanner.astro';
 
 const services = [
   {
-    icon: '🖥️',
+    image: 'https://loremflickr.com/640/400/website,webdesign?lock=11',
     title: 'Thiết Kế Website',
     desc: 'Website chuẩn UI/UX, chuẩn SEO, responsive trên mọi thiết bị. Tốc độ tải nhanh, bảo mật cao, giao diện chuyên nghiệp phù hợp với thương hiệu.',
     features: ['Thiết kế theo yêu cầu', 'Chuẩn SEO on-page', 'Responsive đa thiết bị', 'Tích hợp CMS', 'Bảo hành 12 tháng'],
@@ -13,7 +13,7 @@ const services = [
     color: '#e8f9f7',
   },
   {
-    icon: '📱',
+    image: 'https://loremflickr.com/640/400/mobile,app,smartphone?lock=12',
     title: 'Thiết Kế Mobile App',
     desc: 'Phát triển ứng dụng iOS và Android native hoặc cross-platform với Flutter/React Native. UI/UX xuất sắc, hiệu năng cao.',
     features: ['iOS & Android', 'Flutter / React Native', 'UI/UX Design', 'API Integration', 'Upload lên Store'],
@@ -21,7 +21,7 @@ const services = [
     color: '#f0f4ff',
   },
   {
-    icon: '🔍',
+    image: 'https://loremflickr.com/640/400/seo,analytics,marketing?lock=13',
     title: 'Dịch Vụ SEO',
     desc: 'Tối ưu hóa công cụ tìm kiếm toàn diện: SEO kỹ thuật, SEO nội dung, xây dựng backlink chất lượng. Đưa website lên top Google bền vững.',
     features: ['SEO kỹ thuật', 'Nghiên cứu từ khóa', 'Content Marketing', 'Link Building', 'Báo cáo hàng tháng'],
@@ -29,7 +29,7 @@ const services = [
     color: '#fff5e8',
   },
   {
-    icon: '⚙️',
+    image: 'https://loremflickr.com/640/400/server,computer,maintenance?lock=14',
     title: 'Quản Trị Website',
     desc: 'Dịch vụ quản trị, vận hành và bảo trì website liên tục. Cập nhật nội dung, bảo mật, backup dữ liệu định kỳ.',
     features: ['Cập nhật nội dung', 'Bảo mật & Backup', 'Tối ưu tốc độ', 'Sửa lỗi kỹ thuật', 'Hỗ trợ 24/7'],
@@ -37,7 +37,7 @@ const services = [
     color: '#f5f0ff',
   },
   {
-    icon: '📢',
+    image: 'https://loremflickr.com/640/400/advertising,marketing,socialmedia?lock=15',
     title: 'Quảng Cáo Google & Facebook',
     desc: 'Chiến lược quảng cáo hiệu quả, tối ưu chi phí và tăng tỷ lệ chuyển đổi. Nhắm đúng đối tượng, đúng thời điểm, đúng thông điệp.',
     features: ['Google Ads', 'Facebook/Instagram Ads', 'TikTok Ads', 'Retargeting', 'A/B Testing'],
@@ -45,7 +45,7 @@ const services = [
     color: '#fef0f0',
   },
   {
-    icon: '🌐',
+    image: 'https://loremflickr.com/640/400/server,datacenter,hosting?lock=16',
     title: 'Hosting & Domain',
     desc: 'Dịch vụ hosting tốc độ cao với SSD NVMe, bảo mật SSL miễn phí, uptime 99.9%, hỗ trợ kỹ thuật 24/7. Đăng ký domain mọi đuôi mở rộng.',
     features: ['SSD NVMe tốc độ cao', 'SSL miễn phí', 'Uptime 99.9%', 'Backup hàng ngày', 'cPanel quản lý'],
@@ -53,7 +53,7 @@ const services = [
     color: '#e8fdf5',
   },
   {
-    icon: '🎨',
+    image: 'https://loremflickr.com/640/400/branding,logo,design?lock=17',
     title: 'Thiết Kế Nhận Diện Thương Hiệu',
     desc: 'Xây dựng bộ nhận diện thương hiệu chuyên nghiệp: logo, màu sắc, typography, guidelines và toàn bộ ấn phẩm truyền thông.',
     features: ['Logo & Brand Identity', 'Brand Guideline', 'Business Card', 'Bộ ấn phẩm văn phòng', 'Social Media Kit'],
@@ -61,7 +61,7 @@ const services = [
     color: '#fff8e8',
   },
   {
-    icon: '📝',
+    image: 'https://loremflickr.com/640/400/content,writing,blog?lock=18',
     title: 'Content Marketing',
     desc: 'Sản xuất nội dung chất lượng cao: bài viết blog, video, infographic, social media content. Xây dựng chiến lược nội dung bền vững.',
     features: ['Bài viết Blog SEO', 'Social Media Content', 'Video Script', 'Email Marketing', 'Content Strategy'],
@@ -69,7 +69,7 @@ const services = [
     color: '#f0f8ff',
   },
   {
-    icon: '🎓',
+    image: 'https://loremflickr.com/640/400/programming,code,student?lock=19',
     title: 'Nhận Làm Đồ Án CNTT',
     desc: 'Nhận làm đồ án môn học, đồ án tốt nghiệp và luận văn theo yêu cầu — đúng đề tài, đúng công nghệ. Bàn giao source code, cơ sở dữ liệu, báo cáo và hỗ trợ bảo vệ.',
     features: ['Web · App · AI', 'C# · Java · Python', 'Source + Database', 'Báo cáo & Slide', 'Chỉnh sửa đến khi bảo vệ'],
@@ -86,7 +86,7 @@ const services = [
     <div class="page-hero">
       <div style="position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;border:50px solid rgba(255,255,255,0.06);pointer-events:none;"></div>
       <div class="container" style="position:relative;z-index:1;">
-        <div class="label-tag" style="color:rgba(255,255,255,0.7);margin-bottom:12px;" data-hero-animate>DỊCH VỤ</div>
+        <div class="label-tag" style="color:black";margin-bottom:12px;" data-hero-animate>DỊCH VỤ</div>
         <h1 data-hero-animate>GIẢI PHÁP TOÀN DIỆN<br/>CHO DOANH NGHIỆP</h1>
         <p data-hero-animate>Từ thiết kế website đến marketing số — chúng tôi có tất cả những gì bạn cần để phát triển trên môi trường kỹ thuật số.</p>
       </div>
@@ -98,17 +98,13 @@ const services = [
         <div class="services-grid-2col">
           {services.map((s, i) => (
             <div class="card" data-animate data-delay={String(i % 2 + 1)} style={`padding:0;overflow:hidden;`}>
-              <div class="service-card-header" style={`background:${s.color};padding:32px 32px 24px;`}>
-                <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;">
-                  <div>
-                    <div style="font-size:40px;margin-bottom:12px;">{s.icon}</div>
-                    <h3 style="font-size:20px;font-weight:800;color:var(--text-dark);margin-bottom:10px;">{s.title}</h3>
-                    <p style="font-size:14px;color:var(--text-mid);line-height:1.8;">{s.desc}</p>
-                  </div>
-                  <div style="background:var(--teal);color:white;font-size:11px;font-weight:700;padding:6px 14px;border-radius:20px;white-space:nowrap;flex-shrink:0;">
-                    {s.price}
-                  </div>
-                </div>
+              <div class="service-img-wrap" style={`background:${s.color};`}>
+                <img src={s.image} alt={s.title} loading="lazy" class="service-img" />
+                <div class="service-price-badge">{s.price}</div>
+              </div>
+              <div class="service-card-body" style={`background:${s.color};padding:24px 32px 20px;`}>
+                <h3 style="font-size:20px;font-weight:800;color:var(--text-dark);margin-bottom:10px;">{s.title}</h3>
+                <p style="font-size:14px;color:var(--text-mid);line-height:1.8;">{s.desc}</p>
               </div>
               <div style="padding:20px 32px 28px;background:white;">
                 <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px;">
@@ -166,18 +162,34 @@ const services = [
     gap: 28px;
   }
 
-  .service-card-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 16px;
+  .service-img-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
   }
-
-  @media (max-width: 768px) {
-    .service-card-header {
-      flex-direction: column;
-      gap: 12px;
-    }
+  .service-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+  .card:hover .service-img {
+    transform: scale(1.06);
+  }
+  .service-price-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: var(--teal);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
   }
 
   .process-grid {
