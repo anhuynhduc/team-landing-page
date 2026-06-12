@@ -56,18 +56,6 @@ const WEB3FORMS_ACCESS_KEY = import.meta.env.PUBLIC_WEB3FORMS_KEY ?? '';
             <a href="mailto:hello@globaltech.vn" class="info-value">hello@globaltech.vn</a>
           </div>
         </div>
-
-        <!-- Map -->
-        <div class="contact-map anim-scale">
-          <div class="map-placeholder">
-            <div class="map-inner">
-              <div class="map-pin">📍</div>
-              <div class="map-circle"></div>
-              <div class="map-circle map-circle--2"></div>
-            </div>
-            <p class="map-label">Global Tech – Thiết Kế Website Chuyên Nghiệp</p>
-          </div>
-        </div>
       </div>
 
       <!-- Form -->
@@ -327,6 +315,8 @@ a.info-value:hover { color: var(--primary); }
 
 @media (max-width: 1024px) {
   .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  .contact-form-wrap { order: 1; }
+  .contact-info { order: 2; }
   .contact-hero { padding: calc(var(--header-h) + 50px) 0 50px; }
   .ch-title { font-size: clamp(2rem, 4vw, 3.2rem); }
 }
